@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — DASM Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
+            <nav class="nav" id="navMenu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="about.html" class="nav-link">О холдинге</a>
+                <a href="agencies.html" class="nav-link">Агентства</a>
+                <a href="works.html" class="nav-link">Кейсы</a>
+                <a href="countries.html" class="nav-link">Страны</a>
+                <a href="news.html" class="nav-link">Новости</a>
+                <a href="career.html" class="nav-link">Карьера</a>
+                <a href="contacts.html" class="nav-link active">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-switcher" id="langSwitcher">
+                    <button class="lang-btn active" data-lang="RU">RU</button>
+                    <button class="lang-btn" data-lang="KZ">KZ</button>
+                    <button class="lang-btn" data-lang="EN">EN</button>
+                </div>
+                <a href="#main-contact-form" class="btn btn-primary btn-sm">Стать клиентом</a>
+                <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <span class="section-tag reveal">Свяжитесь с нами</span>
+                <h1 class="page-title reveal">Давайте обсудим ваш <span class="gradient-text">следующий большой шаг</span></h1>
+                <p class="page-lead reveal">
+                    Пригласите DASM Group в тендер, запросите аудит текущей рекламной стратегии или свяжитесь с региональными офисами группы.
+                </p>
+            </div>
+        </section>
+
+        <!-- ГЛАВНАЯ КОНТАКТНАЯ СЕКЦИЯ НА СТРАНИЦЕ КОНТАКТЫ -->
+        <section class="section" id="main-contact-form">
+            <div class="container">
+                <div class="contacts-page-grid">
+                    <!-- Карточки адресов -->
+                    <div class="contacts-cards-col">
+                        <div class="card interactive-card reveal">
+                            <span class="section-tag">Штаб-квартира • Казахстан</span>
+                            <h3 class="card-title">Алматы — Центральный офис</h3>
+                            <p class="card-text">
+                                📍 050019, г. Алматы, Медеуский район,<br>
+                                <strong>ул. Шамши Калдаякова, 34</strong><br>
+                                <strong>ул. Айтеке би, 29 (БЦ Absolut, 1, 5, 6, 7 этажи)</strong>
+                            </p>
+                            <p class="card-text">
+                                📞 Телефон: <a href="tel:+77273131391">+7 (727) 313-13-91</a><br>
+                                📞 New Business (DASMART): <a href="tel:+77777730162">+7 (777) 773-01-62</a><br>
+                                ✉️ Email: <a href="mailto:info@dasm.kz">info@dasm.kz</a>
+                            </p>
+                        </div>
+
+                        <div class="card interactive-card reveal">
+                            <span class="section-tag">Региональные хабы</span>
+                            <h3 class="card-title">Офисы в 8 странах</h3>
+                            <p class="card-text">
+                                🇺🇿 <strong>Ташкент</strong> • 🇰🇬 <strong>Бишкек</strong> • 🇹🇯 <strong>Душанбе</strong><br>
+                                🇦🇲 <strong>Ереван</strong> • 🇬🇪 <strong>Тбилиси</strong> • 🇦🇿 <strong>Баку</strong> • 🇲🇳 <strong>Улан-Батор</strong>
+                            </p>
+                            <div class="card-tags">
+                                <span>Пн–Пт: 09:00 – 18:30 (GMT+5)</span>
+                            </div>
+                        </div>
+
+                        <div class="card interactive-card reveal">
+                            <span class="section-tag">Официальные ресурсы</span>
+                            <h3 class="card-title">Социальные сети</h3>
+                            <div class="card-tags">
+                                <a href="https://www.dasm.kz" target="_blank" rel="noopener">🌐 www.dasm.kz</a>
+                                <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">📸 @dasmgroup_official</a>
+                                <a href="https://www.linkedin.com" target="_blank" rel="noopener">💼 LinkedIn: DASM Group</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Основная развернутая форма на странице Контакты -->
+                    <div class="contacts-form-col reveal">
+                        <form class="contact-form contact-form-large js-validate-form" novalidate>
+                            <h2>Форма обратной связи</h2>
+                            <p class="form-subtitle">Заполните поля ниже — мы ответим в течение нескольких часов.</p>
+
+                            <div class="form-group">
+                                <label>Ваше имя и компания *</label>
+                                <input type="text" name="name" placeholder="Данияр Сериков, Marketing Director" required>
+                                <span class="error-msg">Пожалуйста, укажите ваше имя</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Телефон или Email *</label>
+                                <input type="text" name="contact" placeholder="+7 (701) 000-00-00 или d.serikov@brand.kz" required>
+                                <span class="error-msg">Укажите корректный телефон или email</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Интересующее направление</label>
+                                <select name="service">
+                                    <option value="Комплексное обслуживание 360">Комплексное обслуживание 360°</option>
+                                    <option value="Медиапланирование и баинг (TV, OOH, Digital)">Медиапланирование и баинг (TV, OOH, Digital)</option>
+                                    <option value="Креатив, стратегия и брендинг">Креатив, стратегия и брендинг</option>
+                                    <option value="PR, SMM, Influence & BTL">PR, SMM, Influence & BTL</option>
+                                    <option value="Мультистрановой запуск (ЦА и Кавказ)">Мультистрановой запуск (ЦА и Кавказ)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ваше сообщение / Описание задачи *</label>
+                                <textarea name="message" rows="5" placeholder="Опишите задачи проекта, ориентировочные сроки и географию..." required></textarea>
+                                <span class="error-msg">Пожалуйста, напишите сообщение</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Отправить сообщение в DASM Group →</button>
+                            <div class="form-success-message">✓ Ваше обращение зарегистрировано! Наш директор по развитию бизнеса свяжется с вами в ближайшее время.</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ФУТЕР С ФОРМОЙ -->
+    <footer class="footer" id="footer-contact">
+        <div class="container">
+            <div class="footer-top-grid">
+                <div class="footer-cta-info reveal">
+                    <span class="section-tag">Быстрый контакт</span>
+                    <h2 class="footer-heading">WE SAY <span class="gradient-text">DA</span> смелым амбициям</h2>
+                    <p class="footer-lead">Крупнейшая коммуникационная группа Центральной Азии всегда открыта для новых вызовов, тендеров и партнерств.</p>
+                </div>
+                <div class="footer-form-wrap reveal">
+                    <form class="contact-form js-validate-form" novalidate>
+                        <h3>Быстрая заявка на звонок</h3>
+                        <div class="form-group">
+                            <label>Ваше имя *</label>
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                            <span class="error-msg">Введите ваше имя</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Телефон или Email *</label>
+                            <input type="text" name="contact" placeholder="+7 (777) 000-00-00 или email" required>
+                            <span class="error-msg">Укажите телефон или email</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Комментарий *</label>
+                            <textarea name="message" rows="2" placeholder="Удобное время для звонка или вопрос..." required></textarea>
+                            <span class="error-msg">Напишите короткое сообщение</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Заказать звонок →</button>
+                        <div class="form-success-message">✓ Заявка отправлена!</div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
+                    <p>© 1994–2026 DASM Group. Все права защищены.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">О холдинге</a>
+                    <a href="agencies.html">Агентства</a>
+                    <a href="works.html">Кейсы</a>
+                    <a href="countries.html">Страны</a>
+                    <a href="news.html">Новости</a>
+                    <a href="career.html">Карьера</a>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://www.dasm.kz" target="_blank" rel="noopener">dasm.kz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

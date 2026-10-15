@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости и инсайты — DASM Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
+            <nav class="nav" id="navMenu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="about.html" class="nav-link">О холдинге</a>
+                <a href="agencies.html" class="nav-link">Агентства</a>
+                <a href="works.html" class="nav-link">Кейсы</a>
+                <a href="countries.html" class="nav-link">Страны</a>
+                <a href="news.html" class="nav-link active">Новости</a>
+                <a href="career.html" class="nav-link">Карьера</a>
+                <a href="contacts.html" class="nav-link">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-switcher" id="langSwitcher">
+                    <button class="lang-btn active" data-lang="RU">RU</button>
+                    <button class="lang-btn" data-lang="KZ">KZ</button>
+                    <button class="lang-btn" data-lang="EN">EN</button>
+                </div>
+                <a href="#footer-contact" class="btn btn-primary btn-sm">Стать клиентом</a>
+                <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <span class="section-tag reveal">Пресс-центр DASM</span>
+                <h1 class="page-title reveal">Новости холдинга, <span class="gradient-text">победы и аналитика рынка</span></h1>
+                <p class="page-lead reveal">
+                    Актуальные события из жизни 15 агентств DASM Group, кадровые назначения, обзоры медиарынка ЦАРА и репортажи с мировых фестивалей.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="cards-grid cols-3">
+                    <!-- Новость 1 -->
+                    <article class="card news-card interactive-card reveal">
+                        <div class="news-date">Международные награды • Фестивали</div>
+                        <h3 class="card-title">Агентство GForce Grey (DASM Group) завоевало первого в истории Казахстана Золотого Каннского Льва</h3>
+                        <p class="card-text">На международном фестивале креативности Cannes Lions проект «The National Sport of Kazakhstan» удостоился высшей награды Gold Lion, укрепив статус DASM Group как креативного лидера региона.</p>
+                        <div class="card-tags"><span>Cannes Lions</span><span>GForce Grey</span></div>
+                    </article>
+
+                    <!-- Новость 2 -->
+                    <article class="card news-card interactive-card reveal">
+                        <div class="news-date">Аналитика и Конференции • 2025/2026</div>
+                        <h3 class="card-title">Эксперты DASM Group выступили хедлайнерами рекламно-медийной конференции ADTribune</h3>
+                        <p class="card-text">Топ-менеджеры медийных и digital-агентств холдинга представили прогнозы медиаинфляции, тренды Retail Media и сценарии развития ТВ и Digital рынков Центральной Азии.</p>
+                        <div class="card-tags"><span>ADTribune</span><span>ЦАРА</span><span>Media Trends</span></div>
+                    </article>
+
+                    <!-- Новость 3 -->
+                    <article class="card news-card interactive-card reveal">
+                        <div class="news-date">Кадровые назначения • Корпоративное управление</div>
+                        <h3 class="card-title">Усиление креативного и PR-лидерства в структуре холдинга DASM Group</h3>
+                        <p class="card-text">Евгений Костылев в роли Chief Creative Officer холдинга курирует развитие всех креативных агентств группы, а PR-департамент расширяет внешние и внутренние коммуникации в 8 странах присутствия.</p>
+                        <div class="card-tags"><span>Management</span><span>DASM Group</span></div>
+                    </article>
+
+                    <!-- Новость 4 -->
+                    <article class="card news-card interactive-card reveal">
+                        <div class="news-date">Фестивали • Азия</div>
+                        <h3 class="card-title">Первые награды Центральной Азии на AdFest: Золотой и Бронзовый Лотус за кейс Saltanat Light</h3>
+                        <p class="card-text">Совместный проект с Citix получил признание жюри старейшего азиатско-тихоокеанского фестиваля AdFest и вошел в топ рейтинга стратегии и эффективности Spikes Asia.</p>
+                        <div class="card-tags"><span>AdFest</span><span>Spikes Asia</span><span>DOOH</span></div>
+                    </article>
+
+                    <!-- Новость 5 -->
+                    <article class="card news-card interactive-card reveal">
+                        <div class="news-date">Индустрия • Мероприятия</div>
+                        <h3 class="card-title">DASM Group и GForce провели закрытый показ и разбор лучших рекламных роликов Super Bowl в Алматы</h3>
+                        <p class="card-text">Традиционная встреча клиентов, маркетологов и партнеров холдинга с профессиональным разбором мировых трендов сторителлинга и селебрити-маркетинга.</p>
+                        <div class="card-tags"><span>Community</span><span>Almaty</span><span>Events</span></div>
+                    </article>
+
+                    <!-- Новость 6 -->
+                    <article class="card news-card interactive-card reveal">
+                        <div class="news-date">Технологии • AI & Data</div>
+                        <h3 class="card-title">Внедрение AI-инструментов прогнозирования медиаэффективности в агентствах DASM</h3>
+                        <p class="card-text">Агентства группы интегрировали новые алгоритмы эконометрического моделирования и оптимизации омниканальных рекламных бюджетов для клиентов в Казахстане и Узбекистане.</p>
+                        <div class="card-tags"><span>AdTech</span><span>AI in Media</span><span>ROI</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ФУТЕР С ФОРМОЙ -->
+    <footer class="footer" id="footer-contact">
+        <div class="container">
+            <div class="footer-top-grid">
+                <div class="footer-cta-info reveal">
+                    <span class="section-tag">Запрос для СМИ и клиентов</span>
+                    <h2 class="footer-heading">Хотите пригласить спикера DASM или запустить проект?</h2>
+                    <p class="footer-lead">Свяжитесь с нашей пресс-службой или отделом нового бизнеса через форму обратной связи.</p>
+                    <div class="footer-contacts-direct">
+                        <div>
+                            <small>Пресс-служба и Офис</small>
+                            <p>Алматы, ул. Шамши Калдаякова, 34</p>
+                        </div>
+                        <div>
+                            <small>Контакты</small>
+                            <p><a href="tel:+77273131391">+7 (727) 313-13-91</a> • <a href="mailto:info@dasm.kz">info@dasm.kz</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-form-wrap reveal">
+                    <form class="contact-form js-validate-form" novalidate>
+                        <h3>Написать в DASM Group</h3>
+                        <div class="form-group">
+                            <label>Ваше имя *</label>
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                            <span class="error-msg">Введите ваше имя</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Телефон или Email *</label>
+                            <input type="text" name="contact" placeholder="+7 (777) 000-00-00 или email" required>
+                            <span class="error-msg">Укажите телефон или email</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Сообщение *</label>
+                            <textarea name="message" rows="3" placeholder="Ваш вопрос или предложение..." required></textarea>
+                            <span class="error-msg">Напишите сообщение</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Отправить →</button>
+                        <div class="form-success-message">✓ Сообщение успешно отправлено!</div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
+                    <p>© 1994–2026 DASM Group. Все права защищены.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">О холдинге</a>
+                    <a href="agencies.html">Агентства</a>
+                    <a href="works.html">Кейсы</a>
+                    <a href="countries.html">Страны</a>
+                    <a href="news.html">Новости</a>
+                    <a href="career.html">Карьера</a>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://www.dasm.kz" target="_blank" rel="noopener">dasm.kz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASM Group — Крупнейшая коммуникационная группа Центральной Азии</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Навигация -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
+
+            <nav class="nav" id="navMenu">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="about.html" class="nav-link">О холдинге</a>
+                <a href="agencies.html" class="nav-link">Агентства</a>
+                <a href="works.html" class="nav-link">Кейсы</a>
+                <a href="countries.html" class="nav-link">Страны</a>
+                <a href="news.html" class="nav-link">Новости</a>
+                <a href="career.html" class="nav-link">Карьера</a>
+                <a href="contacts.html" class="nav-link">Контакты</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="lang-switcher" id="langSwitcher">
+                    <button class="lang-btn active" data-lang="RU">RU</button>
+                    <button class="lang-btn" data-lang="KZ">KZ</button>
+                    <button class="lang-btn" data-lang="EN">EN</button>
+                </div>
+                <a href="#footer-contact" class="btn btn-primary btn-sm">Стать клиентом</a>
+                <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO СЕКЦИЯ -->
+        <section class="hero">
+            <div class="hero-bg-grid"></div>
+            <div class="container hero-content">
+                <div class="hero-split">
+                    <div>
+                        <div class="hero-badge reveal">
+                            <span class="pulse-dot"></span> <span class="js-i18n" data-key="hero_badge">Основано в 1994 • Партнер глобальной сети WPP</span>
+                        </div>
+                        <h1 class="hero-title reveal">
+                            UNITED BY QUESTIONS,<br>
+                            DRIVEN BY AMBITION —<br>
+                            <span class="gradient-text">WE SAY DA.</span>
+                        </h1>
+                        <p class="hero-subtitle reveal js-i18n" data-key="hero_sub">
+                            Крупнейший рекламно-коммуникационный холдинг в Центральной Азии и регионе Кавказа. Объединяем 15 специализированных агентств, передовые медиатехнологии и креатив уровня Cannes Lions.
+                        </p>
+                        <div class="hero-cta reveal">
+                            <a href="#footer-contact" class="btn btn-primary btn-lg js-i18n" data-key="btn_client">Стать клиентом →</a>
+                            <a href="works.html" class="btn btn-outline btn-lg js-i18n" data-key="btn_cases">Смотреть кейсы</a>
+                        </div>
+                    </div>
+
+                    <!-- Фото современной штаб-квартиры и креативной студии -->
+                    <div class="hero-visual-card reveal">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85" alt="Современный офис коммуникационного холдинга DASM Group">
+                        <div class="hero-visual-caption">
+                            <div>
+                                <strong>DASM Communications Hub</strong>
+                                <span>Алматы • Ташкент • Бишкек • Тбилиси • Баку</span>
+                            </div>
+                            <span class="section-tag" style="margin:0;">Cannes Lions Gold</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ключевые цифры -->
+                <div class="stats-grid reveal">
+                    <div class="stat-item">
+                        <div class="stat-number">1994</div>
+                        <div class="stat-label js-i18n" data-key="stat_1">Год основания холдинга</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15<span>+</span></div>
+                        <div class="stat-label js-i18n" data-key="stat_2">Специализированных агентств</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label js-i18n" data-key="stat_3">Стран присутствия</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500<span>+</span></div>
+                        <div class="stat-label js-i18n" data-key="stat_4">Экспертов в штате</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЕГУЩАЯ СТРОКА С НАГРАДАМИ -->
+        <div class="marquee-section">
+            <div class="marquee-track">
+                <span>★ CANNES LIONS GOLD WINNER</span>
+                <span>★ #1 CREATIVE & MEDIA HOLDING CENTRAL ASIA</span>
+                <span>★ SPIKES ASIA</span>
+                <span>★ D&AD PENCIL</span>
+                <span>★ E+ CENTRAL ASIA AGENCY OF THE YEAR</span>
+                <span>★ JOLBORS GRAND PRIX</span>
+                <span>★ WPP REGIONAL AFFILIATE</span>
+                <span>★ CANNES LIONS GOLD WINNER</span>
+            </div>
+        </div>
+
+        <!-- НАПРАВЛЕНИЯ ЭКСПЕРТИЗЫ 360 -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div>
+                        <span class="section-tag">Экосистема 360°</span>
+                        <h2 class="section-title js-i18n" data-key="eco_title">Превращаем стратегию и креатив в измеримый бизнес-результат</h2>
+                    </div>
+                    <a href="agencies.html" class="btn btn-outline js-i18n" data-key="all_agencies">Все 15 агентств →</a>
+                </div>
+
+                <div class="cards-grid cols-3">
+                    <!-- Карточка 1: Съемки, режиссура и креативный продакшн -->
+                    <div class="card interactive-card reveal">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=85" alt="Видеопродакшн и создание рекламных кампаний">
+                        </div>
+                        <div class="card-num">01</div>
+                        <h3 class="card-title">Creative & Production</h3>
+                        <p class="card-text">Разработка прорывных креативных кампаний, брендинг, сторителлинг и съемочный продакшн, меняющие культуру потребления и выигрывающие Каннских Львов.</p>
+                        <div class="card-tags">
+                            <span>GForce Grey</span><span>DASMART</span><span>Action</span>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 2: Аналитика и медиабаинг на экранах -->
+                    <div class="card interactive-card reveal">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85" alt="Медиабаинг и аналитика данных">
+                        </div>
+                        <div class="card-num">02</div>
+                        <h3 class="card-title">Media & Investments</h3>
+                        <p class="card-text">Крупнейший медиабаинг в регионе (более 20% рынка). Комплексное планирование TV, DOOH, Radio и прессы с доступом к глобальным аналитическим инструментам GroupM / WPP.</p>
+                        <div class="card-tags">
+                            <span>Mindshare</span><span>Wavemaker</span><span>EssenceMediacom</span>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 3: Digital, SMM, Мобильный маркетинг -->
+                    <div class="card interactive-card reveal">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=900&q=85" alt="Digital маркетинг и социальные медиа">
+                        </div>
+                        <div class="card-num">03</div>
+                        <h3 class="card-title">Digital, Data & PR</h3>
+                        <p class="card-text">Performance-маркетинг, Programmatic, работа с инфлюенсерами, SMM, антикризисный PR, BTL-ивенты и собственные исследования потребительского поведения.</p>
+                        <div class="card-tags">
+                            <span>Digital</span><span>Analytics</span><span>PR & BTL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПОРТФОЛИО И КЕЙСЫ (С ФОТОГРАФИЯМИ СТРОГО ПО СМЫСЛУ КЕЙСА) -->
+        <section class="section bg-darker">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div>
+                        <span class="section-tag">Портфолио и Награды</span>
+                        <h2 class="section-title js-i18n" data-key="cases_title">Кейсы, о которых говорит весь мир</h2>
+                    </div>
+                    <a href="works.html" class="btn btn-outline js-i18n" data-key="all_works">Все работы →</a>
+                </div>
+
+                <div class="cards-grid cols-2">
+                    <!-- Кейс 1: Ринг / Бокс / Единоборства под софитами (Ruh Fighting) -->
+                    <article class="case-card reveal">
+                        <div class="case-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1000&q=85" alt="Боксерский и ММА ринг — проект The National Sport of Kazakhstan">
+                            <span class="case-badge gold">🏆 Cannes Lions Gold</span>
+                        </div>
+                        <div class="case-body">
+                            <div class="case-meta">GForce Grey (DASM Group) • Социальная кампания / PR</div>
+                            <h3 class="case-title">The National Sport of Kazakhstan — Ruh Fighting</h3>
+                            <p class="case-desc">Кампания прямо с арены ММА-турнира, которая привлекла внимание миллионов к проблеме бытового насилия и помогла изменить законодательство, принеся Казахстану первое в истории Золото «Каннских Львов».</p>
+                            <a href="works.html" class="link-arrow">Подробнее о кейсе <span>→</span></a>
+                        </div>
+                    </article>
+
+                    <!-- Кейс 2: Городские цифровые билборды / LED-экраны на улице (Saltanat Light Citix) -->
+                    <article class="case-card reveal">
+                        <div class="case-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85" alt="Уличные цифровые экраны и смартборды Citix в городе">
+                            <span class="case-badge">🏆 AdFest Gold Lotus & E+ Grand Prix</span>
+                        </div>
+                        <div class="case-body">
+                            <div class="case-meta">GForce Grey & Citix • Smart DOOH & Tech</div>
+                            <h3 class="case-title">Saltanat Light — Цифровой маяк безопасности</h3>
+                            <p class="case-desc">Инновационная кампания на уличных смартбордах Citix в Алматы и Астане, объединившая цифровую наружную рекламу, аналитику данных и национальный общественный резонанс.</p>
+                            <a href="works.html" class="link-arrow">Подробнее о кейсе <span>→</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ГЕОГРАФИЯ ТИЗЕР -->
+        <section class="section">
+            <div class="container">
+                <div class="banner-box reveal">
+                    <div class="banner-content">
+                        <span class="section-tag">Международный охват</span>
+                        <h2 class="js-i18n" data-key="geo_title">Один хаб — 8 стран Центральной Азии и Кавказа</h2>
+                        <p>Управляйте рекламными кампаниями в Казахстане, Узбекистане, Кыргызстане, Таджикистане, Армении, Грузии, Азербайджане и Монголии через единое окно с международными стандартами отчетности.</p>
+                        <div class="banner-actions">
+                            <a href="countries.html" class="btn btn-primary">Изучить рынки присутствия →</a>
+                        </div>
+                    </div>
+                    <div class="banner-countries">
+                        <span class="country-pill">🇰🇿 Казахстан</span>
+                        <span class="country-pill">🇺🇿 Узбекистан</span>
+                        <span class="country-pill">🇰🇬 Кыргызстан</span>
+                        <span class="country-pill">🇹🇯 Таджикистан</span>
+                        <span class="country-pill">🇦🇲 Армения</span>
+                        <span class="country-pill">🇬🇪 Грузия</span>
+                        <span class="country-pill">🇦🇿 Азербайджан</span>
+                        <span class="country-pill">🇲🇳 Монголия</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ФУТЕР С ФОРМОЙ ОБРАТНОЙ СВЯЗИ -->
+    <footer class="footer" id="footer-contact">
+        <div class="container">
+            <div class="footer-top-grid">
+                <div class="footer-cta-info reveal">
+                    <span class="section-tag">Начать проект</span>
+                    <h2 class="footer-heading">Готовы сказать <span class="gradient-text">«DA»</span> прорывному росту бренда?</h2>
+                    <p class="footer-lead">Оставьте заявку на тендер, стратегическую сессию или аудит медиасплита. Наш New Business директор свяжется с вами в течение рабочего дня.</p>
+                    <div class="footer-contacts-direct">
+                        <div>
+                            <small>Штаб-квартира (Алматы)</small>
+                            <p>ул. Шамши Калдаякова, 34 / ул. Айтеке би, 29</p>
+                        </div>
+                        <div>
+                            <small>Прямая линия и Email</small>
+                            <p><a href="tel:+77273131391">+7 (727) 313-13-91</a> • <a href="mailto:info@dasm.kz">info@dasm.kz</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-form-wrap reveal">
+                    <form class="contact-form js-validate-form" novalidate>
+                        <h3>Стать клиентом DASM Group</h3>
+                        <div class="form-group">
+                            <label>Ваше имя *</label>
+                            <input type="text" name="name" placeholder="Александр Ким" required>
+                            <span class="error-msg">Пожалуйста, введите ваше имя</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Телефон или Email *</label>
+                            <input type="text" name="contact" placeholder="+7 (777) 000-00-00 или email@company.com" required>
+                            <span class="error-msg">Укажите корректный телефон или email</span>
+                        </div>
+                        <div class="form-group">
+                            <label>О задаче или проекте *</label>
+                            <textarea name="message" rows="3" placeholder="Расскажите о вашем бренде, географии и задачах..." required></textarea>
+                            <span class="error-msg">Напишите краткое сообщение</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Отправить бриф / заявку →</button>
+                        <div class="form-success-message"></div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
+                    <p>© 1994–2026 DASM Group. Все права защищены.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">О холдинге</a>
+                    <a href="agencies.html">Агентства</a>
+                    <a href="works.html">Кейсы</a>
+                    <a href="countries.html">Страны</a>
+                    <a href="news.html">Новости</a>
+                    <a href="career.html">Карьера</a>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://www.dasm.kz" target="_blank" rel="noopener">dasm.kz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
