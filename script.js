@@ -27,6 +27,87 @@ const fullDictionary = {
     // =========================================================================
     // 1. ГЛАВНАЯ СТРАНИЦА (INDEX.HTML)
     // =========================================================================
+    "Основано в 1994 • Эксклюзивный партнёр сети WPP в регионе": {
+        KZ: "1994 жылы құрылған • WPP желісінің аймақтағы эксклюзивті серіктесі",
+        EN: "Founded in 1994 • Exclusive WPP Network Partner in the Region"
+    },
+    "ОБЪЕДИНЕННЫЕ СМЫСЛАМИ,": {
+        KZ: "МАҒЫНАМЕН БІРІККЕН,",
+        EN: "UNITED BY MEANING,"
+    },
+    "ДВИЖИМЫЕ АМБИЦИЯМИ —": {
+        KZ: "АМБИЦИЯМЕН ЖЕТЕЛЕНГЕН —",
+        EN: "DRIVEN BY AMBITION —"
+    },
+    "МЫ ГОВОРИМ ДА.": {
+        KZ: "БІЗ ИӘ ДЕЙМІЗ.",
+        EN: "WE SAY DA."
+    },
+    "Крупнейший рекламно-коммуникационный холдинг в Центральной Азии и на Кавказе. Объединяем 15 специализированных агентств, передовые медиатехнологии, аналитику данных и креатив уровня": {
+        KZ: "Орталық Азия мен Кавказдағы ең ірі жарнама-коммуникациялық холдинг. 15 мамандандырылған агенттікті, озық медиатехнологияларды, деректер аналитикасын және әлемдік деңгейдегі креативті біріктіреміз:",
+        EN: "The largest advertising and communications holding in Central Asia and the Caucasus. Uniting 15 specialized agencies, advanced media tech, data analytics, and creativity at the level of"
+    },
+    "Смотреть портфолио": { KZ: "Портфолионы көру", EN: "View Portfolio" },
+    "Витрина агентств": { KZ: "Агенттіктер витринасы", EN: "Agencies Showcase" },
+    "Более 150 международных и локальных брендов-лидеров": {
+        KZ: "150-ден астам халықаралық және жергілікті көшбасшы брендтер",
+        EN: "Over 150 leading international and local brands"
+    },
+    "доверяют нам управление медийными и креативными бюджетами в 8 странах": {
+        KZ: "8 елде медиа және креативті бюджеттерді басқаруды бізге сеніп тапсырады",
+        EN: "trust us with their media and creative budgets across 8 countries"
+    },
+    "✓ Доля медиарынка >20%": { KZ: "✓ Медианарық үлесі >20%", EN: "✓ >20% Media Market Share" },
+    "✓ Золото Cannes Lions": { KZ: "✓ Cannes Lions Алтыны", EN: "✓ Cannes Lions Gold" },
+    "✓ №1 Рейтинг Эффективности E+": { KZ: "✓ №1 E+ Тиімділік Рейтингі", EN: "✓ #1 E+ Effectiveness Ranking" },
+    "✓ Собственный R&D и Data Hub": { KZ: "✓ Меншікті R&D және Data Hub", EN: "✓ Proprietary R&D & Data Hub" },
+    "Центральный хаб DASM Group": { KZ: "DASM Group Орталық хабы", EN: "DASM Group Central Hub" },
+    "Лидер индустрии": { KZ: "Индустрия көшбасшысы", EN: "Industry Leader" },
+    "Стратегия и Баинг": { KZ: "Стратегия және Баинг", EN: "Strategy & Buying" },
+    "Прямые контракты со всеми ТВ, Digital и OOH селлерами региона": {
+        KZ: "Аймақтың барлық ТВ, Digital және OOH селлерлерімен тікелей келісімшарттар",
+        EN: "Direct contracts with all major TV, Digital, and OOH sellers in the region"
+    },
+    "Креатив и Продакшн": { KZ: "Креатив және Продакшн", EN: "Creative & Production" },
+    "Более 300 наград международных фестивалей рекламы": {
+        KZ: "Халықаралық жарнама фестивальдерінің 300-ден астам марапаты",
+        EN: "Over 300 awards from international advertising festivals"
+    },
+    "32 года на рынке": { KZ: "Нарықта 32 жыл", EN: "32 Years on Market" },
+    "Старейшая и самая устойчивая коммуникационная группа региона с безупречной репутацией.": {
+        KZ: "Мінсіз беделі бар аймақтағы ең көне және ең тұрақты коммуникациялық топ.",
+        EN: "The region's longest-standing and most resilient communications group."
+    },
+    "Сетевые агентства WPP (GroupM, Grey, Ogilvy) и сильные локальные независимые бренды.": {
+        KZ: "WPP желілік агенттіктері (GroupM, Grey, Ogilvy) және күшті жергілікті тәуелсіз брендтер.",
+        EN: "WPP network agencies (GroupM, Grey, Ogilvy) alongside powerhouse independent brands."
+    },
+    "90+ млн человек": { KZ: "90+ млн адам", EN: "90M+ Consumers" },
+    "Казахстан, Узбекистан, Кыргызстан, Таджикистан, Армения, Грузия, Азербайджан, Монголия.": {
+        KZ: "Қазақстан, Өзбекстан, Қырғызстан, Тәжікстан, Армения, Грузия, Әзербайжан, Моңғолия.",
+        EN: "Kazakhstan, Uzbekistan, Kyrgyzstan, Tajikistan, Armenia, Georgia, Azerbaijan, Mongolia."
+    },
+    "Топ-таланты": { KZ: "Топ-таланттар", EN: "Top Talent" },
+    "Стратеги, медиапланеры, арт-директора, аналитики данных, PR-специалисты и продюсеры.": {
+        KZ: "Стратегтер, медиажоспарлаушылар, арт-директорлар, деректер аналитиктері, PR-мамандар мен продюсерлер.",
+        EN: "Strategists, media planners, art directors, data scientists, PR experts, and producers."
+    },
+    "Отраслевая экспертиза": { KZ: "Салалық сараптама", EN: "Industry Expertise" },
+    "Лидируем в ключевых секторах экономики": {
+        KZ: "Экономиканың негізгі секторларында көш бастаймыз",
+        EN: "Leading Across Key Economic Sectors"
+    },
+    "Атмосфера и Инфраструктура": { KZ: "Атмосфера және Инфрақұрылым", EN: "Culture & Infrastructure" },
+    "Внутри DASM Group: люди, технологии и культура лидерства": {
+        KZ: "DASM Group ішінде: адамдар, технологиялар және көшбасшылық мәдениеті",
+        EN: "Inside DASM Group: People, Technology & Leadership Culture"
+    },
+    "Карьера у нас →": { KZ: "Біздегі мансап →", EN: "Careers at DASM →" },
+    "Процесс работы": { KZ: "Жұмыс процесі", EN: "How We Work" },
+    "Как мы запускаем кампании регионального масштаба": {
+        KZ: "Біз аймақтық ауқымдағы науқандарды қалай іске қосамыз",
+        EN: "How We Launch Regional-Scale Campaigns"
+    },
     "Основано в 1994 • Партнер глобальной сети WPP": {
         KZ: "1994 жылы құрылған • WPP жаһандық желісінің серіктесі",
         EN: "Founded in 1994 • WPP Global Network Affiliate"
