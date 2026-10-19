@@ -6,37 +6,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap');
 
 :root {
-    /* Глубокий темный фон референса */
-    --bg-main: #06050a;
-    --bg-darker: #0b0913;
-    --bg-card: rgba(22, 17, 34, 0.75);
-    --bg-card-hover: rgba(32, 24, 48, 0.9);
-    --border-color: rgba(255, 255, 255, 0.11);
-    --border-accent: rgba(255, 46, 147, 0.6);
+    /* Мягкий тёмный фон */
+    --bg-main: #0c0b10;
+    --bg-darker: #111018;
+    --bg-card: rgba(28, 24, 38, 0.78);
+    --bg-card-hover: rgba(36, 30, 48, 0.92);
+    --border-color: rgba(255, 255, 255, 0.09);
+    --border-accent: rgba(232, 160, 200, 0.35);
 
-    /* Типографика */
+    /* Текст */
     --text-primary: #ffffff;
-    --text-secondary: #b3acc2;
-    --text-muted: #726785;
+    --text-secondary: #b8b0c8;
+    --text-muted: #7a728c;
 
-    /* Неоново-розовая и фиолетовая гамма из референса */
-    --accent-primary: #ff2e93;
-    --accent-secondary: #b721ff;
-    --accent-teal: #00f2fe;
-    --gradient-brand: linear-gradient(135deg, #ff2e93 0%, #b721ff 100%);
-    --gradient-glow: 0 0 35px rgba(255, 46, 147, 0.35);
+    /* Нежные акценты (вместо яркого неона) */
+    --accent-primary: #e8a0c8;          /* пыльно-розовый */
+    --accent-secondary: #c4a8e8;        /* мягкий лавандовый */
+    --accent-teal: #9ad4d8;
+    --gradient-brand: linear-gradient(135deg, #e8a0c8 0%, #c4a8e8 100%);
+    --gradient-glow: 0 0 28px rgba(232, 160, 200, 0.25);
 
     --font-sans: 'Onest', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-display: 'Unbounded', 'Onest', sans-serif;
 
     --radius-sm: 14px;
-    --radius-md: 22px;
-    --radius-lg: 30px;
-    --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.5);
-    --shadow-hover: 0 24px 60px rgba(255, 46, 147, 0.22);
-    --transition: all 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    --radius-md: 20px;
+    --radius-lg: 28px;
+    --shadow-soft: 0 12px 36px rgba(0, 0, 0, 0.45);
+    --shadow-hover: 0 18px 48px rgba(232, 160, 200, 0.18);
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
