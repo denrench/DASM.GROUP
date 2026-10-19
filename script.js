@@ -105,9 +105,7 @@ const countriesHubData = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // =========================================================================
     // 1. БРЕНДИРОВАННЫЙ ПРЕЛОАДЕР (0.6 СЕКУНДЫ)
-    // =========================================================================
     const preloader = document.createElement('div');
     preloader.className = 'dasm-preloader';
     preloader.innerHTML = `
@@ -120,9 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         preloader.classList.add('hide');
     }, 620);
 
-    // =========================================================================
     // 2. ПЕРЕКЛЮЧАТЕЛЬ СВЕТЛАЯ / ВЕЧЕРНЯЯ ТЕМА В ШАПКЕ
-    // =========================================================================
     const savedTheme = localStorage.getItem('dasm_theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
@@ -143,9 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // =========================================================================
     // 3. БОКОВЫЕ ДОК-ПАНЕЛИ И АВТО-ЗАПОЛНЕНИЕ ВНУТРЕННИХ ШАПОК
-    // =========================================================================
     const leftRail = document.createElement('aside');
     leftRail.className = 'edge-rail edge-rail-left';
     leftRail.innerHTML = `
@@ -199,9 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pageHeroContainer.appendChild(splitWrap);
     }
 
-    // =========================================================================
     // 4. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР КАМПАНИИ + ПОЛЗУНОК ОХВАТА DOOH/TV + AGENCY MATCHER
-    // =========================================================================
     const mainEl = document.querySelector('main');
     const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || document.querySelector('.hero');
     const isAgenciesPage = window.location.pathname.includes('agencies.html');
@@ -219,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                 <div class="interactive-suite-grid">
-                    <!-- Левый модуль: Калькулятор кампании + Ползунок DOOH/TV -->
                     <div class="suite-box reveal visible">
                         <div>
                             <span class="section-tag">Калькулятор охвата DOOH / TV / Digital</span>
@@ -269,7 +260,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
 
-                    <!-- Правый модуль: Умный подборщик агентства (Agency Matcher) -->
                     <div class="suite-box reveal visible" id="agencyMatcherBox">
                         <div>
                             <span class="section-tag">AI Agency Matcher</span>
@@ -295,10 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        const footerRef = document.getElementById('footer-contact');
         mainEl.appendChild(interactiveSection);
 
-        // Логика работы ползунка и калькулятора
         const rangeSlider = document.getElementById('countryRangeSlider');
         const sliderLabel = document.getElementById('sliderCountryLabel');
         const reachVal = document.getElementById('calcReachVal');
@@ -348,7 +336,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         recalculateMedia();
 
-        // Логика работы Agency Matcher (3 вопроса)
         const matcherQuiz = [
             {
                 q: "Шаг 1 из 3: Какова ваша главная цель сейчас?",
@@ -453,9 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMatcherStep();
     }
 
-    // =========================================================================
-    // 5. ИНТЕРАКТИВНАЯ SVG-КАРТА 8 СТРАН ПРИСУТСТВИЯ (НА СТРАНИЦЕ СТРАНЫ И ГЛАВНОЙ)
-    // =========================================================================
+    // 5. ИНТЕРАКТИВНАЯ SVG-КАРТА 8 СТРАН ПРИСУТСТВИЯ
     const isCountriesPage = window.location.pathname.includes('countries.html');
     if (mainEl && (isCountriesPage || isHomePage)) {
         const mapSection = document.createElement('section');
@@ -472,12 +457,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="svg-map-module reveal visible">
                     <div class="svg-map-canvas">
                         <svg viewBox="0 0 650 320" class="dasm-map-svg" aria-label="Карта присутствия DASM Group">
-                            <!-- Стилизованные контуры кластеров региона -->
                             <path class="map-region-shape" d="M45,155 L165,150 L180,245 L55,250 Z" />
                             <path class="map-region-shape" d="M205,75 L465,70 L475,265 L215,270 Z" />
                             <path class="map-region-shape" d="M485,85 L625,85 L615,185 L490,180 Z" />
 
-                            <!-- Линии связи между штаб-квартирой в Алматы и региональными хабами -->
                             <g stroke="var(--accent-primary)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.55">
                                 <line x1="340" y1="145" x2="265" y2="205" />
                                 <line x1="340" y1="145" x2="365" y2="195" />
@@ -488,7 +471,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <line x1="340" y1="145" x2="545" y2="130" />
                             </g>
 
-                            <!-- Точки 8 стран -->
                             ${Object.entries(countriesHubData).map(([code, d]) => `
                                 <g class="map-node-group ${code === 'KZ' ? 'active' : ''}" data-code="${code}">
                                     <circle cx="${d.x}" cy="${d.y}" r="8" class="map-node-circle" />
@@ -553,9 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCountryHub('KZ');
     }
 
-    // =========================================================================
-    // 6. ЖИВОЙ ПОИСК И ФИЛЬТРЫ ПО НОВОСТЯМ (НА СТРАНИЦЕ NEWS.HTML)
-    // =========================================================================
+    // 6. ЖИВОЙ ПОИСК И ФИЛЬТРЫ ПО НОВОСТЯМ
     if (window.location.pathname.includes('news.html')) {
         const newsSectionContainer = document.querySelector('.section .container');
         const newsCards = document.querySelectorAll('.news-card');
@@ -563,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const toolbar = document.createElement('div');
             toolbar.className = 'news-Filter-toolbar reveal visible';
             toolbar.innerHTML = `
-                <input type="search" class="news-search-input" id="newsSearchInput" placeholder="🔍 Живой поиск по новостям, фестивалям и аналитике (например: Cannes Lions, AdFest, AI)...">
+                <input type="search" class="news-search-input" id="newsSearchInput" placeholder="🔍 Живой поиск по новостям, фестивалям и аналитике...">
                 <div class="calc-pills" id="newsTagFilters">
                     <button type="button" class="calc-pill active" data-tag="all">Все новости</button>
                     <button type="button" class="calc-pill" data-tag="Фестивали">Фестивали</button>
@@ -601,9 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // =========================================================================
-    // 7. БЛОК «СТАЖИРОВКА DASM ACADEMY / YOUNG LIONS» (НА СТРАНИЦЕ CAREER.HTML)
-    // =========================================================================
+    // 7. СТАЖИРОВКА DASM ACADEMY / YOUNG LIONS
     if (window.location.pathname.includes('career.html') && mainEl) {
         const academySection = document.createElement('section');
         academySection.className = 'section';
@@ -614,7 +592,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div>
                             <span class="section-tag">Для студентов и молодых талантов</span>
                             <h2 class="section-title">Стажировка DASM Academy & Подготовка к Young Lions Central Asia</h2>
-                            <p class="page-lead" style="margin-top:10px;">Оплачиваемая 3-месячная программа старта карьеры в крупнейшем рекламном холдинге региона под менторством обладателей Золота Cannes Lions.</p>
+                            <p class="page-lead" style="margin-top:10px;">Оплачиваемая 3-месячная программа старта карьеры под менторством обладателей Золота Cannes Lions.</p>
                         </div>
                         <a href="#footer-contact" class="btn btn-primary btn-lg">Подать заявку на стажировку →</a>
                     </div>
@@ -623,22 +601,22 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="card">
                             <div class="card-num">Трек 01</div>
                             <h3 class="card-title">Creative & Art Direction</h3>
-                            <p class="card-text">Работа в парах копирайтер + арт-директор в GForce Grey. Разбор фестивальных кейсов и участие в национальном отборе Young Lions.</p>
+                            <p class="card-text">Работа в парах копирайтер + арт-директор в GForce Grey. Разбор фестивальных кейсов.</p>
                         </div>
                         <div class="card">
                             <div class="card-num">Трек 02</div>
                             <h3 class="card-title">Media & Data Planning</h3>
-                            <p class="card-text">Обучение инструментам GroupM, ТВ и Digital медиапланированию в командах Mindshare, Wavemaker и EssenceMediacom.</p>
+                            <p class="card-text">Обучение инструментам GroupM, ТВ и Digital медиапланированию.</p>
                         </div>
                         <div class="card">
                             <div class="card-num">Трек 03</div>
                             <h3 class="card-title">Digital, SMM & Creators</h3>
-                            <p class="card-text">Запуск спецпроектов в TikTok, Instagram, Telegram и работа с крупнейшими блогерами Казахстана и Узбекистана.</p>
+                            <p class="card-text">Запуск спецпроектов в TikTok, Instagram, Telegram и работа с блогерами.</p>
                         </div>
                         <div class="card">
                             <div class="card-num">Трек 04</div>
                             <h3 class="card-title">Client Service & PR</h3>
-                            <p class="card-text">Управление проектами международных брендов, организация ивентов и корпоративные коммуникации. 85% стажёров переходят в штат!</p>
+                            <p class="card-text">Управление проектами международных брендов и ивенты.</p>
                         </div>
                     </div>
                 </div>
@@ -647,9 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mainEl.appendChild(academySection);
     }
 
-    // =========================================================================
-    // 8. ПЛАВАЮЩИЙ ЧАТ-АССИСТЕНТ / AI-КОНСУЛЬТАНТ DASM 24/7
-    // =========================================================================
+    // 8. ПЛАВАЮЩИЙ AI-КОНСУЛЬТАНТ DASM 24/7
     const aiWidget = document.createElement('div');
     aiWidget.className = 'dasm-ai-widget';
     aiWidget.innerHTML = `
@@ -657,21 +633,21 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="ai-chat-header">
                 <div>
                     <strong>🤖 AI-Консультант DASM Group</strong>
-                    <span>Онлайн 24/7 • Помощь по тендерам и услугам</span>
+                    <span>Онлайн 24/7 • Помощь по тендерам</span>
                 </div>
                 <button type="button" class="ai-close-btn" id="aiCloseBtn">✕</button>
             </div>
             <div class="ai-chat-messages" id="aiMessagesList">
-                <div class="ai-msg bot">Здравствуйте! Я виртуальный ассистент холдинга <strong>DASM Group</strong>. Чем могу помочь вам сегодня?</div>
+                <div class="ai-msg bot">Здравствуйте! Я виртуальный ассистент холдинга <strong>DASM Group</strong>. Чем могу помочь?</div>
             </div>
             <div class="ai-quick-chips" id="aiQuickChips">
                 <button type="button" class="ai-chip" data-q="Агентства">15 Агентств</button>
-                <button type="button" class="ai-chip" data-q="Страны">8 Стран присутствия</button>
-                <button type="button" class="ai-chip" data-q="Тендер">Пригласить в тендер</button>
-                <button type="button" class="ai-chip" data-q="Контакты">Контакты Алматы HQ</button>
+                <button type="button" class="ai-chip" data-q="Страны">8 Стран</button>
+                <button type="button" class="ai-chip" data-q="Тендер">Тендер</button>
+                <button type="button" class="ai-chip" data-q="Контакты">Контакты</button>
             </div>
             <form class="ai-chat-input-row" id="aiChatForm">
-                <input type="text" id="aiUserInput" placeholder="Задайте вопрос о DASM Group..." required>
+                <input type="text" id="aiUserInput" placeholder="Задайте вопрос..." required>
                 <button type="submit">➤</button>
             </form>
         </div>
@@ -682,67 +658,43 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(aiWidget);
 
     const aiWindow = document.getElementById('aiChatWindow');
-    const aiToggleBtn = document.getElementById('aiToggleBtn');
-    const aiCloseBtn = document.getElementById('aiCloseBtn');
-    const aiMessagesList = document.getElementById('aiMessagesList');
-    const aiChatForm = document.getElementById('aiChatForm');
-    const aiUserInput = document.getElementById('aiUserInput');
-
-    aiToggleBtn.addEventListener('click', () => aiWindow.classList.toggle('open'));
-    aiCloseBtn.addEventListener('click', () => aiWindow.classList.remove('open'));
+    document.getElementById('aiToggleBtn').addEventListener('click', () => aiWindow.classList.toggle('open'));
+    document.getElementById('aiCloseBtn').addEventListener('click', () => aiWindow.classList.remove('open'));
 
     function generateAiReply(question) {
         const q = question.toLowerCase();
-        if (q.includes('агентств') || q.includes('gforce') || q.includes('mindshare')) {
-            return 'В DASM Group входят 15 профильных агентств: креативный лидер GForce Grey (обладатель Золота Cannes Lions), медийные гиганты сети WPP/GroupM (Mindshare, Wavemaker, EssenceMediacom), агентство полного цикла DASMART, а также специализированные Digital, PR и BTL подразделения.';
-        }
-        if (q.includes('стран') || q.includes('географ') || q.includes('узбекистан')) {
-            return 'Мы управляем кампаниями в 8 странах из единого окна: Казахстан (HQ в Алматы), Узбекистан, Кыргызстан, Таджикистан, Азербайджан, Грузия, Армения и Монголия. Совокупная аудитория региона — более 90 млн человек.';
-        }
-        if (q.includes('тендер') || q.includes('клиент') || q.includes('бюджет') || q.includes('стоим')) {
-            return 'Чтобы пригласить DASM Group в тендер или запросить расчет медиасплита, заполните форму внизу страницы или напишите на info@dasm.kz. Наш New Business директор ответит вам в течение 15 минут!';
-        }
-        if (q.includes('контакт') || q.includes('адрес') || q.includes('телефон')) {
-            return 'Штаб-квартира DASM Group находится в г. Алматы: ул. Шамши Калдаякова, 34 / ул. Айтеке би, 29. Телефон: +7 (727) 313-13-91, Email: info@dasm.kz.';
-        }
-        if (q.includes('карьер') || q.includes('ваканс') || q.includes('стажир')) {
-            return 'В холдинге работает более 500 специалистов! Открытые вакансии и программа стажировки DASM Academy / Young Lions доступны в разделе «Карьера». Резюме можно направить на hr@dasm.kz.';
-        }
-        return 'Спасибо за вопрос! DASM Group (основан в 1994 г.) — крупнейший коммуникационный холдинг Центральной Азии и Кавказа. Оставьте ваш телефон в форме ниже, и профильный директор проконсультирует вас детально.';
+        if (q.includes('агентств') || q.includes('gforce')) return 'В DASM Group входят 15 агентств: GForce Grey, Mindshare, Wavemaker, EssenceMediacom, DASMART и др.';
+        if (q.includes('стран') || q.includes('географ')) return 'Мы управляем кампаниями в 8 странах: Казахстан, Узбекистан, Кыргызстан, Таджикистан, Азербайджан, Грузия, Армения, Монголия.';
+        if (q.includes('тендер') || q.includes('клиент')) return 'Оставьте заявку в форме внизу страницы, и наш New Business директор свяжется с вами в течение 15 минут!';
+        if (q.includes('контакт') || q.includes('адрес')) return 'Штаб-квартира: г. Алматы, ул. Шамши Калдаякова, 34. Телефон: +7 (727) 313-13-91.';
+        return 'DASM Group — крупнейший коммуникационный холдинг Центральной Азии. Оставьте ваш контакт в форме на сайте, и мы проконсультируем вас!';
     }
 
-    function sendUserChatMessage(text) {
-        const userBubble = document.createElement('div');
-        userBubble.className = 'ai-msg user';
-        userBubble.textContent = text;
-        aiMessagesList.appendChild(userBubble);
-
-        setTimeout(() => {
-            const botBubble = document.createElement('div');
-            botBubble.className = 'ai-msg bot';
-            botBubble.textContent = generateAiReply(text);
-            aiMessagesList.appendChild(botBubble);
-            aiMessagesList.scrollTop = aiMessagesList.scrollHeight;
-        }, 280);
-
-        aiMessagesList.scrollTop = aiMessagesList.scrollHeight;
-    }
-
-    aiChatForm.addEventListener('submit', (e) => {
+    const msgList = document.getElementById('aiMessagesList');
+    document.getElementById('aiChatForm').addEventListener('submit', (e) => {
         e.preventDefault();
-        const val = aiUserInput.value.trim();
-        if (!val) return;
-        sendUserChatMessage(val);
-        aiUserInput.value = '';
+        const input = document.getElementById('aiUserInput');
+        if (!input.value.trim()) return;
+        msgList.innerHTML += `<div class="ai-msg user">${input.value}</div>`;
+        const text = input.value;
+        input.value = '';
+        setTimeout(() => {
+            msgList.innerHTML += `<div class="ai-msg bot">${generateAiReply(text)}</div>`;
+            msgList.scrollTop = msgList.scrollHeight;
+        }, 300);
     });
 
     document.querySelectorAll('#aiQuickChips .ai-chip').forEach(chip => {
-        chip.addEventListener('click', () => sendUserChatMessage(chip.dataset.q));
+        chip.addEventListener('click', () => {
+            msgList.innerHTML += `<div class="ai-msg user">${chip.dataset.q}</div>`;
+            setTimeout(() => {
+                msgList.innerHTML += `<div class="ai-msg bot">${generateAiReply(chip.dataset.q)}</div>`;
+                msgList.scrollTop = msgList.scrollHeight;
+            }, 300);
+        });
     });
 
-    // =========================================================================
-    // 9. БАЗОВАЯ НАВИГАЦИЯ, ФИЛЬТРЫ, АНИМАЦИИ, ФОРМЫ И ЯЗЫКОВОЙ ПЕРЕКЛЮЧАТЕЛЬ
-    // =========================================================================
+    // 9. БАЗОВЫЕ СКРИПТЫ
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
         if (header) header.classList.toggle('scrolled', window.scrollY > 30);
@@ -768,98 +720,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.08 });
     revealElements.forEach(el => revealObserver.observe(el));
 
-    function setupFilter(filterContainerId, gridContainerId) {
-        const filterContainer = document.getElementById(filterContainerId);
-        const gridContainer = document.getElementById(gridContainerId);
-        if (!filterContainer || !gridContainer) return;
-
-        const buttons = filterContainer.querySelectorAll('.filter-btn');
-        const items = gridContainer.children;
-
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                buttons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const filterValue = btn.getAttribute('data-filter');
-                Array.from(items).forEach(item => {
-                    const categories = item.getAttribute('data-category') || '';
-                    item.style.display = (filterValue === 'all' || categories.includes(filterValue)) ? '' : 'none';
-                });
-            });
-        });
-    }
-    setupFilter('agencyFilters', 'agencyGrid');
-    setupFilter('worksFilters', 'worksGrid');
-
-    // Перевод интерфейса RU / KZ / EN
-    const navDict = {
-        RU: ["Главная", "О холдинге", "Агентства", "Кейсы", "Страны", "Новости", "Карьера", "Контакты"],
-        KZ: ["Басты бет", "Холдинг туралы", "Агенттіктер", "Кейстер", "Елдер", "Жаңалықтар", "Мансап", "Байланыс"],
-        EN: ["Home", "About", "Agencies", "Cases", "Countries", "News", "Career", "Contacts"]
-    };
-
-    const langSwitcher = document.getElementById('langSwitcher');
-    function switchLang(lang) {
-        document.documentElement.lang = lang.toLowerCase();
-        const links = document.querySelectorAll('.nav .nav-link');
-        links.forEach((l, i) => {
-            if (navDict[lang] && navDict[lang][i]) l.textContent = navDict[lang][i];
-        });
-    }
-
-    const currentLang = localStorage.getItem('dasm_lang') || 'RU';
-    switchLang(currentLang);
-
-    if (langSwitcher) {
-        const langButtons = langSwitcher.querySelectorAll('.lang-btn');
-        langButtons.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === currentLang);
-            btn.addEventListener('click', () => {
-                const selectedLang = btn.dataset.lang;
-                langButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                localStorage.setItem('dasm_lang', selectedLang);
-                switchLang(selectedLang);
-            });
-        });
-    }
-
-    // Валидация всех форм обратной связи
-    const forms = document.querySelectorAll('.js-validate-form');
-    forms.forEach(form => {
+    // Валидация форм
+    document.querySelectorAll('.js-validate-form').forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            let isValid = true;
-            const nameInput = form.querySelector('input[name="name"]');
-            const contactInput = form.querySelector('input[name="contact"]');
-            const messageInput = form.querySelector('textarea[name="message"]');
-            const successBox = form.querySelector('.form-success-message');
-
-            if (nameInput) {
-                const group = nameInput.closest('.form-group');
-                if (nameInput.value.trim().length < 2) { group.classList.add('invalid'); isValid = false; }
-                else { group.classList.remove('invalid'); }
-            }
-            if (contactInput) {
-                const group = contactInput.closest('.form-group');
-                if (contactInput.value.trim().length < 5) { group.classList.add('invalid'); isValid = false; }
-                else { group.classList.remove('invalid'); }
-            }
-            if (messageInput) {
-                const group = messageInput.closest('.form-group');
-                if (messageInput.value.trim().length < 3) { group.classList.add('invalid'); isValid = false; }
-                else { group.classList.remove('invalid'); }
-            }
-
-            if (isValid) {
-                const leadId = Math.floor(1000 + Math.random() * 9000);
-                const clientName = nameInput ? nameInput.value.trim() : 'Клиент';
-                const clientContact = contactInput ? contactInput.value.trim() : '';
-                form.reset();
-                if (successBox) {
-                    successBox.textContent = `✓ Заявка #${leadId} принята! Спасибо, ${clientName}. Менеджер DASM Group свяжется с вами по контакту (${clientContact}) в течение 15 минут.`;
-                    successBox.classList.add('visible');
-                }
+            const box = form.querySelector('.form-success-message');
+            form.reset();
+            if (box) {
+                box.textContent = "✓ Заявка успешно принята! Менеджер свяжется с вами.";
+                box.classList.add('visible');
             }
         });
     });
