@@ -2,8 +2,6 @@
    DASM GROUP — Soft Elegant Version
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap');
-
 :root {
     --bg-main: #0c0b10;
     --bg-darker: #111018;
@@ -21,8 +19,9 @@
     --gradient-brand: linear-gradient(135deg, #e8a0c8 0%, #c4a8e8 100%);
     --gradient-glow: 0 0 28px rgba(232, 160, 200, 0.25);
 
-    --font-sans: 'Onest', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-display: 'Unbounded', 'Onest', sans-serif;
+    --font-sans: 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-display: 'Manrope', 'Onest', sans-serif;   /* заголовки */
+    --font-brand: 'Unbounded', 'Manrope', sans-serif;  /* только логотип */
 
     --radius-sm: 14px;
     --radius-md: 20px;
@@ -119,9 +118,10 @@ img {
 }
 
 .logo {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-family: var(--font-brand);
+    font-size: 1.15rem;
     font-weight: 700;
+    letter-spacing: 0.02em;
     color: #fff;
 }
 
@@ -928,6 +928,177 @@ img {
     transform: translateY(0);
 }
 
+/* ==========================================================================
+   Типографика (Manrope + Onest, Unbounded только в логотипе)
+   ========================================================================== */
+.hero-title,
+.page-title,
+.section-title,
+.footer-heading {
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.hero-title { font-size: clamp(3rem, 5.6vw, 4.8rem); }
+.page-title { font-size: clamp(2.1rem, 4vw, 3.2rem); }
+.section-title { font-size: clamp(1.7rem, 3vw, 2.5rem); }
+
+.card-title,
+.case-title,
+.contact-form h3,
+.vacancy-item h3 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.section-tag {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.card-num,
+.stat-number,
+.case-stats strong,
+.trust-score strong {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   Вакансии
+   ========================================================================== */
+.vacancies-list { display: grid; gap: 16px; }
+
+.vacancy-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 26px 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.vacancy-item:hover {
+    border-color: var(--border-accent);
+    background: var(--bg-card-hover);
+    transform: translateX(6px);
+}
+
+.vacancy-meta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.vacancy-item h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    margin: 6px 0 8px;
+    color: #fff;
+}
+
+.vacancy-item p {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    max-width: 680px;
+}
+
+.vacancy-item .btn { flex-shrink: 0; }
+
+/* ==========================================================================
+   Страница контактов
+   ========================================================================== */
+.contacts-page-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.contacts-cards-col { display: grid; gap: 20px; }
+
+.contact-form-large { padding: 36px; }
+
+.contact-form-large h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.form-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+}
+
+.card-text a { color: var(--accent-primary); }
+.card-text a:hover { text-decoration: underline; }
+
+.card-tags a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 13px;
+    border-radius: 99px;
+    background: rgba(232, 160, 200, 0.08);
+    border: 1px solid rgba(232, 160, 200, 0.18);
+    color: var(--accent-primary);
+}
+
+.card-tags a:hover { background: rgba(232, 160, 200, 0.18); }
+
+select option { background: #1c1826; color: #fff; }
+
+/* ==========================================================================
+   Новости
+   ========================================================================== */
+.news-date {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.interactive-card { position: relative; overflow: hidden; }
+
+.interactive-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-brand);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.interactive-card:hover::before { transform: scaleX(1); }
+
+/* ==========================================================================
+   Мелочи
+   ========================================================================== */
+:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+}
+
+::selection { background: rgba(232, 160, 200, 0.35); color: #fff; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: #2a2338; border-radius: 99px; }
+
 /* Responsive */
 @media (max-width: 1100px) {
     .hero-split,
@@ -969,7 +1140,8 @@ img {
     .stats-grid,
     .footer-top-grid,
     .hero-sub-visuals,
-    .footer-contacts-direct {
+    .footer-contacts-direct,
+    .contacts-page-grid {
         grid-template-columns: 1fr;
     }
 
@@ -983,5 +1155,28 @@ img {
 
     .header-actions .btn-sm {
         display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    .vacancy-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-form-large { padding: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    html { scroll-behavior: auto; }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
     }
 }
