@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const headerActions = document.querySelector('.header-actions');
     if (headerActions) {
         const themeBtn = document.createElement('button');
+        themeBtn.type = 'button';
         themeBtn.className = 'theme-toggle-btn';
         themeBtn.title = 'Переключить тему: Светлая / Вечерняя';
         themeBtn.innerHTML = savedTheme === 'dark' ? '☀️' : '🌙';
@@ -155,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     rightRail.innerHTML = `
         <a href="#footer-contact" class="rail-btn" title="Быстрая заявка">✉</a>
         <span class="rail-pill">8 СТРАН • 15 АГЕНТСТВ</span>
-        <button class="rail-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Наверх">↑</button>
+        <button type="button" class="rail-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Наверх">↑</button>
     `;
     document.body.appendChild(rightRail);
 
@@ -306,6 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cumulativePop = [20.3, 57.5, 64.7, 75.1, 85.3, 89.0, 92.0, 95.5];
 
         function recalculateMedia() {
+            if (!rangeSlider) return;
             const count = parseInt(rangeSlider.value, 10);
             sliderLabel.textContent = countryNamesList[count - 1];
 
@@ -370,6 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dots = document.querySelectorAll('.matcher-dot');
 
         function renderMatcherStep() {
+            if (!stageContainer) return;
             dots.forEach((d, idx) => d.classList.toggle('active', idx <= currentStep));
             const item = matcherQuiz[currentStep];
             stageContainer.innerHTML = `
@@ -496,6 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const mapNodes = mapSection.querySelectorAll('.map-node-group');
 
         function renderCountryHub(code) {
+            if (!mapDetails) return;
             const d = countriesHubData[code] || countriesHubData.KZ;
             mapDetails.innerHTML = `
                 <div>
@@ -633,21 +637,21 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="ai-chat-header">
                 <div>
                     <strong>🤖 AI-Консультант DASM Group</strong>
-                    <span>Онлайн 24/7 • Помощь по тендерам</span>
+                    <span>Онлайн 24/7 • Помощь по тендерам и услугам</span>
                 </div>
                 <button type="button" class="ai-close-btn" id="aiCloseBtn">✕</button>
             </div>
             <div class="ai-chat-messages" id="aiMessagesList">
-                <div class="ai-msg bot">Здравствуйте! Я виртуальный ассистент холдинга <strong>DASM Group</strong>. Чем могу помочь?</div>
+                <div class="ai-msg bot">Здравствуйте! Я виртуальный ассистент холдинга <strong>DASM Group</strong>. Чем могу помочь вам сегодня?</div>
             </div>
             <div class="ai-quick-chips" id="aiQuickChips">
                 <button type="button" class="ai-chip" data-q="Агентства">15 Агентств</button>
-                <button type="button" class="ai-chip" data-q="Страны">8 Стран</button>
-                <button type="button" class="ai-chip" data-q="Тендер">Тендер</button>
-                <button type="button" class="ai-chip" data-q="Контакты">Контакты</button>
+                <button type="button" class="ai-chip" data-q="Страны">8 Стран присутствия</button>
+                <button type="button" class="ai-chip" data-q="Тендер">Пригласить в тендер</button>
+                <button type="button" class="ai-chip" data-q="Контакты">Контакты Алматы HQ</button>
             </div>
             <form class="ai-chat-input-row" id="aiChatForm">
-                <input type="text" id="aiUserInput" placeholder="Задайте вопрос..." required>
+                <input type="text" id="aiUserInput" placeholder="Задайте вопрос о DASM Group..." required>
                 <button type="submit">➤</button>
             </form>
         </div>
@@ -658,43 +662,70 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(aiWidget);
 
     const aiWindow = document.getElementById('aiChatWindow');
-    document.getElementById('aiToggleBtn').addEventListener('click', () => aiWindow.classList.toggle('open'));
-    document.getElementById('aiCloseBtn').addEventListener('click', () => aiWindow.classList.remove('open'));
+    const aiToggleBtn = document.getElementById('aiToggleBtn');
+    const aiCloseBtn = document.getElementById('aiCloseBtn');
+    const aiMessagesList = document.getElementById('aiMessagesList');
+    const aiChatForm = document.getElementById('aiChatForm');
+    const aiUserInput = document.getElementById('aiUserInput');
+
+    if (aiToggleBtn && aiWindow) {
+        aiToggleBtn.addEventListener('click', () => aiWindow.classList.toggle('open'));
+        aiCloseBtn.addEventListener('click', () => aiWindow.classList.remove('open'));
+    }
 
     function generateAiReply(question) {
         const q = question.toLowerCase();
-        if (q.includes('агентств') || q.includes('gforce')) return 'В DASM Group входят 15 агентств: GForce Grey, Mindshare, Wavemaker, EssenceMediacom, DASMART и др.';
-        if (q.includes('стран') || q.includes('географ')) return 'Мы управляем кампаниями в 8 странах: Казахстан, Узбекистан, Кыргызстан, Таджикистан, Азербайджан, Грузия, Армения, Монголия.';
-        if (q.includes('тендер') || q.includes('клиент')) return 'Оставьте заявку в форме внизу страницы, и наш New Business директор свяжется с вами в течение 15 минут!';
-        if (q.includes('контакт') || q.includes('адрес')) return 'Штаб-квартира: г. Алматы, ул. Шамши Калдаякова, 34. Телефон: +7 (727) 313-13-91.';
-        return 'DASM Group — крупнейший коммуникационный холдинг Центральной Азии. Оставьте ваш контакт в форме на сайте, и мы проконсультируем вас!';
+        if (q.includes('агентств') || q.includes('gforce') || q.includes('mindshare')) {
+            return 'В DASM Group входят 15 профильных агентств: креативный лидер GForce Grey (обладатель Золота Cannes Lions), медийные гиганты сети WPP/GroupM (Mindshare, Wavemaker, EssenceMediacom), агентство полного цикла DASMART, а также специализированные Digital, PR и BTL подразделения.';
+        }
+        if (q.includes('стран') || q.includes('географ') || q.includes('узбекистан')) {
+            return 'Мы управляем кампаниями в 8 странах из единого окна: Казахстан (HQ в Алматы), Узбекистан, Кыргызстан, Таджикистан, Азербайджан, Грузия, Армения и Монголия. Совокупная аудитория региона — более 90 млн человек.';
+        }
+        if (q.includes('тендер') || q.includes('клиент') || q.includes('бюджет') || q.includes('стоим')) {
+            return 'Чтобы пригласить DASM Group в тендер или запросить расчет медиасплита, заполните форму внизу страницы или напишите на info@dasm.kz. Наш New Business директор ответит вам в течение 15 минут!';
+        }
+        if (q.includes('контакт') || q.includes('адрес') || q.includes('телефон')) {
+            return 'Штаб-квартира DASM Group находится в г. Алматы: ул. Шамши Калдаякова, 34 / ул. Айтеке би, 29. Телефон: +7 (727) 313-13-91, Email: info@dasm.kz.';
+        }
+        if (q.includes('карьер') || q.includes('ваканс') || q.includes('стажир')) {
+            return 'В холдинге работает более 500 специалистов! Открытые вакансии и программа стажировки DASM Academy / Young Lions доступны в разделе «Карьера». Резюме можно направить на hr@dasm.kz.';
+        }
+        return 'Спасибо за вопрос! DASM Group (основан в 1994 г.) — крупнейший коммуникационный холдинг Центральной Азии и Кавказа. Оставьте ваш телефон в форме ниже, и профильный директор проконсультирует вас детально.';
     }
 
-    const msgList = document.getElementById('aiMessagesList');
-    document.getElementById('aiChatForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const input = document.getElementById('aiUserInput');
-        if (!input.value.trim()) return;
-        msgList.innerHTML += `<div class="ai-msg user">${input.value}</div>`;
-        const text = input.value;
-        input.value = '';
+    function sendUserChatMessage(text) {
+        if (!aiMessagesList) return;
+        const userBubble = document.createElement('div');
+        userBubble.className = 'ai-msg user';
+        userBubble.textContent = text;
+        aiMessagesList.appendChild(userBubble);
+
         setTimeout(() => {
-            msgList.innerHTML += `<div class="ai-msg bot">${generateAiReply(text)}</div>`;
-            msgList.scrollTop = msgList.scrollHeight;
-        }, 300);
-    });
+            const botBubble = document.createElement('div');
+            botBubble.className = 'ai-msg bot';
+            botBubble.textContent = generateAiReply(text);
+            aiMessagesList.appendChild(botBubble);
+            aiMessagesList.scrollTop = aiMessagesList.scrollHeight;
+        }, 280);
+
+        aiMessagesList.scrollTop = aiMessagesList.scrollHeight;
+    }
+
+    if (aiChatForm && aiUserInput) {
+        aiChatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const val = aiUserInput.value.trim();
+            if (!val) return;
+            sendUserChatMessage(val);
+            aiUserInput.value = '';
+        });
+    }
 
     document.querySelectorAll('#aiQuickChips .ai-chip').forEach(chip => {
-        chip.addEventListener('click', () => {
-            msgList.innerHTML += `<div class="ai-msg user">${chip.dataset.q}</div>`;
-            setTimeout(() => {
-                msgList.innerHTML += `<div class="ai-msg bot">${generateAiReply(chip.dataset.q)}</div>`;
-                msgList.scrollTop = msgList.scrollHeight;
-            }, 300);
-        });
+        chip.addEventListener('click', () => sendUserChatMessage(chip.dataset.q));
     });
 
-    // 9. БАЗОВЫЕ СКРИПТЫ
+    // 9. БАЗОВАЯ НАВИГАЦИЯ И ФОРМЫ
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
         if (header) header.classList.toggle('scrolled', window.scrollY > 30);
