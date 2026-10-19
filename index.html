@@ -9,7 +9,7 @@
 <body>
     <div class="cursor-glow" id="cursorGlow"></div>
 
-    <!-- Навигация -->
+    <!-- Навигация на всю ширину -->
     <header class="header" id="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
@@ -40,32 +40,46 @@
     </header>
 
     <main>
-        <!-- HERO СЕКЦИЯ (ПОЛНОСТЬЮ НА РУССКОМ + ПЛОТНОЕ ЗАПОЛНЕНИЕ) -->
+        <!-- HERO СЕКЦИЯ (ШИРОКОФОРМАТНАЯ BENTO-АРХИТЕКТУРА БЕЗ ПУСТЫХ ЗОН) -->
         <section class="hero">
             <div class="hero-bg-grid"></div>
             <div class="container hero-content">
                 <div class="hero-split">
-                    <div class="hero-left-col">
-                        <div class="hero-badge reveal">
-                            <span class="pulse-dot"></span>
-                            <span>Основано в 1994 • Эксклюзивный партнёр сети WPP в регионе</span>
+                    <!-- ЛЕВАЯ КОЛОНКА (Оформлена в плотную премиальную Bento-капсулу без дыр справа от заголовка) -->
+                    <div class="hero-left-col reveal">
+                        <div class="hero-top-meta">
+                            <div class="hero-badge">
+                                <span class="pulse-dot"></span>
+                                <span>Основано в 1994 • Эксклюзивный партнёр сети WPP в регионе</span>
+                            </div>
+                            <div class="hero-live-tag">
+                                <span>HQ: Алматы</span> • <span>8 стран ЦА и Кавказа</span>
+                            </div>
                         </div>
-                        <h1 class="hero-title reveal">
-                            ОБЪЕДИНЕННЫЕ СМЫСЛАМИ,<br>
-                            ДВИЖИМЫЕ АМБИЦИЯМИ —<br>
-                            <span class="gradient-text">МЫ ГОВОРИМ ДА.</span>
-                        </h1>
-                        <p class="hero-subtitle reveal">
+
+                        <div class="hero-title-wrap">
+                            <h1 class="hero-title">
+                                ОБЪЕДИНЕННЫЕ СМЫСЛАМИ, ДВИЖИМЫЕ АМБИЦИЯМИ — <span class="gradient-text">МЫ ГОВОРИМ ДА.</span>
+                            </h1>
+                            <!-- Боковой мини-виджет, который закрывает пустую зону справа от текста заголовка -->
+                            <div class="hero-side-stamp">
+                                <strong>№1 В РЕГИОНЕ</strong>
+                                <span>Рейтинг креативности AdAsia и эффективности E+ Central Asia</span>
+                            </div>
+                        </div>
+
+                        <p class="hero-subtitle">
                             Крупнейший рекламно-коммуникационный холдинг в Центральной Азии и на Кавказе. Объединяем 15 специализированных агентств, передовые медиатехнологии, аналитику данных и креатив уровня <strong>Cannes Lions</strong> для кратного роста вашего бизнеса.
                         </p>
-                        <div class="hero-cta reveal">
+
+                        <div class="hero-cta">
                             <a href="#footer-contact" class="btn btn-primary btn-lg">Стать клиентом →</a>
                             <a href="works.html" class="btn btn-outline btn-lg">Смотреть портфолио</a>
                             <a href="agencies.html" class="btn btn-outline btn-lg">Витрина агентств</a>
                         </div>
 
-                        <!-- Дополнительная плотная инфо-панель под кнопками (заполняет пространство слева) -->
-                        <div class="hero-trust-strip reveal">
+                        <!-- Панель доверия с аватарами и живым счетчиком -->
+                        <div class="hero-trust-strip">
                             <div class="trust-avatars">
                                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Эксперт DASM">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Эксперт DASM">
@@ -76,18 +90,34 @@
                                 <strong>Более 150 международных и локальных брендов-лидеров</strong>
                                 <span>доверяют нам управление медийными и креативными бюджетами в 8 странах</span>
                             </div>
+                            <div class="trust-score">
+                                <strong>98.4%</strong>
+                                <span>Retention Rate</span>
+                            </div>
                         </div>
 
-                        <!-- Мини-индикаторы ключевых преимуществ -->
-                        <div class="hero-mini-pills reveal">
-                            <span>✓ Доля медиарынка >20%</span>
-                            <span>✓ Золото Cannes Lions</span>
-                            <span>✓ №1 Рейтинг Эффективности E+</span>
-                            <span>✓ Собственный R&D и Data Hub</span>
+                        <!-- Сетка 2x2 на всю ширину колонки (вместо мелких плашек с пустым местом) -->
+                        <div class="hero-mini-pills">
+                            <div class="mini-pill-card">
+                                <strong>✓ Доля медиарынка >20%</strong>
+                                <span>Крупнейший баинг ТВ, Digital и OOH</span>
+                            </div>
+                            <div class="mini-pill-card">
+                                <strong>✓ Золото Cannes Lions</strong>
+                                <span>Первая высшая награда в истории региона</span>
+                            </div>
+                            <div class="mini-pill-card">
+                                <strong>✓ №1 Эффективность E+</strong>
+                                <span>Доказанный ROI рекламных инвестиций</span>
+                            </div>
+                            <div class="mini-pill-card">
+                                <strong>✓ Собственный Data Hub</strong>
+                                <span>Эконометрика, AI-прогнозы и исследования</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Насыщенный визуальный блок справа (основное фото + мини-галерея и виджеты) -->
+                    <!-- ПРАВАЯ КОЛОНКА (Сверху донизу заполнена вровень с левой колонкой) -->
                     <div class="hero-visual-stack reveal">
                         <div class="hero-visual-card">
                             <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85" alt="Штаб-квартира коммуникационного холдинга DASM Group">
@@ -100,7 +130,7 @@
                             </div>
                         </div>
 
-                        <!-- Нижний ряд из 2 карточек с фото и фактами под главным фото -->
+                        <!-- Средний ряд из 2 карточек с фото -->
                         <div class="hero-sub-visuals">
                             <div class="sub-visual-box">
                                 <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="Стратегическая сессия">
@@ -117,10 +147,30 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- НОВЫЙ НИЖНИЙ БЛОК (Закрывает отмеченную красной стрелкой пустую зону под двумя карточками!) -->
+                        <div class="hero-bottom-dock">
+                            <div class="dock-left">
+                                <span class="dock-badge">Глобальные сети в составе DASM</span>
+                                <div class="dock-networks">
+                                    <span>WPP</span>
+                                    <span>GroupM</span>
+                                    <span>Mindshare</span>
+                                    <span>Wavemaker</span>
+                                    <span>GForce Grey</span>
+                                    <span>EssenceMediacom</span>
+                                    <span>DASMART</span>
+                                </div>
+                            </div>
+                            <a href="contacts.html" class="dock-action">
+                                <strong>Тендерный отдел</strong>
+                                <span>Запросить Media Kit →</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Ключевые цифры (с расширенным описанием в каждой карточке) -->
+                <!-- Ключевые цифры (4 карточки во всю ширину) -->
                 <div class="stats-grid reveal">
                     <div class="stat-item">
                         <div class="stat-top-row">
@@ -158,7 +208,7 @@
             </div>
         </section>
 
-        <!-- БЕГУЩАЯ СТРОКА С ДОСТИЖЕНИЯМИ НА РУССКОМ -->
+        <!-- БЕГУЩАЯ СТРОКА С ДОСТИЖЕНИЯМИ -->
         <div class="marquee-section">
             <div class="marquee-track">
                 <span>★ ОБЛАДАТЕЛИ ЗОЛОТА CANNES LIONS</span>
@@ -172,13 +222,16 @@
             </div>
         </div>
 
-        <!-- ПОЛОСА КЛИЕНТСКИХ ИНДУСТРИЙ И СЕКТОРОВ (ЗАПОЛНЯЕТ ПРОСТРАНСТВО И ДАЕТ ПОЛЬЗУ) -->
+        <!-- ПОЛОСА КЛИЕНТСКИХ ИНДУСТРИЙ И СЕКТОРОВ -->
         <section class="section-compact bg-darker">
             <div class="container">
                 <div class="industry-bar reveal">
-                    <div class="industry-bar-title">
-                        <span class="section-tag" style="margin-bottom:6px;">Отраслевая экспертиза</span>
-                        <h3>Лидируем в ключевых секторах экономики</h3>
+                    <div class="industry-bar-header">
+                        <div class="industry-bar-title">
+                            <span class="section-tag" style="margin-bottom:6px;">Отраслевая экспертиза</span>
+                            <h3>Лидируем в ключевых секторах экономики</h3>
+                        </div>
+                        <p class="industry-bar-note">Обслуживаем более 150 национальных и транснациональных корпораций с полным соблюдением международного комплаенса и аудита.</p>
                     </div>
                     <div class="industry-chips">
                         <div class="ind-chip"><strong>FinTech и Банки</strong><span>98% охват аудитории</span></div>
@@ -192,7 +245,7 @@
             </div>
         </section>
 
-        <!-- НАПРАВЛЕНИЯ ЭКСПЕРТИЗЫ 360 (6 НАСЫЩЕННЫХ КАРТОЧЕК С ФОТО ВМЕСТО 3) -->
+        <!-- НАПРАВЛЕНИЯ ЭКСПЕРТИЗЫ 360 -->
         <section class="section">
             <div class="container">
                 <div class="section-header reveal">
@@ -204,7 +257,6 @@
                 </div>
 
                 <div class="cards-grid cols-3">
-                    <!-- 1 -->
                     <div class="card interactive-card reveal">
                         <div class="card-media">
                             <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=85" alt="Креатив и продакшн">
@@ -217,7 +269,6 @@
                         </div>
                     </div>
 
-                    <!-- 2 -->
                     <div class="card interactive-card reveal">
                         <div class="card-media">
                             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85" alt="Медиапланирование и баинг">
@@ -230,7 +281,6 @@
                         </div>
                     </div>
 
-                    <!-- 3 -->
                     <div class="card interactive-card reveal">
                         <div class="card-media">
                             <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=900&q=85" alt="Digital и Performance">
@@ -243,7 +293,6 @@
                         </div>
                     </div>
 
-                    <!-- 4 -->
                     <div class="card interactive-card reveal">
                         <div class="card-media">
                             <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=85" alt="Цифровая наружная реклама DOOH">
@@ -256,7 +305,6 @@
                         </div>
                     </div>
 
-                    <!-- 5 -->
                     <div class="card interactive-card reveal">
                         <div class="card-media">
                             <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=85" alt="PR, SMM и Инфлюенс-маркетинг">
@@ -269,7 +317,6 @@
                         </div>
                     </div>
 
-                    <!-- 6 -->
                     <div class="card interactive-card reveal">
                         <div class="card-media">
                             <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=85" alt="BTL, Ивенты и Исследования">
@@ -285,7 +332,7 @@
             </div>
         </section>
 
-        <!-- ПОРТФОЛИО И КЕЙСЫ (4 КАРТОЧКИ НА ГЛАВНОЙ С ТЕМАТИЧЕСКИМИ ФОТО) -->
+        <!-- ПОРТФОЛИО И КЕЙСЫ -->
         <section class="section bg-darker">
             <div class="container">
                 <div class="section-header reveal">
@@ -297,7 +344,6 @@
                 </div>
 
                 <div class="cards-grid cols-2">
-                    <!-- Кейс 1: Ринг / Бокс -->
                     <article class="case-card reveal">
                         <div class="case-img-wrap">
                             <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1000&q=85" alt="Боксерский и ММА ринг — проект Национальный спорт Казахстана">
@@ -315,7 +361,6 @@
                         </div>
                     </article>
 
-                    <!-- Кейс 2: Уличные цифровые экраны -->
                     <article class="case-card reveal">
                         <div class="case-img-wrap">
                             <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85" alt="Уличные цифровые экраны и смартборды Citix">
@@ -333,7 +378,6 @@
                         </div>
                     </article>
 
-                    <!-- Кейс 3: Финтех и мобильные покупки -->
                     <article class="case-card reveal">
                         <div class="case-img-wrap">
                             <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85" alt="Мобильный финтех и маркетплейс Kaspi">
@@ -351,7 +395,6 @@
                         </div>
                     </article>
 
-                    <!-- Кейс 4: Аналитика и 5 стран -->
                     <article class="case-card reveal">
                         <div class="case-img-wrap">
                             <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1000&q=85" alt="Аналитический дашборд медиабаинга">
@@ -372,7 +415,7 @@
             </div>
         </section>
 
-        <!-- BENTO ФОТОГАЛЕРЕЯ: ВНУТРИ ЭКОСИСТЕМЫ DASM GROUP -->
+        <!-- BENTO ФОТОГАЛЕРЕЯ -->
         <section class="section">
             <div class="container">
                 <div class="section-header reveal">
@@ -416,7 +459,7 @@
             </div>
         </section>
 
-        <!-- КАК МЫ РАБОТАЕМ (4 ЭТАПА ЗАПУСКА КАМПАНИЙ) -->
+        <!-- КАК МЫ РАБОТАЕМ (4 ЭТАПА) -->
         <section class="section bg-darker">
             <div class="container">
                 <div class="section-header reveal">
