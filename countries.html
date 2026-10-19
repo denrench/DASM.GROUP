@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны присутствия — DASM Group</title>
+    <meta name="description" content="Где работает DASM Group: Казахстан, Узбекистан, Кыргызстан, Таджикистан, Армения, Грузия, Азербайджан и Монголия.">
+    <meta name="theme-color" content="#0c0b10">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="DASM Group">
+    <meta property="og:title" content="Страны присутствия — DASM Group">
+    <meta property="og:description" content="Где работает DASM Group: Казахстан, Узбекистан, Кыргызстан, Таджикистан, Армения, Грузия, Азербайджан и Монголия.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230c0b10'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='800' text-anchor='middle' fill='%23e8a0c8' font-family='Arial,sans-serif'%3ED%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
@@ -58,9 +67,15 @@
         <!-- Страны -->
         <section class="section">
             <div class="container">
-                <div class="cards-grid cols-2">
+                <div class="filter-bar reveal" data-target="#countriesGrid" data-attr="region">
+                    <button type="button" class="chip active" data-filter="all" aria-pressed="true">Все</button>
+                    <button type="button" class="chip" data-filter="ca" aria-pressed="false">Центральная Азия</button>
+                    <button type="button" class="chip" data-filter="caucasus" aria-pressed="false">Кавказ</button>
+                    <button type="button" class="chip" data-filter="mongolia" aria-pressed="false">Монголия</button>
+                </div>
+                <div class="cards-grid cols-2" id="countriesGrid">
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-region="ca">
                         <div class="card-num">🇰🇿 Казахстан</div>
                         <h3 class="card-title">Штаб-квартира · Алматы и Астана</h3>
                         <p class="card-text">
@@ -71,10 +86,11 @@
                             <span>20+ млн населения</span>
                             <span>Digital 92%</span>
                             <span>Full 360° Hub</span>
+                            <span>С 1994 года</span>
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-region="ca">
                         <div class="card-num">🇺🇿 Узбекистан</div>
                         <h3 class="card-title">Ташкент</h3>
                         <p class="card-text">
@@ -88,7 +104,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-region="ca">
                         <div class="card-num">🇰🇬 Кыргызстан</div>
                         <h3 class="card-title">Бишкек</h3>
                         <p class="card-text">
@@ -102,7 +118,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-region="ca">
                         <div class="card-num">🇹🇯 Таджикистан</div>
                         <h3 class="card-title">Душанбе</h3>
                         <p class="card-text">
@@ -115,7 +131,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-region="caucasus">
                         <div class="card-num">🇦🇲 Армения</div>
                         <h3 class="card-title">Ереван</h3>
                         <p class="card-text">
@@ -128,7 +144,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-region="caucasus">
                         <div class="card-num">🇬🇪 Грузия</div>
                         <h3 class="card-title">Тбилиси</h3>
                         <p class="card-text">
@@ -141,7 +157,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-region="caucasus">
                         <div class="card-num">🇦🇿 Азербайджан</div>
                         <h3 class="card-title">Баку</h3>
                         <p class="card-text">
@@ -154,7 +170,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-region="mongolia">
                         <div class="card-num">🇲🇳 Монголия</div>
                         <h3 class="card-title">Улан-Батор</h3>
                         <p class="card-text">
@@ -164,6 +180,7 @@
                         <div class="card-tags">
                             <span>Mobile First</span>
                             <span>Full Media</span>
+                            <span>С 2010 года</span>
                         </div>
                     </div>
 
@@ -238,6 +255,7 @@
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

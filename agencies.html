@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Агентства — DASM Group</title>
+    <meta name="description" content="Агентства DASM Group: креатив, медиа, digital, PR и BTL. Подберите агентство под задачу за три вопроса.">
+    <meta name="theme-color" content="#0c0b10">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="DASM Group">
+    <meta property="og:title" content="Агентства — DASM Group">
+    <meta property="og:description" content="Агентства DASM Group: креатив, медиа, digital, PR и BTL. Подберите агентство под задачу за три вопроса.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230c0b10'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='800' text-anchor='middle' fill='%23e8a0c8' font-family='Arial,sans-serif'%3ED%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
@@ -58,21 +67,28 @@
         <!-- Агентства -->
         <section class="section">
             <div class="container">
-                <div class="cards-grid cols-3">
+                <div class="filter-bar reveal" data-target="#agenciesGrid" data-attr="cat">
+                    <button type="button" class="chip active" data-filter="all" aria-pressed="true">Все</button>
+                    <button type="button" class="chip" data-filter="creative" aria-pressed="false">Креатив</button>
+                    <button type="button" class="chip" data-filter="media" aria-pressed="false">Медиа</button>
+                    <button type="button" class="chip" data-filter="digital" aria-pressed="false">Digital</button>
+                    <button type="button" class="chip" data-filter="pr" aria-pressed="false">PR</button>
+                    <button type="button" class="chip" data-filter="btl" aria-pressed="false">BTL</button>
+                </div>
+                <div class="cards-grid cols-3" id="agenciesGrid">
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-cat="creative">
                         <div class="card-num">Creative · WPP / Grey</div>
                         <h3 class="card-title">GForce Grey</h3>
                         <p class="card-text">
-                            Самое награждаемое креативное агентство Центральной Азии. 
-                            Единственное в регионе обладатель Золота Cannes Lions, D&AD и Spikes Asia.
+                            Самое награждаемое креативное агентство Центральной Азии, основано в 2006 году. Первое в истории Казахстана Золото Cannes Lions (2024) и Grand Prix E+ Central Asia (2023).
                         </p>
                         <div class="card-tags">
                             <span>Стратегия</span><span>Креатив 360</span><span>Брендинг</span>
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-cat="media">
                         <div class="card-num">Media · GroupM / WPP</div>
                         <h3 class="card-title">Mindshare</h3>
                         <p class="card-text">
@@ -84,7 +100,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-cat="media">
                         <div class="card-num">Media · GroupM / WPP</div>
                         <h3 class="card-title">Wavemaker</h3>
                         <p class="card-text">
@@ -96,7 +112,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-cat="media digital">
                         <div class="card-num">Media & Digital · GroupM</div>
                         <h3 class="card-title">EssenceMediacom</h3>
                         <p class="card-text">
@@ -108,7 +124,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-cat="media digital">
                         <div class="card-num">Full-Cycle</div>
                         <h3 class="card-title">DASMART</h3>
                         <p class="card-text">
@@ -120,7 +136,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-cat="digital">
                         <div class="card-num">Digital & Performance</div>
                         <h3 class="card-title">DASM Digital Hub</h3>
                         <p class="card-text">
@@ -132,7 +148,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-cat="digital pr">
                         <div class="card-num">Social & Creators</div>
                         <h3 class="card-title">DASM Social & Influence</h3>
                         <p class="card-text">
@@ -144,7 +160,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-cat="pr">
                         <div class="card-num">PR & Reputation</div>
                         <h3 class="card-title">DASM PR</h3>
                         <p class="card-text">
@@ -156,7 +172,7 @@
                         </div>
                     </div>
 
-                    <div class="card reveal">
+                    <div class="card reveal" data-cat="btl">
                         <div class="card-num">BTL & Experience</div>
                         <h3 class="card-title">Action & Brand Experience</h3>
                         <p class="card-text">
@@ -169,6 +185,19 @@
                     </div>
 
                 </div>
+            </div>
+        </section>
+        <!-- Квиз -->
+        <section class="section bg-darker" id="quiz">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div>
+                        <span class="section-tag">Быстрый подбор</span>
+                        <h2 class="section-title">Какое агентство вам подойдёт?</h2>
+                        <p class="page-lead">Ответьте на три вопроса — подскажем, с кого начать.</p>
+                    </div>
+                </div>
+                <div class="quiz reveal" id="agencyQuiz"></div>
             </div>
         </section>
     </main>
@@ -239,6 +268,7 @@
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

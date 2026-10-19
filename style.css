@@ -1099,6 +1099,342 @@ select option { background: #1c1826; color: #fff; }
 ::-webkit-scrollbar-track { background: var(--bg-main); }
 ::-webkit-scrollbar-thumb { background: #2a2338; border-radius: 99px; }
 
+/* ==========================================================================
+   Фильтры (агентства, кейсы, страны)
+   ========================================================================== */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.chip {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.chip:hover {
+    color: #fff;
+    border-color: var(--border-accent);
+}
+
+.chip.active {
+    background: var(--gradient-brand);
+    border-color: transparent;
+    color: #1a1220;
+}
+
+.is-hidden { display: none !important; }
+
+.empty-note {
+    display: none;
+    color: var(--text-muted);
+    padding: 16px 0;
+}
+
+.empty-note.visible { display: block; }
+
+.stat-number b { font-weight: inherit; }
+
+/* ==========================================================================
+   Хронология и люди (О холдинге)
+   ========================================================================== */
+.timeline {
+    position: relative;
+    display: grid;
+    gap: 20px;
+    padding-left: 36px;
+    max-width: 860px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(var(--accent-primary), var(--accent-secondary) 70%, transparent);
+}
+
+.tl-item {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    transition: var(--transition);
+}
+
+.tl-item::before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 28px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    box-shadow: 0 0 0 5px var(--bg-darker);
+}
+
+.tl-item:hover { border-color: var(--border-accent); }
+
+.tl-year {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sources-note {
+    margin-top: 24px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.person {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 26px;
+}
+
+.avatar {
+    flex: 0 0 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--gradient-brand);
+    color: #1a1220;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.person-role {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   Клиенты
+   ========================================================================== */
+.clients-note {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    max-width: 720px;
+}
+
+.clients-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.client-chip {
+    padding: 14px 24px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.client-chip small {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+}
+
+.clients-wrap.muted .client-chip {
+    padding: 10px 18px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Квиз
+   ========================================================================== */
+.quiz {
+    max-width: 820px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+}
+
+.quiz-progress {
+    height: 4px;
+    margin-bottom: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.quiz-progress span {
+    display: block;
+    height: 100%;
+    background: var(--gradient-brand);
+    transition: width 0.4s ease;
+}
+
+.quiz-count {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 8px;
+}
+
+.quiz-q {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+.quiz-options { display: grid; gap: 10px; }
+
+.quiz-opt {
+    text-align: left;
+    font-family: var(--font-sans);
+    font-size: 0.97rem;
+    padding: 15px 20px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: #fff;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.quiz-opt:hover {
+    border-color: var(--accent-primary);
+    background: rgba(232, 160, 200, 0.08);
+}
+
+.quiz-result-name {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 10px;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quiz-result-desc { color: var(--text-secondary); margin-bottom: 10px; }
+.quiz-result-note { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+.quiz-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ==========================================================================
+   Вакансии: поиск и FAQ
+   ========================================================================== */
+.vacancy-tools {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.vacancy-tools input,
+.vacancy-tools select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+}
+
+.vacancy-tools input:focus,
+.vacancy-tools select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(232, 160, 200, 0.15);
+}
+
+.vacancies-more { margin-top: 24px; }
+
+.faq { display: grid; gap: 12px; max-width: 820px; }
+
+.faq details {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
+}
+
+.faq details[open] { border-color: var(--border-accent); }
+
+.faq summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::after {
+    content: '+';
+    color: var(--accent-primary);
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.faq details[open] summary::after { content: '\2013'; }
+
+.faq p {
+    margin-top: 12px;
+    color: var(--text-secondary);
+    font-size: 0.93rem;
+}
+
+/* 404 */
+.not-found { padding: 170px 0 110px; }
+
 /* Responsive */
 @media (max-width: 1100px) {
     .hero-split,
@@ -1180,3 +1516,20 @@ select option { background: #1c1826; color: #fff; }
         transform: none;
     }
 }
+
+@media (max-width: 1100px) {
+    .vacancy-tools { grid-template-columns: 1fr 1fr; }
+    .vacancy-tools input { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+    .people-grid,
+    .vacancy-tools { grid-template-columns: 1fr; }
+
+    .person { flex-direction: column; }
+    .quiz { padding: 24px; }
+    .quiz-result-name { font-size: 1.6rem; }
+    .not-found { padding: 130px 0 70px; }
+}
+
+.section-header .page-lead { margin-top: 12px; }

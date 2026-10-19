@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Карьера и вакансии — DASM Group</title>
+    <meta name="description" content="Вакансии и карьера в DASM Group: креатив, клиентский сервис, медиа и финансы. Алматы и Ташкент.">
+    <meta name="theme-color" content="#0c0b10">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="DASM Group">
+    <meta property="og:title" content="Карьера и вакансии — DASM Group">
+    <meta property="og:description" content="Вакансии и карьера в DASM Group: креатив, клиентский сервис, медиа и финансы. Алматы и Ташкент.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230c0b10'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='800' text-anchor='middle' fill='%23e8a0c8' font-family='Arial,sans-serif'%3ED%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
@@ -80,8 +89,24 @@
                     </div>
                 </div>
 
-                <div class="vacancies-list">
-                    <div class="vacancy-item reveal">
+                <div class="vacancy-tools reveal">
+                    <input type="search" id="vacSearch" placeholder="Поиск по вакансиям" aria-label="Поиск по вакансиям">
+                    <select id="vacCity" aria-label="Город">
+                        <option value="all">Все города</option>
+                        <option value="almaty">Алматы</option>
+                        <option value="tashkent">Ташкент</option>
+                    </select>
+                    <select id="vacDir" aria-label="Направление">
+                        <option value="all">Все направления</option>
+                        <option value="creative">Креатив</option>
+                        <option value="client">Client Service</option>
+                        <option value="media">Media &amp; Digital</option>
+                        <option value="finance">Финансы</option>
+                    </select>
+                </div>
+
+                <div class="vacancies-list" id="vacancyList">
+                    <div class="vacancy-item reveal" data-city="almaty" data-dir="creative">
                         <div>
                             <span class="vacancy-meta">Алматы • Креативное агентство (Full-time)</span>
                             <h3>Senior Creative Copywriter</h3>
@@ -90,7 +115,7 @@
                         <a href="#footer-contact" class="btn btn-outline">Откликнуться →</a>
                     </div>
 
-                    <div class="vacancy-item reveal">
+                    <div class="vacancy-item reveal" data-city="almaty tashkent" data-dir="client">
                         <div>
                             <span class="vacancy-meta">Алматы / Ташкент • Client Service (Full-time)</span>
                             <h3>Account Director (Integrated Campaigns)</h3>
@@ -99,7 +124,7 @@
                         <a href="#footer-contact" class="btn btn-outline">Откликнуться →</a>
                     </div>
 
-                    <div class="vacancy-item reveal">
+                    <div class="vacancy-item reveal" data-city="almaty" data-dir="media">
                         <div>
                             <span class="vacancy-meta">Алматы • Media & Digital (Full-time)</span>
                             <h3>Senior Digital Media Planner / Performance Lead</h3>
@@ -108,7 +133,7 @@
                         <a href="#footer-contact" class="btn btn-outline">Откликнуться →</a>
                     </div>
 
-                    <div class="vacancy-item reveal">
+                    <div class="vacancy-item reveal" data-city="almaty" data-dir="finance">
                         <div>
                             <span class="vacancy-meta">Алматы • Корпоративный центр (Full-time)</span>
                             <h3>Financial Manager</h3>
@@ -116,6 +141,39 @@
                         </div>
                         <a href="#footer-contact" class="btn btn-outline">Откликнуться →</a>
                     </div>
+                </div>
+                <p class="empty-note" id="vacEmpty">Ничего не нашли — попробуйте изменить фильтры.</p>
+                <div class="vacancies-more reveal">
+                    <a class="btn btn-outline" href="https://hh.kz/employer/81583" target="_blank" rel="noopener">Все вакансии на hh.kz →</a>
+                </div>
+            </div>
+        </section>
+        <!-- FAQ -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div>
+                        <span class="section-tag">Частые вопросы</span>
+                        <h2 class="section-title">Как попасть в DASM</h2>
+                    </div>
+                </div>
+                <div class="faq reveal">
+                    <details>
+                        <summary>Нужен ли опыт работы?</summary>
+                        <p>Зависит от позиции: в вакансиях группы на hh встречаются роли, где опыт не требуется, например Assistant Media Planning Manager.</p>
+                    </details>
+                    <details>
+                        <summary>Где смотреть актуальные вакансии?</summary>
+                        <p>Актуальный список ведётся на странице DASM Group на hh.kz — ссылка под списком вакансий.</p>
+                    </details>
+                    <details>
+                        <summary>Какой график работы?</summary>
+                        <p>В опубликованных вакансиях указан график 5/2 с работой в офисе. Детали уточняйте у рекрутера.</p>
+                    </details>
+                    <details>
+                        <summary>Как откликнуться?</summary>
+                        <p>Нажмите «Откликнуться» у вакансии и заполните форму внизу страницы: расскажите о себе и добавьте ссылку на резюме или портфолио.</p>
+                    </details>
                 </div>
             </div>
         </section>
@@ -141,7 +199,7 @@
                     </div>
                 </div>
                 <div class="footer-form-wrap reveal">
-                    <form class="contact-form js-validate-form" novalidate>
+                    <form class="contact-form js-validate-form" data-mailto="hr@dasm.kz" novalidate>
                         <h3>Связаться с DASM Group</h3>
                         <div class="form-group">
                             <label>Ваше имя *</label>
@@ -186,6 +244,7 @@
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
