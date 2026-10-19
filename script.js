@@ -23,6 +23,61 @@ const fullDictionary = {
     "Все работы →": { KZ: "Барлық жұмыстар →", EN: "All Works →" },
     "Подробнее о кейсе": { KZ: "Кейс туралы толығырақ", EN: "Case Study Details" },
     "Изучить рынки присутствия →": { KZ: "Қатысу нарықтарын зерттеу →", EN: "Explore Regional Markets →" },
+    // 0. АВТО-ЗАПОЛНЕНИЕ ПУСТЫХ ПРОСТРАНСТВ НА ВСЕХ 8 СТРАНИЦАХ (Боковые док-панели + Витрина в шапках внутренних страниц)
+    const leftRail = document.createElement('aside');
+    leftRail.className = 'edge-rail edge-rail-left';
+    leftRail.innerHTML = `
+        <span class="rail-dot"></span>
+        <span class="rail-pill">DASM GROUP • EST. 1994</span>
+        <a href="https://www.instagram.com/dasmgroup_official" target="_blank" class="rail-btn" title="Instagram">IG</a>
+        <a href="https://www.linkedin.com" target="_blank" class="rail-btn" title="LinkedIn">IN</a>
+    `;
+    document.body.appendChild(leftRail);
+
+    const rightRail = document.createElement('aside');
+    rightRail.className = 'edge-rail edge-rail-right';
+    rightRail.innerHTML = `
+        <a href="#footer-contact" class="rail-btn" title="Быстрая заявка">✉</a>
+        <span class="rail-pill">8 СТРАН • 15 АГЕНТСТВ</span>
+        <button class="rail-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Наверх">↑</button>
+    `;
+    document.body.appendChild(rightRail);
+
+    // Заполняем правую часть в .page-hero на всех внутренних страницах (О холдинге, Агентства, Кейсы, Страны, Новости, Карьера, Контакты)
+    const pageHeroContainer = document.querySelector('.page-hero .container');
+    if (pageHeroContainer && !pageHeroContainer.querySelector('.page-hero-split')) {
+        const originalChildren = Array.from(pageHeroContainer.children);
+        const splitWrap = document.createElement('div');
+        splitWrap.className = 'page-hero-split';
+
+        const leftSide = document.createElement('div');
+        originalChildren.forEach(ch => leftSide.appendChild(ch));
+
+        const rightSide = document.createElement('div');
+        rightSide.className = 'page-hero-aside reveal visible';
+        rightSide.innerHTML = `
+            <div class="aside-metric">
+                <strong>1994 год</strong>
+                <span>32 года лидерства в регионе</span>
+            </div>
+            <div class="aside-metric">
+                <strong>15 агентств</strong>
+                <span>Партнёр глобальной сети WPP</span>
+            </div>
+            <div class="aside-metric">
+                <strong>Cannes Lions</strong>
+                <span>Золото, Серебро и Бронза</span>
+            </div>
+            <div class="aside-metric">
+                <strong>8 рынков</strong>
+                <span>Центральная Азия и Кавказ</span>
+            </div>
+        `;
+
+        splitWrap.appendChild(leftSide);
+        splitWrap.appendChild(rightSide);
+        pageHeroContainer.appendChild(splitWrap);
+    }
 
     // =========================================================================
     // 1. ГЛАВНАЯ СТРАНИЦА (INDEX.HTML)
