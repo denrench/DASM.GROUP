@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Агентства холдинга — Витрина DASM Group</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <title>Агентства — DASM Group</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="cursor-glow" id="cursorGlow"></div>
-
     <header class="header" id="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
+
             <nav class="nav" id="navMenu">
                 <a href="index.html" class="nav-link">Главная</a>
                 <a href="about.html" class="nav-link">О холдинге</a>
@@ -25,221 +21,213 @@
                 <a href="career.html" class="nav-link">Карьера</a>
                 <a href="contacts.html" class="nav-link">Контакты</a>
             </nav>
+
             <div class="header-actions">
-                <div class="lang-switcher" id="langSwitcher">
-                    <button class="lang-btn active" data-lang="RU">RU</button>
-                    <button class="lang-btn" data-lang="KZ">KZ</button>
-                    <button class="lang-btn" data-lang="EN">EN</button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active">RU</button>
+                    <button class="lang-btn">KZ</button>
+                    <button class="lang-btn">EN</button>
                 </div>
                 <a href="#footer-contact" class="btn btn-primary btn-sm">Стать клиентом</a>
-                <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
+                <button class="burger" id="burgerBtn" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
 
     <main>
+        <!-- Page Hero -->
         <section class="page-hero">
             <div class="container">
                 <span class="section-tag reveal">Структура группы</span>
-                <h1 class="page-title reveal">15 специализированных агентств <span class="gradient-text">в единой экосистеме</span></h1>
+                <h1 class="page-title reveal">
+                    15 специализированных агентств<br>
+                    <span class="gradient-text">в единой экосистеме</span>
+                </h1>
                 <p class="page-lead reveal">
-                    Каждое агентство в составе DASM Group обладает глубокой профильной специализацией — от глобального медиабаинга и стратегии до дерзкого креатива, digital-перформанса, PR и трейд-маркетинга.
+                    Каждое агентство обладает глубокой профильной специализацией — от глобального медиабаинга и стратегии 
+                    до креатива, digital-перформанса, PR и трейд-маркетинга.
                 </p>
-
-                <!-- Фильтр агентств -->
-                <div class="filter-bar reveal" id="agencyFilters">
-                    <button class="filter-btn active" data-filter="all">Все направления</button>
-                    <button class="filter-btn" data-filter="creative">Креатив и Стратегия</button>
-                    <button class="filter-btn" data-filter="media">Медиа и Инвестиции</button>
-                    <button class="filter-btn" data-filter="digital">Digital, PR & BTL</button>
-                </div>
             </div>
         </section>
 
+        <!-- Агентства -->
         <section class="section">
             <div class="container">
-                <div class="cards-grid cols-3" id="agencyGrid">
-                    <!-- 1. GForce Grey -->
-                    <div class="card agency-card interactive-card reveal" data-category="creative">
-                        <div class="agency-top">
-                            <span class="agency-badge">Creative • WPP / Grey Network</span>
-                            <span class="agency-year">Est. 2006</span>
-                        </div>
+                <div class="cards-grid cols-3">
+
+                    <div class="card reveal">
+                        <div class="card-num">Creative · WPP / Grey</div>
                         <h3 class="card-title">GForce Grey</h3>
-                        <p class="card-text">Самое награждаемое креативное агентство Центральной Азии. Единственное в регионе агентство — обладатель Золота, Серебра и Бронзы Cannes Lions, наград D&AD и Spikes Asia. Лидер рейтингов AdAsia и E+.</p>
+                        <p class="card-text">
+                            Самое награждаемое креативное агентство Центральной Азии. 
+                            Единственное в регионе обладатель Золота Cannes Lions, D&AD и Spikes Asia.
+                        </p>
                         <div class="card-tags">
                             <span>Стратегия</span><span>Креатив 360</span><span>Брендинг</span>
                         </div>
                     </div>
 
-                    <!-- 2. Mindshare -->
-                    <div class="card agency-card interactive-card reveal" data-category="media">
-                        <div class="agency-top">
-                            <span class="agency-badge">Media • GroupM / WPP</span>
-                            <span class="agency-year">Global Network</span>
-                        </div>
-                        <h3 class="card-title">Mindshare Central Asia</h3>
-                        <p class="card-text">Глобальное медийное агентство, фокусирующееся на ускоренном росте брендов (Good Growth) за счет адаптивного медиапланирования, глубокой аналитики данных и эффективных медиа-инвестиций.</p>
+                    <div class="card reveal">
+                        <div class="card-num">Media · GroupM / WPP</div>
+                        <h3 class="card-title">Mindshare</h3>
+                        <p class="card-text">
+                            Глобальное медийное агентство, фокусирующееся на росте брендов через 
+                            адаптивное медиапланирование и глубокую аналитику данных.
+                        </p>
                         <div class="card-tags">
-                            <span>Media Planning</span><span>TV & OOH</span><span>Data Analytics</span>
+                            <span>Media Planning</span><span>TV & OOH</span><span>Data</span>
                         </div>
                     </div>
 
-                    <!-- 3. Wavemaker -->
-                    <div class="card agency-card interactive-card reveal" data-category="media">
-                        <div class="agency-top">
-                            <span class="agency-badge">Media • GroupM / WPP</span>
-                            <span class="agency-year">Global Network</span>
-                        </div>
+                    <div class="card reveal">
+                        <div class="card-num">Media · GroupM / WPP</div>
                         <h3 class="card-title">Wavemaker</h3>
-                        <p class="card-text">Агентство, объединяющее медиа, контент и технологии. Использует запатентованные исследования потребительского пути (Purchase Journey) для максимизации ROI рекламных кампаний.</p>
+                        <p class="card-text">
+                            Агентство, объединяющее медиа, контент и технологии. 
+                            Использует исследования потребительского пути для максимизации ROI.
+                        </p>
                         <div class="card-tags">
-                            <span>Media Buying</span><span>Content</span><span>ROI Optimization</span>
+                            <span>Media Buying</span><span>Content</span><span>ROI</span>
                         </div>
                     </div>
 
-                    <!-- 4. EssenceMediacom -->
-                    <div class="card agency-card interactive-card reveal" data-category="media">
-                        <div class="agency-top">
-                            <span class="agency-badge">Media & Digital • GroupM</span>
-                            <span class="agency-year">Global Network</span>
-                        </div>
+                    <div class="card reveal">
+                        <div class="card-num">Media & Digital · GroupM</div>
                         <h3 class="card-title">EssenceMediacom</h3>
-                        <p class="card-text">Синтез digital-ДНК агентства Essence и масштабной системной экспертизы MediaCom. Создает прорывные коммуникационные системы для крупнейших рекламодателей мира.</p>
+                        <p class="card-text">
+                            Синтез digital-ДНК Essence и системной экспертизы MediaCom. 
+                            Создаёт прорывные коммуникационные системы.
+                        </p>
                         <div class="card-tags">
-                            <span>System Planning</span><span>Digital Media</span><span>Omnichannel</span>
+                            <span>System Planning</span><span>Digital</span><span>Omnichannel</span>
                         </div>
                     </div>
 
-                    <!-- 5. DASMART -->
-                    <div class="card agency-card interactive-card reveal" data-category="media">
-                        <div class="agency-top">
-                            <span class="agency-badge">Full-Cycle Media & Creative</span>
-                            <span class="agency-year">20+ лет опыта</span>
-                        </div>
+                    <div class="card reveal">
+                        <div class="card-num">Full-Cycle</div>
                         <h3 class="card-title">DASMART</h3>
-                        <p class="card-text">Синергия исследований, медиастратегии, Digital, ТВ и наружной рекламы в единую систему коммуникации, которая увеличивает продажи. Более 1500 реализованных кейсов.</p>
+                        <p class="card-text">
+                            Синергия исследований, медиастратегии, Digital, ТВ и наружной рекламы. 
+                            Более 1500 реализованных кейсов.
+                        </p>
                         <div class="card-tags">
-                            <span>360 Кампании</span><span>Performance</span><span>OOH & TV</span>
+                            <span>360°</span><span>Performance</span><span>OOH & TV</span>
                         </div>
                     </div>
 
-                    <!-- 6. Action / Ogilvy -->
-                    <div class="card agency-card interactive-card reveal" data-category="creative">
-                        <div class="agency-top">
-                            <span class="agency-badge">Creative & BTL</span>
-                            <span class="agency-year">Network Affiliate</span>
-                        </div>
-                        <h3 class="card-title">Action & Brand Experience</h3>
-                        <p class="card-text">Интегрированные маркетинговые коммуникации, трейд-маркетинг, масштабные бренд-активации и специальные события во всех странах Центральной Азии.</p>
-                        <div class="card-tags">
-                            <span>BTL & Events</span><span>Shopper Marketing</span><span>Activation</span>
-                        </div>
-                    </div>
-
-                    <!-- 7. DASM Digital Hub -->
-                    <div class="card agency-card interactive-card reveal" data-category="digital">
-                        <div class="agency-top">
-                            <span class="agency-badge">Performance & AdTech</span>
-                            <span class="agency-year">Digital Core</span>
-                        </div>
-                        <h3 class="card-title">DASM Digital & Programmatic</h3>
-                        <p class="card-text">Передовой digital-хаб холдинга: Programmatic-закупки, лидогенерация, SEO/ASO, сквозная аналитика, работа с глобальными рекламными платформами (Meta, Google, TikTok, Yandex).</p>
+                    <div class="card reveal">
+                        <div class="card-num">Digital & Performance</div>
+                        <h3 class="card-title">DASM Digital Hub</h3>
+                        <p class="card-text">
+                            Programmatic-закупки, лидогенерация, SEO/ASO, сквозная аналитика 
+                            и работа с Meta, Google, TikTok, YouTube.
+                        </p>
                         <div class="card-tags">
                             <span>Programmatic</span><span>Performance</span><span>AdTech</span>
                         </div>
                     </div>
 
-                    <!-- 8. Influence & SMM Studio -->
-                    <div class="card agency-card interactive-card reveal" data-category="digital">
-                        <div class="agency-top">
-                            <span class="agency-badge">Social & Creators</span>
-                            <span class="agency-year">New Media</span>
-                        </div>
+                    <div class="card reveal">
+                        <div class="card-num">Social & Creators</div>
                         <h3 class="card-title">DASM Social & Influence</h3>
-                        <p class="card-text">Комплексное управление присутствием брендов в соцсетях, спецпроекты с топ-блогерами и лидерами мнений на локальных языках в 8 странах региона.</p>
+                        <p class="card-text">
+                            Управление присутствием брендов в соцсетях, спецпроекты с топ-блогерами 
+                            и лидерами мнений на локальных языках.
+                        </p>
                         <div class="card-tags">
-                            <span>SMM</span><span>Influencer Marketing</span><span>Special Projects</span>
+                            <span>SMM</span><span>Influencer</span><span>Special Projects</span>
                         </div>
                     </div>
 
-                    <!-- 9. PR & Corporate Communications -->
-                    <div class="card agency-card interactive-card reveal" data-category="digital">
-                        <div class="agency-top">
-                            <span class="agency-badge">Reputation & GR/PR</span>
-                            <span class="agency-year">Strategic PR</span>
-                        </div>
-                        <h3 class="card-title">DASM PR & Reputation</h3>
-                        <p class="card-text">Управление корпоративной репутацией, связи со СМИ, ESG-коммуникации, антикризисный менеджмент и организация пресс-мероприятий регионального масштаба.</p>
+                    <div class="card reveal">
+                        <div class="card-num">PR & Reputation</div>
+                        <h3 class="card-title">DASM PR</h3>
+                        <p class="card-text">
+                            Управление корпоративной репутацией, связи со СМИ, ESG-коммуникации 
+                            и антикризисный менеджмент.
+                        </p>
                         <div class="card-tags">
-                            <span>PR Стратегии</span><span>Media Relations</span><span>ESG & Crisis</span>
+                            <span>PR</span><span>Media Relations</span><span>ESG</span>
                         </div>
                     </div>
+
+                    <div class="card reveal">
+                        <div class="card-num">BTL & Experience</div>
+                        <h3 class="card-title">Action & Brand Experience</h3>
+                        <p class="card-text">
+                            Интегрированные маркетинговые коммуникации, трейд-маркетинг, 
+                            масштабные бренд-активации и события.
+                        </p>
+                        <div class="card-tags">
+                            <span>BTL</span><span>Events</span><span>Shopper</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ФУТЕР С ФОРМОЙ -->
+    <!-- Footer -->
     <footer class="footer" id="footer-contact">
         <div class="container">
             <div class="footer-top-grid">
                 <div class="footer-cta-info reveal">
                     <span class="section-tag">Подбор команды</span>
-                    <h2 class="footer-heading">Не знаете, какое именно агентство подойдет под вашу задачу?</h2>
-                    <p class="footer-lead">Оставьте заявку — мы соберем кастомную проектную команду из лучших стратегов, креаторов и медийщиков холдинга под ваш KPI.</p>
+                    <h2 class="footer-heading">Не знаете, какое агентство подойдёт?</h2>
+                    <p class="footer-lead">Оставьте заявку — мы соберём кастомную команду под ваш KPI.</p>
                     <div class="footer-contacts-direct">
                         <div>
                             <small>Штаб-квартира</small>
-                            <p>Алматы, ул. Шамши Калдаякова, 34</p>
+                            <p>ул. Шамши Калдаякова, 34, Алматы</p>
                         </div>
                         <div>
-                            <small>Связь</small>
-                            <p><a href="tel:+77273131391">+7 (727) 313-13-91</a> • <a href="mailto:info@dasm.kz">info@dasm.kz</a></p>
+                            <small>Контакты</small>
+                            <p>+7 (727) 313-13-91<br>info@dasm.kz</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="footer-form-wrap reveal">
                     <form class="contact-form js-validate-form" novalidate>
-                        <h3>Запросить презентацию агентств</h3>
+                        <h3>Запросить презентацию</h3>
                         <div class="form-group">
                             <label>Ваше имя *</label>
                             <input type="text" name="name" placeholder="Ваше имя" required>
-                            <span class="error-msg">Пожалуйста, введите ваше имя</span>
+                            <span class="error-msg">Введите имя</span>
                         </div>
                         <div class="form-group">
                             <label>Телефон или Email *</label>
-                            <input type="text" name="contact" placeholder="+7 (777) 000-00-00 или email" required>
-                            <span class="error-msg">Укажите телефон или email</span>
+                            <input type="text" name="contact" placeholder="+7 или email" required>
+                            <span class="error-msg">Укажите контакты</span>
                         </div>
                         <div class="form-group">
                             <label>Описание задачи *</label>
-                            <textarea name="message" rows="3" placeholder="Какое направление вас интересует?" required></textarea>
+                            <textarea name="message" rows="3" placeholder="Какое направление интересует?" required></textarea>
                             <span class="error-msg">Напишите сообщение</span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Отправить запрос →</button>
-                        <div class="form-success-message">✓ Запрос отправлен! Мы скоро свяжемся с вами.</div>
+                        <button type="submit" class="btn btn-primary btn-block">Отправить →</button>
+                        <div class="form-success-message">✓ Заявка отправлена!</div>
                     </form>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
-                    <p>© 1994–2026 DASM Group. Все права защищены.</p>
+                    <p>© 1994–2026 DASM Group</p>
                 </div>
                 <div class="footer-links">
                     <a href="about.html">О холдинге</a>
                     <a href="agencies.html">Агентства</a>
                     <a href="works.html">Кейсы</a>
-                    <a href="countries.html">Страны</a>
-                    <a href="news.html">Новости</a>
-                    <a href="career.html">Карьера</a>
                     <a href="contacts.html">Контакты</a>
                 </div>
                 <div class="footer-socials">
-                    <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">Instagram</a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://www.dasm.kz" target="_blank" rel="noopener">dasm.kz</a>
+                    <a href="https://www.instagram.com/dasmgroup_official" target="_blank">Instagram</a>
+                    <a href="https://www.linkedin.com/company/dasmgroup" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </div>
