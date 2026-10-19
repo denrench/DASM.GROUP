@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наши работы и кейсы — DASM Group</title>
+    <title>Кейсы и работы — DASM Group</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="cursor-glow" id="cursorGlow"></div>
-
     <header class="header" id="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
+
             <nav class="nav" id="navMenu">
                 <a href="index.html" class="nav-link">Главная</a>
                 <a href="about.html" class="nav-link">О холдинге</a>
@@ -22,123 +21,138 @@
                 <a href="career.html" class="nav-link">Карьера</a>
                 <a href="contacts.html" class="nav-link">Контакты</a>
             </nav>
+
             <div class="header-actions">
-                <div class="lang-switcher" id="langSwitcher">
-                    <button class="lang-btn active" data-lang="RU">RU</button>
-                    <button class="lang-btn" data-lang="KZ">KZ</button>
-                    <button class="lang-btn" data-lang="EN">EN</button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active">RU</button>
+                    <button class="lang-btn">KZ</button>
+                    <button class="lang-btn">EN</button>
                 </div>
                 <a href="#footer-contact" class="btn btn-primary btn-sm">Стать клиентом</a>
-                <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
+                <button class="burger" id="burgerBtn" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
 
     <main>
+        <!-- Page Hero -->
         <section class="page-hero">
             <div class="container">
                 <span class="section-tag reveal">Доказанная эффективность</span>
-                <h1 class="page-title reveal">Кейсы, которые выигрывают <span class="gradient-text">рынки и фестивали</span></h1>
+                <h1 class="page-title reveal">
+                    Кейсы, которые выигрывают<br>
+                    <span class="gradient-text">рынки и фестивали</span>
+                </h1>
                 <p class="page-lead reveal">
                     Более 1500 успешных кампаний в финансовом секторе, FMCG, телекоме, e-commerce и социально значимых инициативах.
                 </p>
-
-                <div class="filter-bar reveal" id="worksFilters">
-                    <button class="filter-btn active" data-filter="all">Все кейсы</button>
-                    <button class="filter-btn" data-filter="awards">Победители фестивалей</button>
-                    <button class="filter-btn" data-filter="fintech">FinTech & E-com</button>
-                    <button class="filter-btn" data-filter="media">Media & OOH</button>
-                </div>
             </div>
         </section>
 
+        <!-- Кейсы -->
         <section class="section">
             <div class="container">
-                <div class="cards-grid cols-2" id="worksGrid">
-                    <!-- Кейс 1: Тематическое фото спортивного ринга / единоборств (Ruh Fighting) -->
-                    <article class="case-card reveal" data-category="awards">
+                <div class="cards-grid cols-2">
+
+                    <!-- Кейс 1 -->
+                    <article class="case-card reveal">
                         <div class="case-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1000&q=85" alt="Ринг единоборств — The National Sport of Kazakhstan">
-                            <span class="case-badge gold">🏆 Cannes Lions Gold • D&AD</span>
+                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1000&q=85" alt="Ruh Fighting">
+                            <span class="case-badge">🏆 Cannes Lions Gold</span>
                         </div>
                         <div class="case-body">
-                            <div class="case-meta">GForce Grey • Ruh Fighting • Социальный PR и активизм</div>
+                            <div class="case-meta">GForce Grey · Ruh Fighting</div>
                             <h3 class="case-title">The National Sport of Kazakhstan</h3>
-                            <p class="case-desc">Беспрецедентный проект, превративший трансляцию ММА-поединка в мощное социальное высказывание против бытового насилия. Охват 45+ млн человек, сотни публикаций в мировых медиа и вклад в принятие исторического закона в РК.</p>
+                            <p class="case-desc">
+                                Первое в истории Казахстана Золото Cannes Lions. Социальная кампания против бытового насилия, 
+                                превратившая трансляцию ММА в мощное общественное высказывание. Охват 45+ млн человек.
+                            </p>
                             <div class="case-stats">
                                 <div><strong>Gold Lion</strong><span>Cannes Lions</span></div>
-                                <div><strong>45M+</strong><span>Earned Reach</span></div>
-                                <div><strong>#1</strong><span>AdAsia Rating</span></div>
+                                <div><strong>45M+</strong><span>Охват</span></div>
+                                <div><strong>#1</strong><span>AdAsia</span></div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Кейс 2: Тематическое фото городских цифровых билбордов (Saltanat Light & Citix) -->
-                    <article class="case-card reveal" data-category="awards media">
+                    <!-- Кейс 2 -->
+                    <article class="case-card reveal">
                         <div class="case-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85" alt="Уличные цифровые экраны мегаполиса — Saltanat Light">
-                            <span class="case-badge">🏆 AdFest Gold Lotus • Spikes Asia</span>
+                            <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85" alt="Saltanat Light">
+                            <span class="case-badge">🏆 AdFest Gold Lotus</span>
                         </div>
                         <div class="case-body">
-                            <div class="case-meta">GForce Grey & Citix • Smart City DOOH</div>
-                            <h3 class="case-title">Saltanat Light — Свет в память и защиту</h3>
-                            <p class="case-desc">Синхронизация всей сети цифровых уличных экранов Citix с данными о кризисных центрах и призывом к безопасности женщин. Первое в Центральной Азии золото фестиваля AdFest.</p>
+                            <div class="case-meta">GForce Grey & Citix</div>
+                            <h3 class="case-title">Saltanat Light</h3>
+                            <p class="case-desc">
+                                Синхронизация всей сети цифровых уличных экранов Citix с данными кризисных центров. 
+                                Первое золото Центральной Азии на фестивале AdFest.
+                            </p>
                             <div class="case-stats">
-                                <div><strong>100+</strong><span>Smart-экранов DOOH</span></div>
-                                <div><strong>Gold</strong><span>AdFest Lotus</span></div>
-                                <div><strong>Grand Prix</strong><span>E+ Central Asia</span></div>
+                                <div><strong>100+</strong><span>Экранов DOOH</span></div>
+                                <div><strong>Gold</strong><span>AdFest</span></div>
+                                <div><strong>Grand Prix</strong><span>E+</span></div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Кейс 3: Тематическое фото мобильного банкинга и покупок со смартфона (Kaspi SuperApp) -->
-                    <article class="case-card reveal" data-category="fintech awards">
+                    <!-- Кейс 3 -->
+                    <article class="case-card reveal">
                         <div class="case-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85" alt="Оплата смартфоном и мобильный финтех — Kaspi.kz">
-                            <span class="case-badge">🏆 4x Client of the Year (Jolbors)</span>
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85" alt="Kaspi">
+                            <span class="case-badge">🏆 4× Client of the Year</span>
                         </div>
                         <div class="case-body">
-                            <div class="case-meta">GForce Grey & DASM Media • FinTech & E-Commerce Ecosystem</div>
-                            <h3 class="case-title">Всенародные кампании Kaspi Жұма и SuperApp</h3>
-                            <p class="case-desc">Многолетнее стратегическое и креативное сопровождение главного финтех-бренда страны. Создание национальных музыкальных и семейных блокбастеров, формирующих рекордные показатели транзакций и узнаваемости (Top of Mind 98%).</p>
+                            <div class="case-meta">GForce Grey & DASM Media</div>
+                            <h3 class="case-title">Kaspi Жұма и SuperApp</h3>
+                            <p class="case-desc">
+                                Многолетнее стратегическое и креативное сопровождение главного финтех-бренда страны. 
+                                Национальные кампании с рекордными показателями узнаваемости.
+                            </p>
                             <div class="case-stats">
-                                <div><strong>4 раза</strong><span>Клиент года Jolbors</span></div>
-                                <div><strong>98%</strong><span>Brand Awareness</span></div>
-                                <div><strong>360°</strong><span>TV, Digital, OOH</span></div>
+                                <div><strong>4 раза</strong><span>Клиент года</span></div>
+                                <div><strong>98%</strong><span>Awareness</span></div>
+                                <div><strong>360°</strong><span>TV + Digital</span></div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Кейс 4: Тематическое фото аналитики, медиапланирования и графиков роста (Multi-country Launch) -->
-                    <article class="case-card reveal" data-category="media fintech">
+                    <!-- Кейс 4 -->
+                    <article class="case-card reveal">
                         <div class="case-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1000&q=85" alt="Аналитический дашборд медиабаинга на 5 стран">
-                            <span class="case-badge">📊 ROI +185% • 5 стран ЦА</span>
+                            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1000&q=85" alt="Multi-country">
+                            <span class="case-badge">📊 ROI +185%</span>
                         </div>
                         <div class="case-body">
-                            <div class="case-meta">Mindshare / Wavemaker / DASMART • Мультирыночный запуск</div>
-                            <h3 class="case-title">Масштабирование глобального FMCG & Telecom бренда на 5 стран</h3>
-                            <p class="case-desc">Единая медиа- и digital-стратегия для Казахстана, Узбекистана, Кыргызстана, Таджикистана и Армении. Оптимизация ТВ-баинга и Programmatic-сплита снизила стоимость контакта (CPT) на 27%.</p>
+                            <div class="case-meta">Mindshare / Wavemaker / DASMART</div>
+                            <h3 class="case-title">Масштабирование FMCG & Telecom на 5 стран</h3>
+                            <p class="case-desc">
+                                Единая медиа- и digital-стратегия для Казахстана, Узбекистана, Кыргызстана, 
+                                Таджикистана и Армении. Снижение CPT на 27%.
+                            </p>
                             <div class="case-stats">
-                                <div><strong>-27%</strong><span>Снижение CPT</span></div>
-                                <div><strong>+42%</strong><span>Рост органического поиска</span></div>
-                                <div><strong>5 стран</strong><span>Единый хаб управления</span></div>
+                                <div><strong>-27%</strong><span>CPT</span></div>
+                                <div><strong>+42%</strong><span>Органика</span></div>
+                                <div><strong>5 стран</strong><span>Единый хаб</span></div>
                             </div>
                         </div>
                     </article>
+
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ФУТЕР С ФОРМОЙ -->
+    <!-- Footer -->
     <footer class="footer" id="footer-contact">
         <div class="container">
             <div class="footer-top-grid">
                 <div class="footer-cta-info reveal">
                     <span class="section-tag">Новый кейс</span>
-                    <h2 class="footer-heading">Хотите, чтобы ваш бренд стал следующим громким кейсом региона?</h2>
-                    <p class="footer-lead">Свяжитесь с нами для обсуждения вашей маркетинговой или медийной задачи.</p>
+                    <h2 class="footer-heading">Хотите, чтобы ваш бренд стал следующим громким кейсом?</h2>
+                    <p class="footer-lead">Свяжитесь с нами для обсуждения маркетинговой или медийной задачи.</p>
                     <div class="footer-contacts-direct">
                         <div>
                             <small>Офис в Алматы</small>
@@ -146,51 +160,49 @@
                         </div>
                         <div>
                             <small>Контакты</small>
-                            <p><a href="tel:+77273131391">+7 (727) 313-13-91</a> • <a href="mailto:info@dasm.kz">info@dasm.kz</a></p>
+                            <p>+7 (727) 313-13-91<br>info@dasm.kz</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="footer-form-wrap reveal">
                     <form class="contact-form js-validate-form" novalidate>
-                        <h3>Обсудить ваш проект</h3>
+                        <h3>Обсудить проект</h3>
                         <div class="form-group">
                             <label>Ваше имя *</label>
                             <input type="text" name="name" placeholder="Ваше имя" required>
-                            <span class="error-msg">Введите ваше имя</span>
+                            <span class="error-msg">Введите имя</span>
                         </div>
                         <div class="form-group">
                             <label>Телефон или Email *</label>
-                            <input type="text" name="contact" placeholder="+7 (777) 000-00-00 или email" required>
-                            <span class="error-msg">Укажите телефон или email</span>
+                            <input type="text" name="contact" placeholder="+7 или email" required>
+                            <span class="error-msg">Укажите контакты</span>
                         </div>
                         <div class="form-group">
                             <label>Задача *</label>
-                            <textarea name="message" rows="3" placeholder="Опишите ваш бренд и цели кампании..." required></textarea>
+                            <textarea name="message" rows="3" placeholder="Опишите бренд и цели..." required></textarea>
                             <span class="error-msg">Напишите сообщение</span>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Отправить бриф →</button>
-                        <div class="form-success-message"></div>
+                        <div class="form-success-message">✓ Заявка отправлена!</div>
                     </form>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
-                    <p>© 1994–2026 DASM Group. Все права защищены.</p>
+                    <p>© 1994–2026 DASM Group</p>
                 </div>
                 <div class="footer-links">
                     <a href="about.html">О холдинге</a>
                     <a href="agencies.html">Агентства</a>
                     <a href="works.html">Кейсы</a>
-                    <a href="countries.html">Страны</a>
-                    <a href="news.html">Новости</a>
-                    <a href="career.html">Карьера</a>
                     <a href="contacts.html">Контакты</a>
                 </div>
                 <div class="footer-socials">
-                    <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">Instagram</a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://www.dasm.kz" target="_blank" rel="noopener">dasm.kz</a>
+                    <a href="https://www.instagram.com/dasmgroup_official" target="_blank">Instagram</a>
+                    <a href="https://www.linkedin.com/company/dasmgroup" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </div>
