@@ -52,6 +52,7 @@
         <!-- HERO -->
         <section class="hero-v2" id="hero">
             <div class="aurora"><i></i><i></i><i></i></div>
+            <canvas id="hero3d" aria-hidden="true"></canvas>
             <div class="container hero-v2-inner">
                 <div class="hero-pill rise" style="--d:.05s">
                     <span class="pulse-dot"></span>
@@ -159,56 +160,40 @@
                     </div>
 
                     <div class="sys-stage reveal">
-                        <svg class="sys-svg" viewBox="0 0 560 540" role="img" aria-label="Схема системы DASM">
-                            <circle class="ring" cx="280" cy="270" r="170"/>
-                            <circle class="ring ring-dash" cx="280" cy="270" r="110"/>
-                            <circle class="ring" cx="280" cy="270" r="56"/>
-
-                            <g class="star">
-                                <line x1="280" y1="100" x2="380" y2="408"/>
-                                <line x1="380" y1="408" x2="118" y2="218"/>
-                                <line x1="118" y1="218" x2="442" y2="218"/>
-                                <line x1="442" y1="218" x2="180" y2="408"/>
-                                <line x1="180" y1="408" x2="280" y2="100"/>
-                            </g>
-
-                            <line class="spoke active" data-i="0" x1="280" y1="270" x2="280" y2="100"/>
-                            <line class="spoke" data-i="1" x1="280" y1="270" x2="442" y2="218"/>
-                            <line class="spoke" data-i="2" x1="280" y1="270" x2="380" y2="408"/>
-                            <line class="spoke" data-i="3" x1="280" y1="270" x2="180" y2="408"/>
-                            <line class="spoke" data-i="4" x1="280" y1="270" x2="118" y2="218"/>
-
-                            <g class="orbit">
-                                <circle cx="390" cy="270" r="3"/>
-                                <circle cx="225" cy="365" r="3"/>
-                                <circle cx="225" cy="175" r="3"/>
-                            </g>
-
-                            <circle class="core" cx="280" cy="270" r="34"/>
-                            <text class="core-text" x="280" y="270">DASM</text>
-                            <circle class="pulse" r="4.5"/>
-
-                            <g class="node active" data-i="0" transform="translate(280,100)" tabindex="0" role="button" aria-label="Стратегия">
-                                <circle class="halo" r="34"/><circle class="dot" r="21"/><text class="num">01</text>
-                                <text class="lbl" x="0" y="-36" text-anchor="middle">Стратегия</text>
-                            </g>
-                            <g class="node" data-i="1" transform="translate(442,218)" tabindex="0" role="button" aria-label="Креатив">
-                                <circle class="halo" r="34"/><circle class="dot" r="21"/><text class="num">02</text>
-                                <text class="lbl" x="34" y="4" text-anchor="start">Креатив</text>
-                            </g>
-                            <g class="node" data-i="2" transform="translate(380,408)" tabindex="0" role="button" aria-label="Медиа">
-                                <circle class="halo" r="34"/><circle class="dot" r="21"/><text class="num">03</text>
-                                <text class="lbl" x="0" y="46" text-anchor="middle">Медиа</text>
-                            </g>
-                            <g class="node" data-i="3" transform="translate(180,408)" tabindex="0" role="button" aria-label="Digital">
-                                <circle class="halo" r="34"/><circle class="dot" r="21"/><text class="num">04</text>
-                                <text class="lbl" x="0" y="46" text-anchor="middle">Digital</text>
-                            </g>
-                            <g class="node" data-i="4" transform="translate(118,218)" tabindex="0" role="button" aria-label="Результат">
-                                <circle class="halo" r="34"/><circle class="dot" r="21"/><text class="num">05</text>
-                                <text class="lbl" x="-34" y="4" text-anchor="end">Результат</text>
-                            </g>
-                        </svg>
+                        <div class="stage-3d">
+                            <div class="ring-3d">
+                                <div class="card-3d" style="--i:0">
+                                    <span class="card-3d-num">01</span>
+                                    <h3 class="card-3d-title">Стратегия</h3>
+                                    <p class="card-3d-text">Исследования, данные и медиастратегия: из бизнес-задачи бренда собираем единый план кампании.</p>
+                                    <div class="card-tags"><span>DASMART</span><span>Mindshare</span></div>
+                                </div>
+                                <div class="card-3d" style="--i:1">
+                                    <span class="card-3d-num">02</span>
+                                    <h3 class="card-3d-title">Креатив</h3>
+                                    <p class="card-3d-text">Идея, бренд-платформа и продакшн. Именно здесь родился первый Золотой Лев Казахстана (2024).</p>
+                                    <div class="card-tags"><span>GForce Grey</span></div>
+                                </div>
+                                <div class="card-3d" style="--i:2">
+                                    <span class="card-3d-num">03</span>
+                                    <h3 class="card-3d-title">Медиа</h3>
+                                    <p class="card-3d-text">Баинг ТВ, наружной рекламы и digital: подбираем каналы под KPI и защищаем медиасплит.</p>
+                                    <div class="card-tags"><span>Mindshare</span><span>Wavemaker</span></div>
+                                </div>
+                                <div class="card-3d" style="--i:3">
+                                    <span class="card-3d-num">04</span>
+                                    <h3 class="card-3d-title">Digital</h3>
+                                    <p class="card-3d-text">Programmatic, performance, SMM и работа с глобальными платформами — от лидогенерации до сквозной аналитики.</p>
+                                    <div class="card-tags"><span>EssenceMediacom</span><span>DASM Digital Hub</span></div>
+                                </div>
+                                <div class="card-3d" style="--i:4">
+                                    <span class="card-3d-num">05</span>
+                                    <h3 class="card-3d-title">Результат</h3>
+                                    <p class="card-3d-text">Аналитика, PR и активации: измеряем эффективность, строим репутацию и доводим кампанию до людей.</p>
+                                    <div class="card-tags"><span>DASM PR</span><span>Action &amp; Brand Experience</span></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="sys-caption">
                             <div><strong id="sysCapTitle">01 · Стратегия</strong><span id="sysCapAgencies">DASMART · Mindshare</span></div>
                         </div>
@@ -374,5 +359,11 @@
 
     <script src="i18n.js"></script>
     <script src="script.js"></script>
+    <script src="3d-ui.js" defer></script>
+
+    <script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.162.0/build/three.module.js" } }
+    </script>
+    <script type="module" src="3d.js"></script>
 </body>
 </html>
