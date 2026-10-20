@@ -52,6 +52,36 @@
         "Опишите задачу...": ["Тапсырманы сипаттаңыз...", "Describe your task..."],
         "Построить маршрут": ["Бағыт салу", "Get directions"],
 
+        // ---------- Новая главная (V2) ----------
+        "да росту.": ["өсуге иә.", "yes to growth."],
+        "да идеям.": ["идеяларға иә.", "yes to ideas."],
+        "да смелости.": ["батылдыққа иә.", "yes to boldness."],
+        "Основано в 1994 · Алматы · 8 стран": ["1994 жылы құрылған · Алматы · 8 ел", "Founded in 1994 · Almaty · 8 countries"],
+        "Рекламно-коммуникационная группа из Алматы: 15 специализированных агентств, креатив уровня Cannes Lions и медиа в 8 странах региона.": [
+            "Алматыдан шыққан жарнама-коммуникациялық топ: 15 мамандандырылған агенттік, Cannes Lions деңгейіндегі креатив және өңірдің 8 еліндегі медиа.",
+            "An advertising and communications group from Almaty: 15 specialized agencies, Cannes Lions-level creative and media across 8 countries."],
+        "Система DASM": ["DASM жүйесі", "The DASM system"],
+        "Рост бренда — это система": ["Бренд өсімі — бұл жүйе", "Brand growth is a system"],
+        "Стратегия": ["Стратегия", "Strategy"],
+        "Результат": ["Нәтиже", "Results"],
+        "Исследования, данные и медиастратегия: из бизнес-задачи бренда собираем единый план кампании.": ["Зерттеулер, деректер және медиастратегия: бренд міндетінен біртұтас науқан жоспарын жинаймыз.", "Research, data and media strategy: we turn a brand's business goal into a single campaign plan."],
+        "Идея, бренд-платформа и продакшн. Именно здесь родился первый Золотой Лев Казахстана (2024).": ["Идея, бренд-платформа және продакшн. Қазақстанның алғашқы Алтын Арыстаны (2024) дәл осында туды.", "Idea, brand platform and production. This is where Kazakhstan's first Golden Lion (2024) was born."],
+        "Баинг ТВ, наружной рекламы и digital: подбираем каналы под KPI и защищаем медиасплит.": ["ТВ, сыртқы жарнама және digital баингі: KPI-ға сай арналарды таңдаймыз.", "TV, outdoor and digital buying: we pick channels to match your KPIs."],
+        "Programmatic, performance, SMM и работа с глобальными платформами — от лидогенерации до сквозной аналитики.": ["Programmatic, performance, SMM және жаһандық платформалармен жұмыс — лидогенерациядан бастап сквозная аналитикаға дейін.", "Programmatic, performance, SMM and global platforms — from lead generation to end-to-end analytics."],
+        "Аналитика, PR и активации: измеряем эффективность, строим репутацию и доводим кампанию до людей.": ["Аналитика, PR және активациялар: тиімділікті өлшейміз, беделді құрамыз, науқанды адамдарға жеткіземіз.", "Analytics, PR and activations: we measure effectiveness, build reputation and bring the campaign to people."],
+        "Первое золото Cannes Lions в истории Казахстана": ["Қазақстан тарихындағы алғашқы Cannes Lions алтыны", "Kazakhstan's first Cannes Lions gold"],
+        "В 2024 году GForce Grey выиграл Золотого Льва в категории Social & Influencer. Совместный проект с Ruh Fighting Championship — первые в стране бои «мужчины против женщин» в прямом эфире — заставил мужчин заговорить о бытовом насилии.": [
+            "2024 жылы GForce Grey Social & Influencer санатында Алтын Арыстан жеңіп алды. Ruh Fighting Championship-пен бірлескен жоба — елдегі тұңғыш «ерлер әйелдерге қарсы» тікелей эфирдегі жекпе-жектер — ерлерді тұрмыстық зорлық туралы сөйлеуге мәжбүр етті.",
+            "In 2024 GForce Grey won a Golden Lion in Social & Influencer. The project with Ruh Fighting Championship — the country's first men-versus-women bouts broadcast live — got men talking about domestic violence."],
+        "Все кейсы →": ["Барлық кейстер →", "All cases →"],
+        "Казахстан": ["Қазақстан", "Kazakhstan"],
+        "Узбекистан": ["Өзбекстан", "Uzbekistan"],
+        "Кыргызстан": ["Қырғызстан", "Kyrgyzstan"],
+        "Таджикистан": ["Тәжікстан", "Tajikistan"],
+        "Армения": ["Армения", "Armenia"],
+        "Грузия": ["Грузия", "Georgia"],
+        "Азербайджан": ["Әзірбайжан", "Azerbaijan"],
+
         // ---------- Главная ----------
         "Мы говорим": ["Біз айтамыз", "We say"],
         "да.": ["иә.", "yes."],
@@ -223,7 +253,8 @@
         const nodes = [];
         let n;
         while ((n = walker.nextNode())) {
-            if (n.nodeValue.trim() && !SKIP.test(n.parentNode.nodeName)) nodes.push(n);
+            if (n.nodeValue.trim() && !SKIP.test(n.parentNode.nodeName) &&
+                !(n.parentNode.closest && n.parentNode.closest('[data-no-i18n]'))) nodes.push(n);
         }
         nodes.forEach(node => {
             const orig = originals.has(node) ? originals.get(node) : node.nodeValue;

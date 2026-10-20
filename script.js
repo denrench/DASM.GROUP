@@ -24,12 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.remove('open');
             burgerBtn.classList.remove('active');
             burgerBtn.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('menu-open');
         };
         burgerBtn.setAttribute('aria-expanded', 'false');
         burgerBtn.addEventListener('click', () => {
             const open = navMenu.classList.toggle('open');
             burgerBtn.classList.toggle('active', open);
             burgerBtn.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('menu-open', open);
         });
         $$('.nav-link', navMenu).forEach(link => link.addEventListener('click', closeMenu));
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
@@ -284,4 +286,230 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.set(btn.textContent.trim());
         });
     });
+
+    // ==================================================================
+    // V2: анимации и интерактив
+    // ==================================================================
+
+    // ----- Индикатор прокрутки -----
+    const bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    document.body.appendChild(bar);
+    let ticking = false;
+    const updateBar = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ')';
+        ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateBar); }
+    }, { passive: true });
+    updateBar();
+
+    // ----- Шапка прячется при прокрутке вниз -----
+    if (header) {
+        let lastY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            const menuOpen = navMenu && navMenu.classList.contains('open');
+            header.classList.toggle('hide', y > lastY && y > 240 && !menuOpen);
+            lastY = y;
+        }, { passive: true });
+    }
+
+    // ----- Плавное появление по очереди -----
+    $$('.cards-grid, .stats-grid, .clients-wrap, .timeline, .people-grid, .faq, .vacancies-list, .filter-bar, .link-row')
+        .forEach(group => {
+            $$(':scope > .reveal, :scope > * > .reveal', group).forEach((el, i) => {
+                el.style.setProperty('--rd', Math.min(i, 7) * 0.07 + 's');
+            });
+        });
+
+    // ----- Подсветка карточек под курсором -----
+    const SPOT = '.card, .case-card, .person, .tl-item, .vacancy-item, .panel';
+    document.addEventListener('pointermove', e => {
+        const el = e.target.closest ? e.target.closest(SPOT) : null;
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    }, { passive: true });
+
+    if (!reduceMotion) {
+        // ----- «Магнитные» кнопки -----
+        $$('[data-magnetic]').forEach(btn => {
+            btn.addEventListener('pointermove', e => {
+                const r = btn.getBoundingClientRect();
+                const x = (e.clientX - r.left - r.width / 2) * 0.25;
+                const y = (e.clientY - r.top - r.height / 2) * 0.35;
+                btn.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+            });
+            btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+        });
+
+        // ----- Наклон карточки кейса -----
+        $$('[data-tilt]').forEach(box => {
+            box.addEventListener('pointermove', e => {
+                const r = box.getBoundingClientRect();
+                const px = (e.clientX - r.left) / r.width - 0.5;
+                const py = (e.clientY - r.top) / r.height - 0.5;
+                box.style.setProperty('--ry', (px * 7) + 'deg');
+                box.style.setProperty('--rx', (-py * 7) + 'deg');
+            });
+            box.addEventListener('pointerleave', () => {
+                box.style.setProperty('--rx', '0deg');
+                box.style.setProperty('--ry', '0deg');
+            });
+        });
+
+        // ----- Параллакс северного сияния в hero -----
+        const hero = $('#hero');
+        if (hero) {
+            let raf = 0;
+            hero.addEventListener('pointermove', e => {
+                if (raf) return;
+                raf = requestAnimationFrame(() => {
+                    const r = hero.getBoundingClientRect();
+                    hero.style.setProperty('--px', ((e.clientX - r.left) / r.width - 0.5) * 2);
+                    hero.style.setProperty('--py', ((e.clientY - r.top) / r.height - 0.5) * 2);
+                    raf = 0;
+                });
+            });
+        }
+    }
+
+    // ----- Бегущая лента: дублируем содержимое для бесшовной петли -----
+    $$('.marquee-track').forEach(track => {
+        Array.from(track.children).forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
+        });
+    });
+
+    // ----- Слово в заголовке: «перебор букв» -----
+    const scr = $('.scramble');
+    if (scr) {
+        const words = scr.dataset.words.split('|');
+        const GLYPHS = 'абвгдежзиклмнопрстуфхцчшэюя0123456789#%&';
+        let idx = 0;
+        let timer = 0;
+
+        const show = word => { scr.textContent = T(word); };
+        const scrambleTo = word => {
+            const target = T(word);
+            const total = 20;
+            let frame = 0;
+            clearTimeout(timer);
+            const tick = () => {
+                frame++;
+                let out = '';
+                for (let k = 0; k < target.length; k++) {
+                    out += (k < (frame / total) * target.length || target[k] === ' ' || target[k] === '.')
+                        ? target[k] : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+                }
+                scr.textContent = out;
+                if (frame < total) timer = setTimeout(tick, 34);
+                else scr.textContent = target;
+            };
+            tick();
+        };
+
+        show(words[0]);
+        if (!reduceMotion) {
+            setInterval(() => { idx = (idx + 1) % words.length; scrambleTo(words[idx]); }, 3400);
+        }
+        document.addEventListener('dasm:lang', () => show(words[idx]));
+    }
+
+    // ----- Интерактивная схема «Система DASM» -----
+    const sys = $('#system');
+    if (sys) {
+        const items = $$('.sys-item', sys);
+        const nodes = $$('.node', sys);
+        const spokes = $$('.spoke', sys);
+        const pulse = $('.pulse', sys);
+        const capTitle = $('#sysCapTitle');
+        const capAgencies = $('#sysCapAgencies');
+        const DUR = 6000;
+        const pos = nodes.map(n => {
+            const m = n.getAttribute('transform').match(/translate\(([\d.]+)[ ,]+([\d.]+)\)/);
+            return [Number(m[1]), Number(m[2])];
+        });
+
+        let current = 0;
+        let manual = false;
+        let inView = false;
+        let timer = 0;
+
+        const select = i => {
+            current = i;
+            items.forEach((it, k) => {
+                const on = k === i;
+                it.classList.toggle('active', on);
+                $('.sys-btn', it).setAttribute('aria-expanded', String(on));
+            });
+            nodes.forEach((n, k) => n.classList.toggle('active', k === i));
+            spokes.forEach((s, k) => s.classList.toggle('active', k === i));
+
+            const it = items[i];
+            capTitle.textContent = $('b', it).textContent + ' · ' + $('.sys-btn span', it).textContent;
+            capAgencies.textContent = $$('.card-tags span', it).map(s => s.textContent).join(' · ');
+
+            if (pulse && !reduceMotion && pulse.animate) {
+                pulse.getAnimations().forEach(a => a.cancel());
+                pulse.animate([
+                    { transform: 'translate(280px,270px)' },
+                    { transform: 'translate(' + pos[i][0] + 'px,' + pos[i][1] + 'px)' }
+                ], { duration: 900, easing: 'cubic-bezier(0.16,1,0.3,1)', fill: 'forwards' });
+            }
+        };
+
+        const schedule = () => {
+            clearInterval(timer);
+            if (manual || !inView || reduceMotion) return;
+            timer = setInterval(() => select((current + 1) % items.length), DUR);
+        };
+
+        const choose = i => {
+            manual = true;
+            sys.classList.add('manual');
+            clearInterval(timer);
+            select(i);
+        };
+
+        items.forEach((it, i) => $('.sys-btn', it).addEventListener('click', () => choose(i)));
+        nodes.forEach((n, i) => {
+            n.addEventListener('click', () => choose(i));
+            n.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(i); }
+            });
+        });
+
+        new IntersectionObserver(entries => {
+            inView = entries[0].isIntersecting;
+            schedule();
+        }, { threshold: 0.35 }).observe(sys);
+
+        document.addEventListener('dasm:lang', () => select(current));
+        select(0);
+    }
+
+    // ----- Раскрывающиеся панели стран -----
+    $$('.panels').forEach(group => {
+        const panels = $$('.panel', group);
+        const activate = target => panels.forEach(p => {
+            p.classList.toggle('active', p === target);
+            p.setAttribute('aria-expanded', String(p === target));
+        });
+        const canHover = window.matchMedia('(hover: hover)').matches;
+        panels.forEach(p => {
+            if (canHover) p.addEventListener('mouseenter', () => activate(p));
+            p.addEventListener('click', () => activate(p));
+            p.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(p); }
+            });
+        });
+    });
+
 });

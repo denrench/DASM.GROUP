@@ -15,7 +15,7 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230c0b10'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='800' text-anchor='middle' fill='%23e8a0c8' font-family='Arial,sans-serif'%3ED%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -50,82 +50,38 @@
 
     <main>
         <!-- HERO -->
-        <section class="hero">
-            <div class="hero-bg-grid"></div>
-            <div class="container hero-content">
-                <div class="hero-split">
-                    <div class="hero-left-col reveal">
-                        <div class="hero-top-meta">
-                            <div class="hero-badge">
-                                <span class="pulse-dot"></span>
-                                <span>Основано в 1994 · №1 в регионе</span>
-                            </div>
-                            <div class="hero-live-tag">HQ: Алматы · 8 стран</div>
-                        </div>
-
-                        <h1 class="hero-title">
-                            Мы говорим<br>
-                            <span class="gradient-text">да.</span>
-                        </h1>
-
-                        <p class="hero-subtitle">
-                            Крупнейший рекламно-коммуникационный холдинг Центральной Азии и Кавказа. 15 специализированных агентств, креатив уровня Cannes Lions и медиабаинг с долей рынка более 20%.
-                        </p>
-
-                        <div class="hero-cta">
-                            <a href="#footer-contact" class="btn btn-primary btn-lg">Стать клиентом →</a>
-                            <a href="works.html" class="btn btn-outline btn-lg">Смотреть работы</a>
-                        </div>
-
-                        <div class="hero-trust-strip">
-                            <div class="trust-avatars">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" alt="">
-                                <span class="avatar-more">500+</span>
-                            </div>
-                            <div class="trust-text">
-                                <strong>150+ брендов доверяют нам</strong>
-                                <span>в 8 странах региона</span>
-                            </div>
-                            <div class="trust-score">
-                                <strong>98.4%</strong>
-                                <span>Retention</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero-visual-stack reveal">
-                        <div class="hero-visual-card">
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85" alt="DASM Group">
-                            <div class="hero-visual-caption">
-                                <div>
-                                    <strong>Центральный хаб</strong>
-                                    <span>Алматы · Ташкент · Бишкек · Баку</span>
-                                </div>
-                                <span class="section-tag" style="margin:0;">Лидер</span>
-                            </div>
-                        </div>
-
-                        <div class="hero-sub-visuals">
-                            <div class="sub-visual-box">
-                                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="">
-                                <div class="sub-visual-info">
-                                    <strong>Стратегия & Баинг</strong>
-                                    <span>TV, Digital, OOH</span>
-                                </div>
-                            </div>
-                            <div class="sub-visual-box">
-                                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80" alt="">
-                                <div class="sub-visual-info">
-                                    <strong>Креатив</strong>
-                                    <span>Cannes Lions</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section class="hero-v2" id="hero">
+            <div class="aurora"><i></i><i></i><i></i></div>
+            <div class="container hero-v2-inner">
+                <div class="hero-pill rise" style="--d:.05s">
+                    <span class="pulse-dot"></span>
+                    <span>Основано в 1994 · Алматы · 8 стран</span>
                 </div>
 
+                <h1 class="hero-title-xl">
+                    <span class="ln"><span>Мы говорим</span></span>
+                    <span class="ln"><span class="scramble-wrap"><span class="scramble gradient-text" data-no-i18n data-words="да.|да росту.|да идеям.|да смелости.">да.</span></span></span>
+                </h1>
+
+                <div class="hero-side">
+                    <p class="rise" style="--d:.45s">Рекламно-коммуникационная группа из Алматы: 15 специализированных агентств, креатив уровня Cannes Lions и медиа в 8 странах региона.</p>
+                    <div class="hero-cta rise" style="--d:.6s">
+                        <a href="#footer-contact" class="btn btn-primary btn-lg" data-magnetic>Стать клиентом →</a>
+                        <a href="works.html" class="btn btn-outline btn-lg">Смотреть работы</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="marquee rise" style="--d:.8s" aria-label="Клиенты">
+                <div class="marquee-track">
+                    <span>Kaspi.kz</span><span>Technodom</span><span>Berlin-Chemie</span><span>P&amp;G</span><span>PepsiCo</span><span>Beeline</span><span>Huawei</span><span>Red Bull</span><span>Carlsberg</span><span>Toyota</span><span>Lexus</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Цифры -->
+        <section class="stats-band">
+            <div class="container">
                 <div class="stats-grid reveal">
                     <div class="stat-item">
                         <div class="stat-number"><b data-count="1994">1994</b></div>
@@ -147,8 +103,163 @@
             </div>
         </section>
 
-        <!-- Клиенты -->
+        <!-- Система DASM -->
+        <section class="section">
+            <div class="container">
+                <div class="system" id="system">
+                    <div class="system-left">
+                        <div class="reveal">
+                            <span class="section-tag">Система DASM</span>
+                            <h2 class="section-title">Рост бренда — это система</h2>
+                        </div>
+                        <div class="reveal"><a href="agencies.html" class="btn btn-outline">Все агентства →</a></div>
+
+                        <div class="sys-list reveal">
+                            <div class="sys-item active">
+                                <button type="button" class="sys-btn" aria-expanded="true"><b>01</b><span>Стратегия</span></button>
+                                <div class="sys-panel"><div>
+                                    <p>Исследования, данные и медиастратегия: из бизнес-задачи бренда собираем единый план кампании.</p>
+                                    <div class="card-tags"><span>DASMART</span><span>Mindshare</span></div>
+                                </div></div>
+                                <i class="sys-bar"></i>
+                            </div>
+                            <div class="sys-item">
+                                <button type="button" class="sys-btn" aria-expanded="false"><b>02</b><span>Креатив</span></button>
+                                <div class="sys-panel"><div>
+                                    <p>Идея, бренд-платформа и продакшн. Именно здесь родился первый Золотой Лев Казахстана (2024).</p>
+                                    <div class="card-tags"><span>GForce Grey</span></div>
+                                </div></div>
+                                <i class="sys-bar"></i>
+                            </div>
+                            <div class="sys-item">
+                                <button type="button" class="sys-btn" aria-expanded="false"><b>03</b><span>Медиа</span></button>
+                                <div class="sys-panel"><div>
+                                    <p>Баинг ТВ, наружной рекламы и digital: подбираем каналы под KPI и защищаем медиасплит.</p>
+                                    <div class="card-tags"><span>Mindshare</span><span>Wavemaker</span></div>
+                                </div></div>
+                                <i class="sys-bar"></i>
+                            </div>
+                            <div class="sys-item">
+                                <button type="button" class="sys-btn" aria-expanded="false"><b>04</b><span>Digital</span></button>
+                                <div class="sys-panel"><div>
+                                    <p>Programmatic, performance, SMM и работа с глобальными платформами — от лидогенерации до сквозной аналитики.</p>
+                                    <div class="card-tags"><span>EssenceMediacom</span><span>DASM Digital Hub</span></div>
+                                </div></div>
+                                <i class="sys-bar"></i>
+                            </div>
+                            <div class="sys-item">
+                                <button type="button" class="sys-btn" aria-expanded="false"><b>05</b><span>Результат</span></button>
+                                <div class="sys-panel"><div>
+                                    <p>Аналитика, PR и активации: измеряем эффективность, строим репутацию и доводим кампанию до людей.</p>
+                                    <div class="card-tags"><span>DASM PR</span><span>Action &amp; Brand Experience</span></div>
+                                </div></div>
+                                <i class="sys-bar"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sys-stage reveal">
+                        <svg class="sys-svg" viewBox="0 0 560 540" role="img" aria-label="Схема системы DASM">
+                            <circle class="ring" cx="280" cy="270" r="170"/>
+                            <circle class="ring ring-dash" cx="280" cy="270" r="110"/>
+                            <circle class="ring" cx="280" cy="270" r="56"/>
+
+                            <g class="star">
+                                <line x1="280" y1="100" x2="380" y2="408"/>
+                                <line x1="380" y1="408" x2="118" y2="218"/>
+                                <line x1="118" y1="218" x2="442" y2="218"/>
+                                <line x1="442" y1="218" x2="180" y2="408"/>
+                                <line x1="180" y1="408" x2="280" y2="100"/>
+                            </g>
+
+                            <line class="spoke active" data-i="0" x1="280" y1="270" x2="280" y2="100"/>
+                            <line class="spoke" data-i="1" x1="280" y1="270" x2="442" y2="218"/>
+                            <line class="spoke" data-i="2" x1="280" y1="270" x2="380" y2="408"/>
+                            <line class="spoke" data-i="3" x1="280" y1="270" x2="180" y2="408"/>
+                            <line class="spoke" data-i="4" x1="280" y1="270" x2="118" y2="218"/>
+
+                            <g class="orbit">
+                                <circle cx="390" cy="270" r="3"/>
+                                <circle cx="225" cy="365" r="3"/>
+                                <circle cx="225" cy="175" r="3"/>
+                            </g>
+
+                            <circle class="core" cx="280" cy="270" r="34"/>
+                            <text class="core-text" x="280" y="270">DASM</text>
+                            <circle class="pulse" r="4.5"/>
+
+                            <g class="node active" data-i="0" transform="translate(280,100)" tabindex="0" role="button" aria-label="Стратегия">
+                                <circle class="halo" r="34"/><circle class="dot" r="21"/><text class="num">01</text>
+                                <text class="lbl" x="0" y="-36" text-anchor="middle">Стратегия</text>
+                            </g>
+                            <g class="node" data-i="1" transform="translate(442,218)" tabindex="0" role="button" aria-label="Креатив">
+                                <circle class="halo" r="34"/><circle class="dot" r="21"/><text class="num">02</text>
+                                <text class="lbl" x="34" y="4" text-anchor="start">Креатив</text>
+                            </g>
+                            <g class="node" data-i="2" transform="translate(380,408)" tabindex="0" role="button" aria-label="Медиа">
+                                <circle class="halo" r="34"/><circle class="dot" r="21"/><text class="num">03</text>
+                                <text class="lbl" x="0" y="46" text-anchor="middle">Медиа</text>
+                            </g>
+                            <g class="node" data-i="3" transform="translate(180,408)" tabindex="0" role="button" aria-label="Digital">
+                                <circle class="halo" r="34"/><circle class="dot" r="21"/><text class="num">04</text>
+                                <text class="lbl" x="0" y="46" text-anchor="middle">Digital</text>
+                            </g>
+                            <g class="node" data-i="4" transform="translate(118,218)" tabindex="0" role="button" aria-label="Результат">
+                                <circle class="halo" r="34"/><circle class="dot" r="21"/><text class="num">05</text>
+                                <text class="lbl" x="-34" y="4" text-anchor="end">Результат</text>
+                            </g>
+                        </svg>
+                        <div class="sys-caption">
+                            <div><strong id="sysCapTitle">01 · Стратегия</strong><span id="sysCapAgencies">DASMART · Mindshare</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Главный кейс -->
         <section class="section bg-darker">
+            <div class="container">
+                <div class="feature">
+                    <div class="feature-copy reveal">
+                        <span class="section-tag">Портфолио</span>
+                        <h2 class="section-title">Первое золото Cannes Lions в истории Казахстана</h2>
+                        <p>В 2024 году GForce Grey выиграл Золотого Льва в категории Social &amp; Influencer. Совместный проект с Ruh Fighting Championship — первые в стране бои «мужчины против женщин» в прямом эфире — заставил мужчин заговорить о бытовом насилии.</p>
+                        <div class="feature-stats">
+                            <div><strong>Gold Lion</strong><span>Social &amp; Influencer</span></div>
+                            <div><strong>1 763</strong><span>Проекта в категории</span></div>
+                            <div><strong>90%</strong><span>Вовлечённых — мужчины</span></div>
+                        </div>
+                        <a href="works.html" class="btn btn-primary" data-magnetic>Все кейсы →</a>
+                    </div>
+
+                    <div class="feature-media reveal" data-tilt>
+                        <div class="feature-card">
+                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1200&q=85" alt="Ruh Fighting Championship" loading="lazy">
+                            <div class="feature-caption">
+                                <strong>GForce Grey × Ruh Fighting</strong>
+                                <span>The National Sport of Kazakhstan · 2024</span>
+                            </div>
+                        </div>
+                        <svg class="spin-badge" viewBox="0 0 120 120" aria-hidden="true">
+                            <circle class="badge-bg" cx="60" cy="60" r="58"/>
+                            <defs><path id="badgeCircle" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
+                            <g class="spin"><text><textPath href="#badgeCircle" textLength="280" lengthAdjust="spacing">CANNES LIONS · GOLD · 2024 · SOCIAL &amp; INFLUENCER ·</textPath></text></g>
+                            <text x="60" y="60" text-anchor="middle" dominant-baseline="central" font-size="26" style="fill:#1a1220">🦁</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="link-row">
+                    <a href="works.html" class="link-card reveal"><div><small>GForce Grey &amp; Citix</small>Saltanat Light</div><i>↗</i></a>
+                    <a href="works.html" class="link-card reveal"><div><small>Финтех</small>Kaspi Жұма и SuperApp</div><i>↗</i></a>
+                    <a href="works.html" class="link-card reveal"><div><small>Медиа</small>FMCG &amp; Telecom на 5 стран</div><i>↗</i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Клиенты -->
+        <section class="section">
             <div class="container">
                 <div class="section-header reveal">
                     <div>
@@ -164,103 +275,14 @@
                 </div>
                 <p class="clients-note reveal">Среди других клиентов GForce Grey (по данным AdForum):</p>
                 <div class="clients-wrap muted reveal">
-                    <div class="client-chip">P&amp;G</div>
-                    <div class="client-chip">PepsiCo</div>
-                    <div class="client-chip">Beeline</div>
-                    <div class="client-chip">Huawei</div>
-                    <div class="client-chip">Red Bull</div>
-                    <div class="client-chip">Carlsberg</div>
-                    <div class="client-chip">Toyota</div>
-                    <div class="client-chip">Lexus</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Направления -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header reveal">
-                    <div>
-                        <span class="section-tag">Экосистема 360°</span>
-                        <h2 class="section-title">Полный спектр коммуникационных решений</h2>
-                    </div>
-                    <a href="agencies.html" class="btn btn-outline">Все агентства →</a>
-                </div>
-
-                <div class="cards-grid cols-3">
-                    <div class="card reveal">
-                        <div class="card-num">01</div>
-                        <h3 class="card-title">Креатив и Брендинг</h3>
-                        <p class="card-text">Прорывные кампании, бренд-платформы и продакшн уровня Cannes Lions.</p>
-                        <div class="card-tags"><span>GForce Grey</span><span>DASMART</span></div>
-                    </div>
-                    <div class="card reveal">
-                        <div class="card-num">02</div>
-                        <h3 class="card-title">Медиа и Баинг</h3>
-                        <p class="card-text">Крупнейший медиабаинг региона (TV, Digital, OOH) с долей рынка >20%.</p>
-                        <div class="card-tags"><span>Mindshare</span><span>Wavemaker</span></div>
-                    </div>
-                    <div class="card reveal">
-                        <div class="card-num">03</div>
-                        <h3 class="card-title">Digital & Performance</h3>
-                        <p class="card-text">Programmatic, лидогенерация, SMM и работа с глобальными платформами.</p>
-                        <div class="card-tags"><span>EssenceMediacom</span><span>Digital Hub</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Кейсы -->
-        <section class="section bg-darker">
-            <div class="container">
-                <div class="section-header reveal">
-                    <div>
-                        <span class="section-tag">Портфолио</span>
-                        <h2 class="section-title">Кейсы, которые выигрывают рынки и фестивали</h2>
-                    </div>
-                    <a href="works.html" class="btn btn-outline">Все работы →</a>
-                </div>
-
-                <div class="cards-grid cols-2">
-                    <article class="case-card reveal">
-                        <div class="case-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1000&q=85" alt="">
-                            <span class="case-badge">🏆 Cannes Lions Gold</span>
-                        </div>
-                        <div class="case-body">
-                            <div class="case-meta">GForce Grey · Ruh Fighting</div>
-                            <h3 class="case-title">The National Sport of Kazakhstan</h3>
-                            <p class="case-desc">Первое в истории Казахстана Золото Cannes Lions (2024). Социальная кампания против бытового насилия: первые бои «мужчины против женщин» в прямом эфире.</p>
-                            <div class="case-stats">
-                                <div><strong>Gold Lion</strong><span>Cannes Lions</span></div>
-                                <div><strong>1 763</strong><span>Проекта в категории</span></div>
-                                <div><strong>90%</strong><span>Вовлечённых — мужчины</span></div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="case-card reveal">
-                        <div class="case-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85" alt="">
-                            <span class="case-badge">🏆 AdFest Gold</span>
-                        </div>
-                        <div class="case-body">
-                            <div class="case-meta">GForce Grey & Citix</div>
-                            <h3 class="case-title">Saltanat Light</h3>
-                            <p class="case-desc">Синхронизация сети цифровых экранов с данными кризисных центров. Первое золото Центральной Азии на AdFest.</p>
-                            <div class="case-stats">
-                                <div><strong>100+</strong><span>Экранов</span></div>
-                                <div><strong>Gold</strong><span>AdFest</span></div>
-                                <div><strong>Grand Prix</strong><span>E+</span></div>
-                            </div>
-                        </div>
-                    </article>
+                    <div class="client-chip">P&amp;G</div><div class="client-chip">PepsiCo</div><div class="client-chip">Beeline</div><div class="client-chip">Huawei</div>
+                    <div class="client-chip">Red Bull</div><div class="client-chip">Carlsberg</div><div class="client-chip">Toyota</div><div class="client-chip">Lexus</div>
                 </div>
             </div>
         </section>
 
         <!-- География -->
-        <section class="section">
+        <section class="section bg-darker">
             <div class="container">
                 <div class="section-header reveal">
                     <div>
@@ -270,23 +292,15 @@
                     <a href="countries.html" class="btn btn-outline">Все страны →</a>
                 </div>
 
-                <div class="cards-grid cols-4">
-                    <div class="card reveal">
-                        <h3 class="card-title">🇰🇿 Казахстан</h3>
-                        <p class="card-text">Штаб-квартира. Алматы и Астана.</p>
-                    </div>
-                    <div class="card reveal">
-                        <h3 class="card-title">🇺🇿 Узбекистан</h3>
-                        <p class="card-text">Ташкент. Быстрорастущий рынок.</p>
-                    </div>
-                    <div class="card reveal">
-                        <h3 class="card-title">🇰🇬 Кыргызстан</h3>
-                        <p class="card-text">Бишкек. Media & Digital.</p>
-                    </div>
-                    <div class="card reveal">
-                        <h3 class="card-title">+ 5 стран</h3>
-                        <p class="card-text">Таджикистан, Армения, Грузия, Азербайджан, Монголия.</p>
-                    </div>
+                <div class="panels reveal">
+                    <div class="panel active" style="--h:330" role="button" tabindex="0" aria-expanded="true"><span class="panel-flag">🇰🇿</span><span class="panel-name">Казахстан</span><span class="panel-more"><small>Алматы и Астана</small><em>Full 360° Hub · с 1994 года</em></span></div>
+                    <div class="panel" style="--h:200" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇺🇿</span><span class="panel-name">Узбекистан</span><span class="panel-more"><small>Ташкент</small><em>FMCG &amp; FinTech · TV &amp; Telegram</em></span></div>
+                    <div class="panel" style="--h:160" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇰🇬</span><span class="panel-name">Кыргызстан</span><span class="panel-more"><small>Бишкек</small><em>Media &amp; Digital · OOH · BTL</em></span></div>
+                    <div class="panel" style="--h:20" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇹🇯</span><span class="panel-name">Таджикистан</span><span class="panel-more"><small>Душанбе</small><em>OOH &amp; TV · BTL &amp; Trade</em></span></div>
+                    <div class="panel" style="--h:270" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇦🇲</span><span class="panel-name">Армения</span><span class="panel-more"><small>Ереван</small><em>Media &amp; Digital · PR &amp; Events</em></span></div>
+                    <div class="panel" style="--h:355" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇬🇪</span><span class="panel-name">Грузия</span><span class="panel-more"><small>Тбилиси</small><em>Production Hub · Omnichannel</em></span></div>
+                    <div class="panel" style="--h:190" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇦🇿</span><span class="panel-name">Азербайджан</span><span class="panel-more"><small>Баку</small><em>Media Buying · Sponsorship</em></span></div>
+                    <div class="panel" style="--h:45" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇲🇳</span><span class="panel-name">Монголия</span><span class="panel-more"><small>Улан-Батор</small><em>Full Media · с 2010 года</em></span></div>
                 </div>
             </div>
         </section>
