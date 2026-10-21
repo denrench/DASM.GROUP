@@ -224,7 +224,44 @@
         "следующий большой шаг": ["келесі үлкен қадамыңызды", "next big step"],
         "Пригласите DASM Group в тендер, запросите аудит текущей рекламной стратегии или свяжитесь с региональными офисами группы.": [
             "DASM Group-ты тендерге шақырыңыз, ағымдағы жарнама стратегиясының аудитін сұраңыз немесе топтың өңірлік кеңселерімен байланысыңыз.",
-            "Invite DASM Group to a tender, request an audit of your current advertising strategy or contact the group's regional offices."]
+            "Invite DASM Group to a tender, request an audit of your current advertising strategy or contact the group's regional offices."],
+
+        "Алматы — Центральный офис": ["Алматы — Орталық кеңсе", "Almaty — Central office"],
+        "Штаб-квартира • Казахстан": ["Бас кеңсе • Қазақстан", "Headquarters • Kazakhstan"],
+        "Региональные хабы": ["Өңірлік хабтар", "Regional hubs"],
+        "Офисы в 8 странах": ["8 елдегі кеңселер", "Offices in 8 countries"],
+        "Официальные ресурсы": ["Ресми ресурстар", "Official resources"],
+        "Социальные сети": ["Әлеуметтік желілер", "Social media"],
+        "Заполните поля ниже — мы ответим в течение нескольких часов.": ["Төмендегі өрістерді толтырыңыз — бірнеше сағат ішінде жауап береміз.", "Fill in the fields below — we will reply within a few hours."],
+        "Ваше имя и компания *": ["Атыңыз және компания *", "Your name and company *"],
+        "Интересующее направление": ["Қызықтыратын бағыт", "Area of interest"],
+        "Ваше сообщение / Описание задачи *": ["Хабарлама / Тапсырма сипаттамасы *", "Your message / Task description *"],
+        "Отправить сообщение в DASM Group →": ["DASM Group-қа хабарлама жіберу →", "Send message to DASM Group →"],
+        "Быстрая заявка на звонок": ["Қоңырауға жылдам өтінім", "Quick call request"],
+        "Комментарий *": ["Пікір *", "Comment *"],
+        "Быстрый контакт": ["Жылдам байланыс", "Quick contact"],
+        "смелым амбициям": ["батыл амбицияларға", "to bold ambitions"],
+        "Крупнейшая коммуникационная группа Центральной Азии всегда открыта для новых вызовов, тендеров и партнерств.": [
+            "Орталық Азиядағы ең ірі коммуникациялық топ жаңа сын-қатерлерге, тендерлерге және серіктестікке әрқашан ашық.",
+            "The largest communications group in Central Asia is always open to new challenges, tenders and partnerships."],
+        "На главную": ["Басты бетке", "Back to home"],
+        "Такой страницы": ["Мұндай бет", "This page"],
+        "нет": ["жоқ", "does not exist"],
+        "Ошибка 404": ["404 қатесі", "Error 404"],
+        "Возможно, ссылка устарела или в адресе опечатка. Вернитесь на главную или выберите нужный раздел в меню.": [
+            "Сілтеме ескірген немесе мекенжайда қате болуы мүмкін. Басты бетке оралыңыз немесе мәзірден қажетті бөлімді таңдаңыз.",
+            "The link may be outdated or there is a typo. Return to the home page or choose a section from the menu."],
+        "↻ Покрутите глобус мышью — 8 стран, один стандарт": ["↻ Глобусты тышқанмен бұраңыз — 8 ел, бір стандарт", "↻ Drag the globe — 8 countries, one standard"],
+        "Алматы — штаб-квартира": ["Алматы — бас кеңсе", "Almaty — headquarters"],
+        "7 региональных офисов": ["7 өңірлік кеңсе", "7 regional offices"],
+        "Международная экспансия": ["Халықаралық экспансия", "International expansion"],
+        "Выводите бренд на новые рынки?": ["Брендті жаңа нарықтарға шығарасыз ба?", "Taking your brand to new markets?"],
+        "Запросите обзор медиарынка по интересующим вас странам.": ["Қызықтыратын елдер бойынша медиа нарық шолуын сұраңыз.", "Request a media market overview for the countries you need."],
+        "Центральный хаб": ["Орталық хаб", "Central hub"],
+        "Интересующие страны *": ["Қызықтыратын елдер *", "Countries of interest *"],
+        "Например: Казахстан, Узбекистан...": ["Мысалы: Қазақстан, Өзбекстан...", "E.g. Kazakhstan, Uzbekistan..."],
+        "Переключить тему": ["Тақырыпты ауыстыру", "Toggle theme"],
+        "Тема": ["Тақырып", "Theme"]
     };
 
     const norm = s => s.replace(/\s+/g, ' ').trim();

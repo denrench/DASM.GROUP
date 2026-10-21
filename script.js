@@ -9,6 +9,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const T = s => (window.i18n ? window.i18n.t(s) : s);
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // ===== Тема: светлая по умолчанию =====
+    (function initTheme() {
+        const root = document.documentElement;
+        let theme = 'light';
+        try {
+            const saved = localStorage.getItem('dasm-theme');
+            if (saved === 'dark' || saved === 'light') theme = saved;
+            else if (window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+        } catch (e) { /* ignore */ }
+        root.setAttribute('data-theme', theme);
+
+        let btn = $('#themeToggle');
+        if (!btn) {
+            const actions = $('.header-actions');
+            if (actions) {
+                btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'theme-toggle';
+                btn.id = 'themeToggle';
+                btn.setAttribute('aria-label', 'Переключить тему');
+                btn.title = 'Тема';
+                btn.innerHTML = '<span class="icon-sun">☀</span><span class="icon-moon">☾</span>';
+                const clientBtn = actions.querySelector('a.btn');
+                const burger = actions.querySelector('.burger');
+                if (clientBtn) actions.insertBefore(btn, clientBtn);
+                else if (burger) actions.insertBefore(btn, burger);
+                else actions.appendChild(btn);
+            }
+        }
+        if (btn) {
+            btn.addEventListener('click', () => {
+                theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', theme);
+                try { localStorage.setItem('dasm-theme', theme); } catch (e) { /* ignore */ }
+            });
+        }
+    })();
+
+    // ===== Плавающий декоративный слой =====
+    if (!$('.float-layer')) {
+        const layer = document.createElement('div');
+        layer.className = 'float-layer';
+        layer.setAttribute('aria-hidden', 'true');
+        layer.innerHTML = '<div class="float-orb"></div><div class="float-orb"></div><div class="float-orb"></div><div class="float-orb"></div><div class="float-shape"></div><div class="float-shape"></div><div class="float-shape"></div>';
+        document.body.prepend(layer);
+    }
+
     // ===== Шапка при скролле =====
     const header = $('#header');
     const onScroll = () => header && header.classList.toggle('scrolled', window.scrollY > 30);

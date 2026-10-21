@@ -140,35 +140,41 @@ function initGlobe() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     const R = 2.3;
 
-    // каркас
+    // Земля с текстурой карты мира
+    const loader = new THREE.TextureLoader();
+    let earthMesh;
+    const earthTex = loader.load(
+        'https://unpkg.com/three-globe@2.31.1/example/img/earth-blue-marble.jpg',
+        () => { canvas.classList.add('ready'); },
+        undefined,
+        () => {
+            if (earthMesh) earthMesh.material = new THREE.MeshBasicMaterial({ color: 0x1a2744 });
+            canvas.classList.add('ready');
+        }
+    );
+    if (earthTex.colorSpace !== undefined) earthTex.colorSpace = THREE.SRGBColorSpace;
+    earthMesh = new THREE.Mesh(
+        new THREE.SphereGeometry(R, 64, 48),
+        new THREE.MeshBasicMaterial({ map: earthTex })
+    );
+    scene.add(earthMesh);
+
+    // атмосферный ореол
     scene.add(new THREE.Mesh(
-        new THREE.SphereGeometry(R, 32, 24),
-        new THREE.MeshBasicMaterial({ color: 0xe8a0c8, wireframe: true, transparent: true, opacity: 0.08 })
+        new THREE.SphereGeometry(R * 1.02, 48, 32),
+        new THREE.MeshBasicMaterial({
+            color: 0xe8a0c8,
+            transparent: true,
+            opacity: 0.07,
+            side: THREE.BackSide
+        })
     ));
 
-    // тёмное ядро
+    // тонкий wireframe
     scene.add(new THREE.Mesh(
-        new THREE.SphereGeometry(R * 0.995, 32, 24),
-        new THREE.MeshBasicMaterial({ color: 0x0e0c15, transparent: true, opacity: 0.85 })
+        new THREE.SphereGeometry(R * 1.005, 32, 24),
+        new THREE.MeshBasicMaterial({ color: 0xe8a0c8, wireframe: true, transparent: true, opacity: 0.06 })
     ));
-
-    // точки-континенты (равномерно по сфере)
-    const DOTS = lowPower ? 600 : 1400;
-    const dotPos = new Float32Array(DOTS * 3);
-    const golden = Math.PI * (3 - Math.sqrt(5));
-    for (let i = 0; i < DOTS; i++) {
-        const y = 1 - (i / (DOTS - 1)) * 2;
-        const r = Math.sqrt(1 - y * y);
-        const theta = golden * i;
-        dotPos[i*3]   = Math.cos(theta) * r * R * 1.001;
-        dotPos[i*3+1] = y * R * 1.001;
-        dotPos[i*3+2] = Math.sin(theta) * r * R * 1.001;
-    }
-    const dotsGeo = new THREE.BufferGeometry();
-    dotsGeo.setAttribute('position', new THREE.BufferAttribute(dotPos, 3));
-    scene.add(new THREE.Points(dotsGeo, new THREE.PointsMaterial({
-        color: 0xc4a8e8, size: 0.012, transparent: true, opacity: 0.5
-    })));
 
     // маркеры стран
     const COUNTRIES = [

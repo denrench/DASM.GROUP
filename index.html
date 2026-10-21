@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
+    <script>try{var t=localStorage.getItem("dasm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DASM Group — Крупнейшая коммуникационная группа Центральной Азии</title>
     <meta name="description" content="DASM Group — крупнейшая коммуникационная группа Центральной Азии: креатив, медиа, digital и PR. Работаем с 1994 года, первое золото Cannes Lions в истории Казахстана.">
@@ -20,6 +21,15 @@
     <script src="3d-ui.js" defer></script>
 </head>
 <body>
+    <div class="float-layer" aria-hidden="true">
+        <div class="float-orb"></div>
+        <div class="float-orb"></div>
+        <div class="float-orb"></div>
+        <div class="float-orb"></div>
+        <div class="float-shape"></div>
+        <div class="float-shape"></div>
+        <div class="float-shape"></div>
+    </div>
     <header class="header" id="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
@@ -41,6 +51,10 @@
                     <button class="lang-btn">KZ</button>
                     <button class="lang-btn">EN</button>
                 </div>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Тема">
+                    <span class="icon-sun">☀</span>
+                    <span class="icon-moon">☾</span>
+                </button>
                 <a href="#footer-contact" class="btn btn-primary btn-sm">Стать клиентом</a>
                 <button class="burger" id="burgerBtn" aria-label="Меню">
                     <span></span><span></span><span></span>
@@ -279,14 +293,14 @@
                 </div>
 
                 <div class="panels reveal">
-                    <div class="panel active" style="--h:330" role="button" tabindex="0" aria-expanded="true"><span class="panel-flag">🇰🇿</span><span class="panel-name">Казахстан</span><span class="panel-more"><small>Алматы и Астана</small><em>Full 360° Hub · с 1994 года</em></span></div>
-                    <div class="panel" style="--h:200" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇺🇿</span><span class="panel-name">Узбекистан</span><span class="panel-more"><small>Ташкент</small><em>FMCG &amp; FinTech · TV &amp; Telegram</em></span></div>
-                    <div class="panel" style="--h:160" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇰🇬</span><span class="panel-name">Кыргызстан</span><span class="panel-more"><small>Бишкек</small><em>Media &amp; Digital · OOH · BTL</em></span></div>
-                    <div class="panel" style="--h:20" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇹🇯</span><span class="panel-name">Таджикистан</span><span class="panel-more"><small>Душанбе</small><em>OOH &amp; TV · BTL &amp; Trade</em></span></div>
-                    <div class="panel" style="--h:270" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇦🇲</span><span class="panel-name">Армения</span><span class="panel-more"><small>Ереван</small><em>Media &amp; Digital · PR &amp; Events</em></span></div>
-                    <div class="panel" style="--h:355" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇬🇪</span><span class="panel-name">Грузия</span><span class="panel-more"><small>Тбилиси</small><em>Production Hub · Omnichannel</em></span></div>
-                    <div class="panel" style="--h:190" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇦🇿</span><span class="panel-name">Азербайджан</span><span class="panel-more"><small>Баку</small><em>Media Buying · Sponsorship</em></span></div>
-                    <div class="panel" style="--h:45" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇲🇳</span><span class="panel-name">Монголия</span><span class="panel-more"><small>Улан-Батор</small><em>Full Media · с 2010 года</em></span></div>
+                    <div class="panel active" data-img="kz" style="--h:330" role="button" tabindex="0" aria-expanded="true"><span class="panel-flag">🇰🇿</span><span class="panel-name">Казахстан</span><span class="panel-more"><small>Алматы и Астана</small><em>Full 360° Hub · с 1994 года</em></span></div>
+                    <div class="panel" data-img="uz" style="--h:200" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇺🇿</span><span class="panel-name">Узбекистан</span><span class="panel-more"><small>Ташкент</small><em>FMCG &amp; FinTech · TV &amp; Telegram</em></span></div>
+                    <div class="panel" data-img="kg" style="--h:160" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇰🇬</span><span class="panel-name">Кыргызстан</span><span class="panel-more"><small>Бишкек</small><em>Media &amp; Digital · OOH · BTL</em></span></div>
+                    <div class="panel" data-img="tj" style="--h:20" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇹🇯</span><span class="panel-name">Таджикистан</span><span class="panel-more"><small>Душанбе</small><em>OOH &amp; TV · BTL &amp; Trade</em></span></div>
+                    <div class="panel" data-img="am" style="--h:270" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇦🇲</span><span class="panel-name">Армения</span><span class="panel-more"><small>Ереван</small><em>Media &amp; Digital · PR &amp; Events</em></span></div>
+                    <div class="panel" data-img="ge" style="--h:355" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇬🇪</span><span class="panel-name">Грузия</span><span class="panel-more"><small>Тбилиси</small><em>Production Hub · Omnichannel</em></span></div>
+                    <div class="panel" data-img="az" style="--h:190" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇦🇿</span><span class="panel-name">Азербайджан</span><span class="panel-more"><small>Баку</small><em>Media Buying · Sponsorship</em></span></div>
+                    <div class="panel" data-img="mn" style="--h:45" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇲🇳</span><span class="panel-name">Монголия</span><span class="panel-more"><small>Улан-Батор</small><em>Full Media · с 2010 года</em></span></div>
                 </div>
             </div>
         </section>
