@@ -95,6 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.toggle('menu-open', open);
         });
         $$('.nav-link', navMenu).forEach(link => link.addEventListener('click', closeMenu));
+        document.addEventListener('click', e => {
+            if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
+                closeMenu();
+            }
+        });
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
     }
 
@@ -383,17 +388,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-    // ----- Подсветка карточек под курсором -----
-    const SPOT = '.card, .case-card, .person, .tl-item, .vacancy-item, .panel, .hb-card, .bento-stat-card';
-    document.addEventListener('pointermove', e => {
-        const el = e.target.closest ? e.target.closest(SPOT) : null;
-        if (!el) return;
-        const r = el.getBoundingClientRect();
-        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
-    }, { passive: true });
+    // ----- Подсветка карточек под курсором (только на ПК) -----
+    const hasHover = window.matchMedia('(hover: hover)').matches;
+    if (hasHover) {
+        const SPOT = '.card, .case-card, .person, .tl-item, .vacancy-item, .panel, .hb-card, .bento-stat-card';
+        document.addEventListener('pointermove', e => {
+            const el = e.target.closest ? e.target.closest(SPOT) : null;
+            if (!el) return;
+            const r = el.getBoundingClientRect();
+            el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+            el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+        }, { passive: true });
+    }
 
-    if (!reduceMotion) {
+    if (!reduceMotion && hasHover) {
         // ----- «Магнитные» кнопки -----
         $$('[data-magnetic]').forEach(btn => {
             btn.addEventListener('pointermove', e => {
