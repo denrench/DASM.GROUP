@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Презентация проекта — Новый сайт DASM.GROUP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Onest:wght@300;400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Champie Trial';
+            src: url('fonts/ChampieTrial-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Champie Trial';
+            src: url('fonts/ChampieTrial-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Champie Trial';
+            src: url('fonts/ChampieTrial-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Champie Trial';
+            src: url('fonts/ChampieTrial-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        :root,
+        [data-theme="light"] {
+            --bg-main: #fbf9fe;
+            --bg-subtle: #f3edf9;
+            --bg-card: rgba(255, 255, 255, 0.90);
+            --bg-card-strong: #ffffff;
+            --border: rgba(80, 40, 120, 0.12);
+            --border-accent: rgba(200, 70, 146, 0.42);
+            --text-primary: #1a1126;
+            --text-secondary: #4a3f5e;
+            --text-muted: #7a6e90;
+            --accent-primary: #c84692;
+            --accent-secondary: #7c56c4;
+            --teal: #2bb3b0;
+            --danger: #d94862;
+            --success: #1f9d72;
+            --gradient-brand: linear-gradient(135deg, #c84692 0%, #7c56c4 100%);
+            --shadow-soft: 0 16px 44px rgba(90, 45, 130, 0.08);
+            --shadow-hover: 0 22px 56px rgba(200, 70, 146, 0.18);
+            --font-sans: 'Onest', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Manrope', sans-serif;
+            --font-brand: 'Unbounded', sans-serif;
+            --font-hero: 'Champie Trial', 'Manrope', sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-main: #0c0b10;
+            --bg-subtle: #14111d;
+            --bg-card: rgba(26, 22, 36, 0.84);
+            --bg-card-strong: #1c1728;
+            --border: rgba(255, 255, 255, 0.10);
+            --border-accent: rgba(232, 160, 200, 0.40);
+            --text-primary: #ffffff;
+            --text-secondary: #c2bad4;
+            --text-muted: #847a99;
+            --accent-primary: #e8a0c8;
+            --accent-secondary: #a58be8;
+            --gradient-brand: linear-gradient(135deg, #e8a0c8 0%, #9b7fe6 100%);
+            --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.45);
+            --shadow-hover: 0 24px 64px rgba(232, 160, 200, 0.22);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.35s ease, color 0.35s ease;
+        }
+
+        body {
+            background-image:
+                radial-gradient(circle at 12% 18%, rgba(200, 70, 146, 0.11), transparent 40%),
+                radial-gradient(circle at 88% 28%, rgba(124, 86, 196, 0.11), transparent 42%),
+                radial-gradient(circle at 50% 85%, rgba(43, 179, 176, 0.07), transparent 45%),
+                linear-gradient(to right, rgba(120, 80, 160, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(120, 80, 160, 0.035) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 64px 64px, 64px 64px;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* Ambient floating badges */
+        .ambient-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .amb-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(65px);
+            opacity: 0.55;
+            animation: orbMove 24s ease-in-out infinite alternate;
+        }
+        .amb-orb.o1 { width: 420px; height: 420px; left: -120px; top: -80px; background: radial-gradient(circle, rgba(200,70,146,0.32), transparent 70%); }
+        .amb-orb.o2 { width: 380px; height: 380px; right: -100px; bottom: -80px; background: radial-gradient(circle, rgba(124,86,196,0.30), transparent 70%); animation-delay: -8s; }
+        @keyframes orbMove {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, -35px) scale(1.1); }
+        }
+
+        /* Top presentation bar */
+        .deck-topbar {
+            position: fixed;
+            top: 16px;
+            left: 28px;
+            right: 28px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .deck-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .deck-logo {
+            font-family: var(--font-brand);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        .deck-logo span { color: var(--accent-primary); }
+        .deck-divider {
+            width: 1px;
+            height: 18px;
+            background: var(--border);
+        }
+        .deck-subtitle {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .deck-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .deck-counter {
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 99px;
+            background: rgba(200, 70, 146, 0.10);
+            color: var(--accent-primary);
+            border: 1px solid var(--border-accent);
+        }
+        .icon-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-card-strong);
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+        }
+        .icon-btn:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-1px);
+        }
+        .btn-site {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 99px;
+            background: var(--gradient-brand);
+            color: #ffffff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(200, 70, 146, 0.25);
+            transition: all 0.25s ease;
+        }
+        .btn-site:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px rgba(200, 70, 146, 0.36);
+        }
+
+        /* Slide viewport */
+        .deck-stage {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100dvh;
+            padding: 84px 28px 76px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 84px 28px 76px;
+            max-width: 1380px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(24px) scale(0.985);
+            transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                        visibility 0.55s;
+        }
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Typography & Tags */
+        .slide-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            align-self: flex-start;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 6px 14px;
+            border-radius: 99px;
+            background: rgba(200, 70, 146, 0.10);
+            color: var(--accent-primary);
+            border: 1px solid var(--border-accent);
+            margin-bottom: 16px;
+        }
+        .slide-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-primary);
+            transform: rotate(45deg);
+        }
+        .slide-title {
+            font-family: var(--font-hero);
+            font-weight: 400;
+            font-size: clamp(2rem, 3.8vw, 3.6rem);
+            line-height: 1.04;
+            letter-spacing: -0.025em;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+        .slide-title.xl {
+            font-size: clamp(2.6rem, 5.2vw, 4.9rem);
+            line-height: 0.98;
+        }
+        .gradient-text {
+            background: var(--gradient-brand);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 500;
+        }
+        .slide-lead {
+            font-size: clamp(0.98rem, 1.25vw, 1.16rem);
+            color: var(--text-secondary);
+            line-height: 1.55;
+            max-width: 780px;
+            margin-bottom: 26px;
+        }
+
+        /* Grid layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+        .grid-2-asym { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 26px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: stretch; }
+
+        /* Cards */
+        .p-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .p-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-accent);
+            box-shadow: var(--shadow-hover);
+        }
+        .p-card.accent {
+            background: linear-gradient(155deg, rgba(200, 70, 146, 0.13), rgba(124, 86, 196, 0.10));
+            border-color: var(--border-accent);
+        }
+        .p-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 13px;
+            background: rgba(200, 70, 146, 0.12);
+            display: inline-grid;
+            place-items: center;
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+        .p-kpi {
+            font-family: var(--font-display);
+            font-size: clamp(1.9rem, 2.8vw, 2.7rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            background: var(--gradient-brand);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .p-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+        }
+        .p-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: auto;
+            padding-top: 8px;
+        }
+        .tag-pill {
+            font-size: 0.73rem;
+            font-weight: 600;
+            padding: 4px 11px;
+            border-radius: 99px;
+            background: rgba(200, 70, 146, 0.09);
+            border: 1px solid rgba(200, 70, 146, 0.22);
+            color: var(--accent-primary);
+        }
+
+        /* Comparison table / cards (Slide 3) */
+        .compare-col {
+            border-radius: 26px;
+            padding: 26px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .compare-col.old {
+            border-top: 4px solid var(--danger);
+        }
+        .compare-col.new {
+            border-top: 4px solid var(--success);
+            border-color: var(--border-accent);
+            background: linear-gradient(165deg, rgba(200, 70, 146, 0.09), var(--bg-card) 65%);
+        }
+        .compare-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .compare-head h3 {
+            font-family: var(--font-display);
+            font-size: 1.22rem;
+            font-weight: 800;
+        }
+        .status-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 11px;
+            border-radius: 99px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .status-badge.bad { background: rgba(217, 72, 98, 0.14); color: var(--danger); }
+        .status-badge.good { background: rgba(31, 157, 114, 0.14); color: var(--success); }
+
+        .check-list {
+            list-style: none;
+            display: grid;
+            gap: 11px;
+        }
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.42;
+        }
+        .check-list li b {
+            color: var(--text-primary);
+        }
+        .check-list li i {
+            font-style: normal;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Country photo strip (Slide 6) */
+        .countries-strip {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 10px;
+            margin-top: 6px;
+        }
+        .country-mini {
+            position: relative;
+            height: 170px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+        }
+        .country-mini img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .country-mini:hover img {
+            transform: scale(1.08);
+        }
+        .country-mini::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(12, 9, 20, 0.88) 0%, transparent 65%);
+        }
+        .country-mini-info {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            z-index: 2;
+            color: #fff;
+        }
+        .country-mini-info strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            line-height: 1.15;
+        }
+        .country-mini-info small {
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Bottom navigation controls */
+        .deck-bottombar {
+            position: fixed;
+            bottom: 16px;
+            left: 28px;
+            right: 28px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .deck-dots {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .deck-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 99px;
+            border: none;
+            background: rgba(140, 100, 180, 0.28);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .deck-dot.active {
+            width: 30px;
+            background: var(--gradient-brand);
+        }
+        .deck-nav-btns {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 99px;
+            border: 1px solid var(--border);
+            background: var(--bg-card-strong);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .nav-arrow:hover:not(:disabled) {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+        .nav-arrow:disabled {
+            opacity: 0.38;
+            cursor: default;
+        }
+        .nav-arrow.primary {
+            background: var(--gradient-brand);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        /* Mockup browser frame */
+        .browser-frame {
+            border-radius: 22px;
+            border: 1px solid var(--border-accent);
+            background: var(--bg-card-strong);
+            box-shadow: var(--shadow-hover);
+            overflow: hidden;
+        }
+        .browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: rgba(140, 100, 180, 0.08);
+            border-bottom: 1px solid var(--border);
+        }
+        .b-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .b-dot.r { background: #ff5f57; }
+        .b-dot.y { background: #febc2e; }
+        .b-dot.g { background: #28c840; }
+        .b-url {
+            margin-left: 8px;
+            padding: 4px 14px;
+            border-radius: 99px;
+            background: var(--bg-main);
+            border: 1px solid var(--border);
+            font-size: 0.74rem;
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+        }
+        .browser-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            html, body { overflow-y: auto; height: auto; }
+            .deck-stage { height: auto; min-height: 100dvh; padding: 92px 16px 92px; }
+            .slide { position: relative; inset: auto; display: none; transform: none; }
+            .slide.active { display: flex; }
+            .grid-2, .grid-2-asym, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .countries-strip { grid-template-columns: repeat(2, 1fr); }
+            .deck-subtitle { display: none; }
+            .deck-divider { display: none; }
+            .deck-topbar { left: 12px; right: 12px; top: 10px; padding: 8px 14px; }
+            .deck-bottombar { left: 12px; right: 12px; bottom: 10px; padding: 8px 14px; }
+        }
+
+        @media print {
+            html, body { overflow: visible; height: auto; }
+            .deck-topbar, .deck-bottombar, .ambient-layer { display: none !important; }
+            .deck-stage { display: block; height: auto; padding: 0; }
+            .slide {
+                position: relative !important;
+                inset: auto !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                page-break-after: always;
+                min-height: 92vh;
+                padding: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-layer" aria-hidden="true">
+        <div class="amb-orb o1"></div>
+        <div class="amb-orb o2"></div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <header class="deck-topbar">
+        <div class="deck-brand">
+            <a href="index.html" class="deck-logo">DASM<span>.</span>GROUP</a>
+            <div class="deck-divider"></div>
+            <span class="deck-subtitle">Презентация новой цифровой платформы холдинга</span>
+        </div>
+        <div class="deck-actions">
+            <span class="deck-counter" id="slideCounter">01 / 10</span>
+            <button type="button" class="icon-btn" id="themeBtn" title="Переключить тему (Светлая / Тёмная)">☾</button>
+            <button type="button" class="icon-btn" id="fullscreenBtn" title="На весь экран">⛶</button>
+            <a href="index.html" class="btn-site">Открыть сайт →</a>
+        </div>
+    </header>
+
+    <!-- Slides Stage -->
+    <main class="deck-stage" id="deckStage">
+
+        <!-- SLIDE 1: TITLE & VISION -->
+        <section class="slide active" data-slide="1">
+            <div class="grid-2-asym">
+                <div>
+                    <span class="slide-tag">Ребрендинг цифровой витрины · 1994–2026</span>
+                    <h1 class="slide-title xl">
+                        Новая цифровая эпоха <span class="gradient-text">DASM.GROUP</span>
+                    </h1>
+                    <p class="slide-lead">
+                        Как крупнейший коммуникационный и медиахолдинг Казахстана, Центральной Азии, Кавказа и Монголии получает веб-платформу мирового уровня — под стать золоту <strong>Cannes Lions</strong> и стратегическому партнёрству с <strong>WPP &amp; GroupM</strong>.
+                    </p>
+                    <div class="tag-row" style="gap:10px;">
+                        <span class="tag-pill">🦁 Cannes Lions Gold 2024</span>
+                        <span class="tag-pill">🌐 8 стран Евразии</span>
+                        <span class="tag-pill">🏢 35 агентств</span>
+                        <span class="tag-pill">✨ Философия «WE SAY DA»</span>
+                    </div>
+                </div>
+
+                <div class="browser-frame">
+                    <div class="browser-bar">
+                        <span class="b-dot r"></span><span class="b-dot y"></span><span class="b-dot g"></span>
+                        <span class="b-url">dasm.group — WE SAY DA</span>
+                    </div>
+                    <div class="browser-body">
+                        <div class="p-card accent" style="padding:20px;">
+                            <small style="font-weight:700; color:var(--accent-primary); text-transform:uppercase; font-size:0.72rem;">Главный слоган платформы</small>
+                            <h3 style="font-family:var(--font-hero); font-size:1.7rem; font-weight:400; line-height:1.05;">Мы говорим <span class="gradient-text">ДА</span> смелым идеям и росту брендов.</h3>
+                            <p style="font-size:0.84rem;">Интерактивная 3D-экосистема, политический 3D-глобус 8 стран, полный перевод RU / KZ / EN и переключение светлой и тёмной темы.</p>
+                        </div>
+                        <div class="grid-2" style="gap:12px;">
+                            <div class="p-card" style="padding:16px;">
+                                <div class="p-kpi">32 года</div>
+                                <p style="font-size:0.8rem;">Лидерства на рекламном рынке с 1994 года</p>
+                            </div>
+                            <div class="p-card" style="padding:16px;">
+                                <div class="p-kpi">>20%</div>
+                                <p style="font-size:0.8rem;">Доля медиарынка Республики Казахстан</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: WHO IS DASM GROUP TODAY -->
+        <section class="slide" data-slide="2">
+            <span class="slide-tag">01 · Контекст и масштаб</span>
+            <h2 class="slide-title">DASM Group сегодня — это <span class="gradient-text">коммуникационный гигант</span> региона</h2>
+            <p class="slide-lead">
+                За 32 года группа выросла из первого рекламного агентства Казахстана в международную сеть из 35 компаний, управляющую бюджетами крупнейших мировых и локальных брендов.
+            </p>
+            <div class="grid-4">
+                <div class="p-card">
+                    <div class="p-icon">🏛️</div>
+                    <div class="p-kpi">35</div>
+                    <h3>Агентств в сети</h3>
+                    <p>15 специализированных агентств полного цикла в Казахстане и 20 представительств в странах Центральной Азии, Кавказа и Монголии.</p>
+                </div>
+                <div class="p-card">
+                    <div class="p-icon">🤝</div>
+                    <div class="p-kpi">WPP</div>
+                    <h3>Партнёр с 1997 года</h3>
+                    <p>Официальный и лицензированный партнёр глобальных сетей WPP и GroupM: Ogilvy, Grey, Mindshare, MediaCom, WaveMaker.</p>
+                </div>
+                <div class="p-card accent">
+                    <div class="p-icon">🦁</div>
+                    <div class="p-kpi">Gold</div>
+                    <h3>Cannes Lions 2024</h3>
+                    <p>Первое в истории Казахстана и Центральной Азии золото Каннских Львов (GForce Grey × Ruh Fighting) и №1 в рейтинге E+ Awards CA.</p>
+                </div>
+                <div class="p-card">
+                    <div class="p-icon">👥</div>
+                    <div class="p-kpi">400+</div>
+                    <h3>Профессионалов</h3>
+                    <p>Стратеги, креаторы, медиабайеры, аналитики TNS/Kantar, digital-разработчики и PR-эксперты в едином контуре управления.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: OFFICIAL SITE (dasm.kz) VS NEW SITE -->
+        <section class="slide" data-slide="3">
+            <span class="slide-tag">02 · Сравнительный анализ</span>
+            <h2 class="slide-title">Почему старый <span class="gradient-text">dasm.kz</span> перестал отражать уровень холдинга</h2>
+            <p class="slide-lead">
+                Мы детально изучили текущий официальный сайт <code>dasm.kz</code> и сопоставили его с реальными достижениями DASM Group к 2026 году.
+            </p>
+            <div class="grid-2">
+                <div class="compare-col old">
+                    <div class="compare-head">
+                        <h3>Текущий сайт (dasm.kz)</h3>
+                        <span class="status-badge bad">Устаревшая витрина</span>
+                    </div>
+                    <ul class="check-list">
+                        <li><i style="color:var(--danger)">✕</i><div><b>Устаревший масштаб:</b> указано всего «11 агентств», нет актуальной структуры из 35 агентств и новых направлений.</div></li>
+                        <li><i style="color:var(--danger)">✕</i><div><b>Нет главных наград 2024–2025:</b> отсутствует историческое золото Cannes Lions 2024, кейсы Ruh Fighting и Saltanat Light.</div></li>
+                        <li><i style="color:var(--danger)">✕</i><div><b>Проблемы с SEO и индексацией:</b> пустой SPA-контейнер <code>&lt;div id="app"&gt;&lt;/div&gt;</code> (594 байта) без мета-тегов и превью.</div></li>
+                        <li><i style="color:var(--danger)">✕</i><div><b>Статичная география:</b> нет интерактивной карты мира, наглядной привязки хабов и актуальных данных по 8 рынкам.</div></li>
+                        <li><i style="color:var(--danger)">✕</i><div><b>Сложный вход для клиента:</b> нет интерактивного гида по агентствам, фильтров кейсов и адаптивной светлой/тёмной темы.</div></li>
+                    </ul>
+                </div>
+
+                <div class="compare-col new">
+                    <div class="compare-head">
+                        <h3>Новая платформа (DASM.GROUP)</h3>
+                        <span class="status-badge good">Стандарт 2026</span>
+                    </div>
+                    <ul class="check-list">
+                        <li><i style="color:var(--success)">✓</i><div><b>Актуальная экосистема 360°:</b> 35 агентств в сети, 5 кластеров компетенций с интерактивной 3D-каруселью и схемой связей.</div></li>
+                        <li><i style="color:var(--success)">✓</i><div><b>Витрина мировых побед:</b> блок флагманских кейсов Cannes Lions Gold, Ad Black Sea, Red Jolbors и E+ Awards.</div></li>
+                        <li><i style="color:var(--success)">✓</i><div><b>Политический 3D-глобус 8 стран:</b> реальная карта мира (GeoJSON), границы стран присутствия, дуги из Алматы и фото столиц.</div></li>
+                        <li><i style="color:var(--success)">✓</i><div><b>100% мультиязычность (RU / KZ / EN):</b> мгновенный перевод всех 420+ текстовых блоков, форм, квиза и мета-заголовков.</div></li>
+                        <li><i style="color:var(--success)">✓</i><div><b>Интерактивный квиз-подборщик:</b> за 3 шага определяет оптимальное агентство группы под задачу и бюджет клиента.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: DESIGN SYSTEM, CHAMPIE TRIAL & LIGHT/DARK THEME -->
+        <section class="slide" data-slide="4">
+            <span class="slide-tag">03 · Визуальный код и эстетика</span>
+            <h2 class="slide-title">Философия <span class="gradient-text">«WE SAY DA»</span> в каждой детали интерфейса</h2>
+            <p class="slide-lead">
+                Вместо тяжёлого корпоративного шаблона создана воздушная редакционная дизайн-система со смысловыми плавающими объектами и мгновенной сменой темы.
+            </p>
+            <div class="grid-3">
+                <div class="p-card accent">
+                    <div class="p-icon">Aa</div>
+                    <h3 style="font-family:var(--font-hero); font-size:1.45rem; font-weight:400;">Типографика Champie Trial</h3>
+                    <p>Во всех Hero-секциях сайта внедрена выразительная гарнитура <strong>Champie Trial</strong> (6 начертаний от Light до ExtraBold) с полной поддержкой кириллицы, казахского и латиницы.</p>
+                    <div class="tag-row">
+                        <span class="tag-pill">Champie Trial</span>
+                        <span class="tag-pill">Manrope</span>
+                        <span class="tag-pill">Unbounded</span>
+                    </div>
+                </div>
+                <div class="p-card">
+                    <div class="p-icon">☀️</div>
+                    <h3>Светлая тема + Dark Mode</h3>
+                    <p>По умолчанию сайт встречает чистым светлым фоном (<code>#FBF9FE</code>) с мягким градиентным свечением, а кнопка в шапке мгновенно переключает интерфейс в глубокую тёмную тему.</p>
+                    <div class="tag-row">
+                        <span class="tag-pill">Light Theme Default</span>
+                        <span class="tag-pill">1-Click Dark Mode</span>
+                    </div>
+                </div>
+                <div class="p-card">
+                    <div class="p-icon">✨</div>
+                    <h3>Смысловые объекты и Bento</h3>
+                    <p>Плавающие бейджи отражают ДНК холдинга (Cannes Lions, Media 360°, ROI &amp; Data, WPP Partner), а правые части секций заполнены информативными Bento-дашбордами.</p>
+                    <div class="tag-row">
+                        <span class="tag-pill">Bento UI</span>
+                        <span class="tag-pill">Zero Empty Space</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: 8-PAGE ARCHITECTURE & TRILINGUAL -->
+        <section class="slide" data-slide="5">
+            <span class="slide-tag">04 · Архитектура и локализация</span>
+            <h2 class="slide-title">8 полноценных разделов и <span class="gradient-text">100% перевод RU / KZ / EN</span></h2>
+            <p class="slide-lead">
+                Каждая вкладка решает конкретную бизнес-задачу: от привлечения международных тендеров до найма лучших талантов на рынке.
+            </p>
+            <div class="grid-4">
+                <div class="p-card" style="padding:18px;">
+                    <span class="tag-pill" style="align-self:flex-start;">01 · index.html</span>
+                    <h3>Главная</h3>
+                    <p style="font-size:0.82rem;">Манифест «Мы говорим ДА», ключевые цифры, 3D-система 360°, флагманский кейс, аналитика клиентов и гео-аккордеон.</p>
+                </div>
+                <div class="p-card" style="padding:18px;">
+                    <span class="tag-pill" style="align-self:flex-start;">02 · about.html</span>
+                    <h3>О холдинге</h3>
+                    <p style="font-size:0.82rem;">32-летняя хронология (1994–2024), принципы работы, руководство и стандарты корпоративного управления WPP.</p>
+                </div>
+                <div class="p-card" style="padding:18px;">
+                    <span class="tag-pill" style="align-self:flex-start;">03 · agencies.html</span>
+                    <h3>Агентства</h3>
+                    <p style="font-size:0.82rem;">Каталог специализированных агентств с фильтрацией по компетенциям и интерактивный квиз подбора команды.</p>
+                </div>
+                <div class="p-card" style="padding:18px;">
+                    <span class="tag-pill" style="align-self:flex-start;">04 · works.html</span>
+                    <h3>Кейсы</h3>
+                    <p style="font-size:0.82rem;">Портфолио наградных и performance-проектов с фильтрами по категориям (Креатив, Digital, Медиа, BTL &amp; Events).</p>
+                </div>
+                <div class="p-card accent" style="padding:18px;">
+                    <span class="tag-pill" style="align-self:flex-start;">05 · countries.html</span>
+                    <h3>Страны и 3D-Глобус</h3>
+                    <p style="font-size:0.82rem;">Интерактивный 3D-глобус с политической картой мира, кнопками быстрого перелёта по 8 странам и карточками рынков.</p>
+                </div>
+                <div class="p-card" style="padding:18px;">
+                    <span class="tag-pill" style="align-self:flex-start;">06 · news.html</span>
+                    <h3>Новости</h3>
+                    <p style="font-size:0.82rem;">Пресс-центр холдинга: победы на фестивалях, отраслевая аналитика, партнёрства и обзоры медиарынка.</p>
+                </div>
+                <div class="p-card" style="padding:18px;">
+                    <span class="tag-pill" style="align-self:flex-start;">07 · career.html</span>
+                    <h3>Карьера и HR</h3>
+                    <p style="font-size:0.82rem;">Живой поиск вакансий по городу, направлению и ключевым словам + программа стажировки DASM Academy.</p>
+                </div>
+                <div class="p-card" style="padding:18px;">
+                    <span class="tag-pill" style="align-self:flex-start;">08 · contacts.html</span>
+                    <h3>Контакты и FAQ</h3>
+                    <p style="font-size:0.82rem;">Форма тендерного брифа с валидацией, прямые контакты департаментов, карта офиса в Алматы и ответы на вопросы.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: GEOGRAPHY & 3D WORLD GLOBE -->
+        <section class="slide" data-slide="6">
+            <span class="slide-tag">05 · Международный охват</span>
+            <h2 class="slide-title">8 стран присутствия: <span class="gradient-text">3D-карта мира и живая география</span></h2>
+            <p class="slide-lead">
+                На главной странице реализован интерактивный фото-аккордеон столиц, а во вкладке «Страны» — трёхмерный глобус с реальными границами государств (<code>world.geojson</code>) и маршрутами из штаб-квартиры в Алматы.
+            </p>
+            <div class="countries-strip">
+                <div class="country-mini">
+                    <img src="images/countries/kz.jpg" alt="Казахстан">
+                    <div class="country-mini-info"><strong>🇰🇿 Казахстан</strong><small>Алматы · Астана (HQ)</small></div>
+                </div>
+                <div class="country-mini">
+                    <img src="images/countries/uz.jpg" alt="Узбекистан">
+                    <div class="country-mini-info"><strong>🇺🇿 Узбекистан</strong><small>Ташкент · 37+ млн</small></div>
+                </div>
+                <div class="country-mini">
+                    <img src="images/countries/kg.jpg" alt="Кыргызстан">
+                    <div class="country-mini-info"><strong>🇰🇬 Кыргызстан</strong><small>Бишкек · Media &amp; OOH</small></div>
+                </div>
+                <div class="country-mini">
+                    <img src="images/countries/tj.jpg" alt="Таджикистан">
+                    <div class="country-mini-info"><strong>🇹🇯 Таджикистан</strong><small>Душанбе · TV &amp; BTL</small></div>
+                </div>
+                <div class="country-mini">
+                    <img src="images/countries/am.jpg" alt="Армения">
+                    <div class="country-mini-info"><strong>🇦🇲 Армения</strong><small>Ереван · Digital &amp; PR</small></div>
+                </div>
+                <div class="country-mini">
+                    <img src="images/countries/ge.jpg" alt="Грузия">
+                    <div class="country-mini-info"><strong>🇬🇪 Грузия</strong><small>Тбилиси · Production</small></div>
+                </div>
+                <div class="country-mini">
+                    <img src="images/countries/az.jpg" alt="Азербайджан">
+                    <div class="country-mini-info"><strong>🇦🇿 Азербайджан</strong><small>Баку · Media Buying</small></div>
+                </div>
+                <div class="country-mini">
+                    <img src="images/countries/mn.jpg" alt="Монголия">
+                    <div class="country-mini-info"><strong>🇲🇳 Монголия</strong><small>Улан-Батор · с 2010 г.</small></div>
+                </div>
+            </div>
+            <div class="grid-3" style="margin-top:16px;">
+                <div class="p-card" style="padding:16px;">
+                    <h3>Политическая карта 4096×2048</h3>
+                    <p style="font-size:0.82rem;">На 3D-сферу нанесены контуры всех континентов и стран, а территории 8 рынков DASM выделены фирменным цветом.</p>
+                </div>
+                <div class="p-card" style="padding:16px;">
+                    <h3>Интерактивные 3D-пины</h3>
+                    <p style="font-size:0.82rem;">При клике на страну в панели <code>#globeNav</code> или на 3D-метку глобус плавно поворачивается к хабу и подсвечивает его карточку.</p>
+                </div>
+                <div class="p-card" style="padding:16px;">
+                    <h3>Единое окно (Single Hub)</h3>
+                    <p style="font-size:0.82rem;">Клиент подписывает один договор в Алматы и запускает кампанию сразу на 90+ млн потребителей региона.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: 360 ECOSYSTEM & AGENCY QUIZ -->
+        <section class="slide" data-slide="7">
+            <span class="slide-tag">06 · Интерактивные продуктовые механики</span>
+            <h2 class="slide-title">Сложный холдинг становится <span class="gradient-text">понятным за 30 секунд</span></h2>
+            <p class="slide-lead">
+                Чтобы клиент не терялся среди 35 агентств, на сайте созданы две интерактивные механики: 3D-схема «Система DASM» и умный квиз подбора агентства.
+            </p>
+            <div class="grid-2">
+                <div class="p-card accent">
+                    <div class="p-icon">🔄</div>
+                    <h3>3D-карусель «Система DASM 360°»</h3>
+                    <p>Объединяет 5 ключевых направлений в интерактивную сцену, где каждый шаг показывает конкретные агентства группы:</p>
+                    <ul class="check-list" style="margin-top:8px;">
+                        <li><i style="color:var(--accent-primary)">01</i><div><b>Стратегия и креатив:</b> GForce Grey, Ogilvy Action, DASM Creative</div></li>
+                        <li><i style="color:var(--accent-primary)">02</i><div><b>Медиа и баинг:</b> GroupM, Mindshare, MediaCom, WaveMaker</div></li>
+                        <li><i style="color:var(--accent-primary)">03</i><div><b>Digital, SMM и продакшн:</b> DASM Interactive, Digital Studio</div></li>
+                        <li><i style="color:var(--accent-primary)">04</i><div><b>PR, ивенты и BTL:</b> Action PR, DASM Events, BTL Solutions</div></li>
+                        <li><i style="color:var(--accent-primary)">05</i><div><b>Исследования и аналитика:</b> Data Lab, TNS/Kantar &amp; ROI Modelling</div></li>
+                    </ul>
+                </div>
+
+                <div class="p-card">
+                    <div class="p-icon">🧭</div>
+                    <h3>Интерактивный квиз во вкладке «Агентства»</h3>
+                    <p>Помогает клиенту за 3 клика получить персональную рекомендацию команды до отправки тендерного брифа:</p>
+                    <div class="grid-3" style="margin-top:10px; gap:10px;">
+                        <div class="p-card" style="padding:14px;">
+                            <strong style="color:var(--accent-primary); font-size:0.78rem;">ШАГ 01</strong>
+                            <h3 style="font-size:0.95rem;">Главная цель</h3>
+                            <p style="font-size:0.78rem;">Креатив, медиаохват, Digital-перформанс или PR/Event</p>
+                        </div>
+                        <div class="p-card" style="padding:14px;">
+                            <strong style="color:var(--accent-primary); font-size:0.78rem;">ШАГ 02</strong>
+                            <h3 style="font-size:0.95rem;">География</h3>
+                            <p style="font-size:0.78rem;">Казахстан, 2–3 страны ЦА или все 8 рынков Евразии</p>
+                        </div>
+                        <div class="p-card" style="padding:14px;">
+                            <strong style="color:var(--accent-primary); font-size:0.78rem;">ШАГ 03</strong>
+                            <h3 style="font-size:0.95rem;">Сроки старта</h3>
+                            <p style="font-size:0.78rem;">В этом месяце, в следующем квартале или годовой тендер</p>
+                        </div>
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag-pill">Повышение конверсии в заявку</span>
+                        <span class="tag-pill">Мгновенный роутинг лида</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: CASES & CLIENT TRUST -->
+        <section class="slide" data-slide="8">
+            <span class="slide-tag">07 · Доказательная база и кейсы</span>
+            <h2 class="slide-title">Кейсы уровня <span class="gradient-text">Cannes Lions</span> и клиенты 20+ лет</h2>
+            <p class="slide-lead">
+                Сайт доказывает эффективность холдинга реальными цифрами охватов, международными наградами и долгосрочными партнёрствами.
+            </p>
+            <div class="grid-3">
+                <div class="p-card accent">
+                    <span class="tag-pill" style="align-self:flex-start;">🦁 Cannes Lions 2024 · Gold</span>
+                    <h3>Ruh Fighting Championship</h3>
+                    <p>Первый в истории Центральной Азии «Золотой Каннский Лев» в категории Social &amp; Influencer (GForce Grey). Более 10 млн органических просмотров и статус национального спорта.</p>
+                </div>
+                <div class="p-card">
+                    <span class="tag-pill" style="align-self:flex-start;">🏆 Социальный DOOH-проект</span>
+                    <h3>Saltanat Light × Citix</h3>
+                    <p>Национальная система мониторинга и поддержки в реальном времени на цифровых экранах городов Казахстана. Золото международных фестивалей креативности.</p>
+                </div>
+                <div class="p-card">
+                    <span class="tag-pill" style="align-self:flex-start;">📈 20+ лет партнёрства</span>
+                    <h3>Kaspi.kz, Technodom, Berlin-Chemie</h3>
+                    <p>Более 150 активных клиентов, 92% контрактов длятся свыше 5 лет. Полное сопровождение всенародных кампаний Kaspi Жұма и мультиканальных запусков в 5–8 странах.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: MOBILE ADAPTATION & TECH EXCELLENCE -->
+        <section class="slide" data-slide="9">
+            <span class="slide-tag">08 · Мобильная версия и технологии</span>
+            <h2 class="slide-title">Безупречная работа на <span class="gradient-text">смартфонах и десктопах</span></h2>
+            <p class="slide-lead">
+                Более 65% директоров по маркетингу и партнёров открывают ссылки с телефона — поэтому мобильная версия спроектирована как нативное приложение.
+            </p>
+            <div class="grid-4">
+                <div class="p-card">
+                    <div class="p-icon">📱</div>
+                    <h3>Адаптивная шапка-капсула</h3>
+                    <p>Компактная стеклянная навигация с переключателем языков RU/KZ/EN, сменой темы и плавным выпадающим меню для экранов от 320px.</p>
+                </div>
+                <div class="p-card">
+                    <div class="p-icon">👆</div>
+                    <h3>Touch-First интерактив</h3>
+                    <p>Свайп-панели стран и фильтров, адаптированная 3D-карусель без горизонтального вылета и удобные карточки показателей 2×2.</p>
+                </div>
+                <div class="p-card">
+                    <div class="p-icon">⚡</div>
+                    <h3>Чистая архитектура</h3>
+                    <p>Мгновенная загрузка без тяжёлых фреймворков: нативный HTML5, модульный CSS с переменными тем, Three.js WebGL и локальные шрифты/фото.</p>
+                </div>
+                <div class="p-card">
+                    <div class="p-icon">🔍</div>
+                    <h3>SEO &amp; Accessibility</h3>
+                    <p>Семантическая вёрстка всех 8 страниц, поддержка клавиатурной навигации, <code>prefers-reduced-motion</code> и корректная индексация поисковиками.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: CALL TO ACTION -> OPEN LIVE WEBSITE -->
+        <section class="slide" data-slide="10">
+            <div class="grid-2-asym">
+                <div>
+                    <span class="slide-tag">09 · Переход к демонстрации</span>
+                    <h2 class="slide-title xl">
+                        Время увидеть <span class="gradient-text">новый DASM.GROUP</span> вживую
+                    </h2>
+                    <p class="slide-lead">
+                        Все 8 разделов, 3D-глобус с картой мира, переводы на 3 языка, шрифт Champie Trial и переключение светлой/тёмной темы полностью готовы к демонстрации.
+                    </p>
+                    <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:10px;">
+                        <a href="index.html" class="btn-site" style="padding:15px 30px; font-size:1rem;">
+                            Запустить демонстрацию сайта →
+                        </a>
+                        <a href="countries.html" class="nav-arrow" style="padding:15px 24px; font-size:0.95rem;">
+                            🌍 Открыть 3D-Глобус стран
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid-2" style="gap:14px;">
+                    <a href="index.html" class="p-card accent">
+                        <div class="p-icon">🏠</div>
+                        <h3>Главная страница</h3>
+                        <p>Hero со шрифтом Champie Trial, 3D-сфера, «Система DASM» и фото-аккордеон 8 стран.</p>
+                        <span style="font-size:0.8rem; font-weight:700; color:var(--accent-primary); margin-top:auto;">Перейти →</span>
+                    </a>
+                    <a href="countries.html" class="p-card">
+                        <div class="p-icon">🌐</div>
+                        <h3>Страны и 3D-Глобус</h3>
+                        <p>Политическая карта мира на 3D-глобусе с подсветкой 8 рынков и интерактивными метками.</p>
+                        <span style="font-size:0.8rem; font-weight:700; color:var(--accent-primary); margin-top:auto;">Перейти →</span>
+                    </a>
+                    <a href="agencies.html" class="p-card">
+                        <div class="p-icon">🧭</div>
+                        <h3>Агентства и Квиз</h3>
+                        <p>Каталог агентств группы + интерактивный подборщик агентства за 3 шага.</p>
+                        <span style="font-size:0.8rem; font-weight:700; color:var(--accent-primary); margin-top:auto;">Перейти →</span>
+                    </a>
+                    <a href="works.html" class="p-card">
+                        <div class="p-icon">🦁</div>
+                        <h3>Кейсы Cannes Lions</h3>
+                        <p>Витрина побед Ruh Fighting, Saltanat Light, Kaspi.kz и мультирыночных кампаний.</p>
+                        <span style="font-size:0.8rem; font-weight:700; color:var(--accent-primary); margin-top:auto;">Перейти →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <footer class="deck-bottombar">
+        <div class="deck-dots" id="deckDots"></div>
+        <div class="deck-nav-btns">
+            <button type="button" class="nav-arrow" id="prevBtn">← Назад</button>
+            <button type="button" class="nav-arrow primary" id="nextBtn">Далее →</button>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            const dotsWrap = document.getElementById('deckDots');
+            const counter = document.getElementById('slideCounter');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const themeBtn = document.getElementById('themeBtn');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            let current = 0;
+
+            // Init theme
+            const root = document.documentElement;
+            const savedTheme = localStorage.getItem('dasm-theme-mode') || 'light';
+            root.setAttribute('data-theme', savedTheme);
+            themeBtn.textContent = savedTheme === 'dark' ? '☀' : '☾';
+
+            themeBtn.addEventListener('click', () => {
+                const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                themeBtn.textContent = next === 'dark' ? '☀' : '☾';
+                try { localStorage.setItem('dasm-theme-mode', next); } catch (e) {}
+            });
+
+            // Build dots
+            slides.forEach((_, idx) => {
+                const d = document.createElement('button');
+                d.type = 'button';
+                d.className = 'deck-dot' + (idx === 0 ? ' active' : '');
+                d.setAttribute('aria-label', 'Слайд ' + (idx + 1));
+                d.addEventListener('click', () => goTo(idx));
+                dotsWrap.appendChild(d);
+            });
+            const dots = Array.from(dotsWrap.children);
+
+            function goTo(idx) {
+                current = Math.max(0, Math.min(slides.length - 1, idx));
+                slides.forEach((s, i) => s.classList.toggle('active', i === current));
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+                counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+                prevBtn.disabled = current === 0;
+                if (current === slides.length - 1) {
+                    nextBtn.textContent = 'Открыть сайт →';
+                } else {
+                    nextBtn.textContent = 'Далее →';
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+            nextBtn.addEventListener('click', () => {
+                if (current === slides.length - 1) {
+                    window.location.href = 'index.html';
+                } else {
+                    goTo(current + 1);
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', e => {
+                if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                    e.preventDefault();
+                    if (current < slides.length - 1) goTo(current + 1);
+                } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                    e.preventDefault();
+                    if (current > 0) goTo(current - 1);
+                } else if (e.key === 'Home') {
+                    goTo(0);
+                } else if (e.key === 'End') {
+                    goTo(slides.length - 1);
+                }
+            });
+
+            // Mouse wheel navigation on desktop
+            let wheelLock = false;
+            window.addEventListener('wheel', e => {
+                if (window.innerWidth <= 1024) return;
+                if (wheelLock || Math.abs(e.deltaY) < 28) return;
+                wheelLock = true;
+                if (e.deltaY > 0 && current < slides.length - 1) goTo(current + 1);
+                else if (e.deltaY < 0 && current > 0) goTo(current - 1);
+                setTimeout(() => { wheelLock = false; }, 650);
+            }, { passive: true });
+
+            // Fullscreen
+            fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(() => {});
+                } else {
+                    document.exitFullscreen().catch(() => {});
+                }
+            });
+
+            goTo(0);
+        })();
+    </script>
+</body>
+</html>
