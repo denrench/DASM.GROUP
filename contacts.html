@@ -2,12 +2,11 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <script>try{var t=localStorage.getItem("dasm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
-
+    <script>try{var t=localStorage.getItem("dasm-theme-mode");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты — DASM Group</title>
     <meta name="description" content="Контакты DASM Group: офис в Алматы, телефон, email и форма обратной связи.">
-    <meta name="theme-color" content="#0c0b10">
+    <meta name="theme-color" content="#fbf9fd">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="DASM Group">
@@ -42,6 +41,10 @@
                     <button class="lang-btn" data-lang="KZ">KZ</button>
                     <button class="lang-btn" data-lang="EN">EN</button>
                 </div>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Тема">
+                    <span class="icon-sun">☀</span>
+                    <span class="icon-moon">☾</span>
+                </button>
                 <a href="#main-contact-form" class="btn btn-primary btn-sm">Стать клиентом</a>
                 <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
             </div>
@@ -50,12 +53,36 @@
 
     <main>
         <section class="page-hero">
-            <div class="container">
-                <span class="section-tag reveal">Свяжитесь с нами</span>
-                <h1 class="page-title reveal">Давайте обсудим ваш <span class="gradient-text">следующий большой шаг</span></h1>
-                <p class="page-lead reveal">
-                    Пригласите DASM Group в тендер, запросите аудит текущей рекламной стратегии или свяжитесь с региональными офисами группы.
-                </p>
+            <div class="container page-hero-grid">
+                <div>
+                    <span class="section-tag reveal">Свяжитесь с нами</span>
+                    <h1 class="page-title reveal">Давайте обсудим ваш <span class="gradient-text">следующий большой шаг</span></h1>
+                    <p class="page-lead reveal">
+                        Пригласите DASM Group в тендер, запросите аудит текущей рекламной стратегии или свяжитесь с региональными офисами группы.
+                    </p>
+                </div>
+                <div class="hero-bento reveal">
+                    <div class="hb-card">
+                        <span class="hb-icon">⚡</span>
+                        <strong>2 часа</strong>
+                        <span>Среднее время ответа</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">📋</span>
+                        <strong>Тендеры</strong>
+                        <span>Единый тендерный комитет</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">📍</span>
+                        <strong>Алматы</strong>
+                        <span>ул. Шамши Калдаякова, 34</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">📞</span>
+                        <strong>New Business</strong>
+                        <span>+7 (777) 773-01-62</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -78,7 +105,7 @@
                                 📞 New Business (DASMART): <a href="tel:+77777730162">+7 (777) 773-01-62</a><br>
                                 ✉️ Email: <a href="mailto:info@dasm.kz">info@dasm.kz</a>
                             </p>
-                            <p class="card-text">
+                            <p class="card-text" style="margin-top: 12px;">
                                 <a class="btn btn-outline btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B%2C+%D1%83%D0%BB.+%D0%A8%D0%B0%D0%BC%D1%88%D0%B8+%D0%9A%D0%B0%D0%BB%D0%B4%D0%B0%D1%8F%D0%BA%D0%BE%D0%B2%D0%B0%2C+34" target="_blank" rel="noopener">Построить маршрут</a>
                             </p>
                         </div>
@@ -130,7 +157,7 @@
                                     <option value="Комплексное обслуживание 360">Комплексное обслуживание 360°</option>
                                     <option value="Медиапланирование и баинг (TV, OOH, Digital)">Медиапланирование и баинг (TV, OOH, Digital)</option>
                                     <option value="Креатив, стратегия и брендинг">Креатив, стратегия и брендинг</option>
-                                    <option value="PR, SMM, Influence & BTL">PR, SMM, Influence & BTL</option>
+                                    <option value="PR, SMM, Influence & BTL">PR, SMM, Influence &amp; BTL</option>
                                     <option value="Мультистрановой запуск (ЦА и Кавказ)">Мультистрановой запуск (ЦА и Кавказ)</option>
                                 </select>
                             </div>

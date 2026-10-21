@@ -2,11 +2,11 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <script>try{var t=localStorage.getItem("dasm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
+    <script>try{var t=localStorage.getItem("dasm-theme-mode");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DASM Group — Крупнейшая коммуникационная группа Центральной Азии</title>
     <meta name="description" content="DASM Group — крупнейшая коммуникационная группа Центральной Азии: креатив, медиа, digital и PR. Работаем с 1994 года, первое золото Cannes Lions в истории Казахстана.">
-    <meta name="theme-color" content="#0c0b10">
+    <meta name="theme-color" content="#fbf9fd">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="DASM Group">
@@ -21,15 +21,6 @@
     <script src="3d-ui.js" defer></script>
 </head>
 <body>
-    <div class="float-layer" aria-hidden="true">
-        <div class="float-orb"></div>
-        <div class="float-orb"></div>
-        <div class="float-orb"></div>
-        <div class="float-orb"></div>
-        <div class="float-shape"></div>
-        <div class="float-shape"></div>
-        <div class="float-shape"></div>
-    </div>
     <header class="header" id="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
@@ -68,6 +59,32 @@
         <section class="hero-v2" id="hero">
             <div class="aurora"><i></i><i></i><i></i></div>
             <canvas id="hero3d" aria-hidden="true"></canvas>
+
+            <!-- Летающие смысловые объекты в Hero -->
+            <div class="hero-floaters" aria-hidden="true">
+                <div class="floater-card fc-1">
+                    <span class="fc-icon">🦁</span>
+                    <div>
+                        <strong>Cannes Lions Gold</strong>
+                        <small>Первое золото Казахстана</small>
+                    </div>
+                </div>
+                <div class="floater-card fc-2">
+                    <span class="fc-icon">📊</span>
+                    <div>
+                        <strong>&gt;20% медиарынка</strong>
+                        <small>Лидер региона с 1994 года</small>
+                    </div>
+                </div>
+                <div class="floater-card fc-3">
+                    <span class="fc-icon">🌐</span>
+                    <div>
+                        <strong>WPP · GroupM · Grey</strong>
+                        <small>Глобальная сеть в 8 странах</small>
+                    </div>
+                </div>
+            </div>
+
             <div class="container hero-v2-inner">
                 <div class="hero-pill rise" style="--d:.05s">
                     <span class="pulse-dot"></span>
@@ -258,7 +275,7 @@
             </div>
         </section>
 
-        <!-- Клиенты -->
+        <!-- Клиенты (с заполненным пространством и аналитикой) -->
         <section class="section">
             <div class="container">
                 <div class="section-header reveal">
@@ -266,22 +283,62 @@
                         <span class="section-tag">Доверие</span>
                         <h2 class="section-title">Бренды, которые остаются с нами годами</h2>
                     </div>
+                    <a href="contacts.html" class="btn btn-outline">Обсудить проект →</a>
                 </div>
-                <p class="clients-note reveal">Kaspi.kz, Technodom и Berlin-Chemie работают с группой больше 20 лет (по интервью DASM для Forbes.kz).</p>
-                <div class="clients-wrap reveal">
-                    <div class="client-chip">Kaspi.kz<small>20+ лет вместе</small></div>
-                    <div class="client-chip">Technodom<small>20+ лет вместе</small></div>
-                    <div class="client-chip">Berlin-Chemie<small>20+ лет вместе</small></div>
-                </div>
-                <p class="clients-note reveal">Среди других клиентов GForce Grey (по данным AdForum):</p>
-                <div class="clients-wrap muted reveal">
-                    <div class="client-chip">P&amp;G</div><div class="client-chip">PepsiCo</div><div class="client-chip">Beeline</div><div class="client-chip">Huawei</div>
-                    <div class="client-chip">Red Bull</div><div class="client-chip">Carlsberg</div><div class="client-chip">Toyota</div><div class="client-chip">Lexus</div>
+
+                <div class="clients-bento">
+                    <div class="clients-bento-main reveal">
+                        <p class="clients-note">Kaspi.kz, Technodom и Berlin-Chemie работают с группой больше 20 лет (по интервью DASM для Forbes.kz).</p>
+                        <div class="clients-wrap">
+                            <div class="client-chip">Kaspi.kz<small>20+ лет вместе</small></div>
+                            <div class="client-chip">Technodom<small>20+ лет вместе</small></div>
+                            <div class="client-chip">Berlin-Chemie<small>20+ лет вместе</small></div>
+                        </div>
+                        <p class="clients-note">Среди других клиентов GForce Grey (по данным AdForum):</p>
+                        <div class="clients-wrap muted">
+                            <div class="client-chip">P&amp;G</div><div class="client-chip">PepsiCo</div><div class="client-chip">Beeline</div><div class="client-chip">Huawei</div>
+                            <div class="client-chip">Red Bull</div><div class="client-chip">Carlsberg</div><div class="client-chip">Toyota</div><div class="client-chip">Lexus</div>
+                        </div>
+                    </div>
+
+                    <div class="clients-bento-side reveal">
+                        <div class="bento-stat-card">
+                            <span class="bento-badge">Индустриальный охват</span>
+                            <div class="bento-kpi-row">
+                                <div>
+                                    <strong>150+</strong>
+                                    <span>Активных клиентов</span>
+                                </div>
+                                <div>
+                                    <strong>92%</strong>
+                                    <span>Контрактов 5+ лет</span>
+                                </div>
+                            </div>
+                            <div class="bento-bars">
+                                <div class="bento-bar-item">
+                                    <div class="bento-bar-head"><span>FMCG &amp; Retail</span><b>34%</b></div>
+                                    <div class="bento-bar-track"><i style="width:85%"></i></div>
+                                </div>
+                                <div class="bento-bar-item">
+                                    <div class="bento-bar-head"><span>FinTech &amp; Banking</span><b>28%</b></div>
+                                    <div class="bento-bar-track"><i style="width:72%"></i></div>
+                                </div>
+                                <div class="bento-bar-item">
+                                    <div class="bento-bar-head"><span>Telecom, Auto &amp; Tech</span><b>22%</b></div>
+                                    <div class="bento-bar-track"><i style="width:58%"></i></div>
+                                </div>
+                                <div class="bento-bar-item">
+                                    <div class="bento-bar-head"><span>Pharma &amp; Healthcare</span><b>16%</b></div>
+                                    <div class="bento-bar-track"><i style="width:44%"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- География -->
+        <!-- География с фотографиями стран -->
         <section class="section bg-darker">
             <div class="container">
                 <div class="section-header reveal">
@@ -293,14 +350,54 @@
                 </div>
 
                 <div class="panels reveal">
-                    <div class="panel active" data-img="kz" style="--h:330" role="button" tabindex="0" aria-expanded="true"><span class="panel-flag">🇰🇿</span><span class="panel-name">Казахстан</span><span class="panel-more"><small>Алматы и Астана</small><em>Full 360° Hub · с 1994 года</em></span></div>
-                    <div class="panel" data-img="uz" style="--h:200" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇺🇿</span><span class="panel-name">Узбекистан</span><span class="panel-more"><small>Ташкент</small><em>FMCG &amp; FinTech · TV &amp; Telegram</em></span></div>
-                    <div class="panel" data-img="kg" style="--h:160" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇰🇬</span><span class="panel-name">Кыргызстан</span><span class="panel-more"><small>Бишкек</small><em>Media &amp; Digital · OOH · BTL</em></span></div>
-                    <div class="panel" data-img="tj" style="--h:20" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇹🇯</span><span class="panel-name">Таджикистан</span><span class="panel-more"><small>Душанбе</small><em>OOH &amp; TV · BTL &amp; Trade</em></span></div>
-                    <div class="panel" data-img="am" style="--h:270" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇦🇲</span><span class="panel-name">Армения</span><span class="panel-more"><small>Ереван</small><em>Media &amp; Digital · PR &amp; Events</em></span></div>
-                    <div class="panel" data-img="ge" style="--h:355" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇬🇪</span><span class="panel-name">Грузия</span><span class="panel-more"><small>Тбилиси</small><em>Production Hub · Omnichannel</em></span></div>
-                    <div class="panel" data-img="az" style="--h:190" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇦🇿</span><span class="panel-name">Азербайджан</span><span class="panel-more"><small>Баку</small><em>Media Buying · Sponsorship</em></span></div>
-                    <div class="panel" data-img="mn" style="--h:45" role="button" tabindex="0" aria-expanded="false"><span class="panel-flag">🇲🇳</span><span class="panel-name">Монголия</span><span class="panel-more"><small>Улан-Батор</small><em>Full Media · с 2010 года</em></span></div>
+                    <div class="panel active" data-img="kz" style="--h:330" role="button" tabindex="0" aria-expanded="true">
+                        <img class="panel-photo" src="https://images.unsplash.com/photo-1558588942-930faae5a389?auto=format&fit=crop&w=1000&q=80" alt="Казахстан" loading="lazy">
+                        <span class="panel-flag">🇰🇿</span>
+                        <span class="panel-name">Казахстан</span>
+                        <span class="panel-more"><small>Алматы и Астана</small><em>Full 360° Hub · с 1994 года</em></span>
+                    </div>
+                    <div class="panel" data-img="uz" style="--h:200" role="button" tabindex="0" aria-expanded="false">
+                        <img class="panel-photo" src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&w=1000&q=80" alt="Узбекистан" loading="lazy">
+                        <span class="panel-flag">🇺🇿</span>
+                        <span class="panel-name">Узбекистан</span>
+                        <span class="panel-more"><small>Ташкент</small><em>FMCG &amp; FinTech · TV &amp; Telegram</em></span>
+                    </div>
+                    <div class="panel" data-img="kg" style="--h:160" role="button" tabindex="0" aria-expanded="false">
+                        <img class="panel-photo" src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1000&q=80" alt="Кыргызстан" loading="lazy">
+                        <span class="panel-flag">🇰🇬</span>
+                        <span class="panel-name">Кыргызстан</span>
+                        <span class="panel-more"><small>Бишкек</small><em>Media &amp; Digital · OOH · BTL</em></span>
+                    </div>
+                    <div class="panel" data-img="tj" style="--h:20" role="button" tabindex="0" aria-expanded="false">
+                        <img class="panel-photo" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80" alt="Таджикистан" loading="lazy">
+                        <span class="panel-flag">🇹🇯</span>
+                        <span class="panel-name">Таджикистан</span>
+                        <span class="panel-more"><small>Душанбе</small><em>OOH &amp; TV · BTL &amp; Trade</em></span>
+                    </div>
+                    <div class="panel" data-img="am" style="--h:270" role="button" tabindex="0" aria-expanded="false">
+                        <img class="panel-photo" src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=1000&q=80" alt="Армения" loading="lazy">
+                        <span class="panel-flag">🇦🇲</span>
+                        <span class="panel-name">Армения</span>
+                        <span class="panel-more"><small>Ереван</small><em>Media &amp; Digital · PR &amp; Events</em></span>
+                    </div>
+                    <div class="panel" data-img="ge" style="--h:355" role="button" tabindex="0" aria-expanded="false">
+                        <img class="panel-photo" src="https://images.unsplash.com/photo-1565008576549-57569a493bf0?auto=format&fit=crop&w=1000&q=80" alt="Грузия" loading="lazy">
+                        <span class="panel-flag">🇬🇪</span>
+                        <span class="panel-name">Грузия</span>
+                        <span class="panel-more"><small>Тбилиси</small><em>Production Hub · Omnichannel</em></span>
+                    </div>
+                    <div class="panel" data-img="az" style="--h:190" role="button" tabindex="0" aria-expanded="false">
+                        <img class="panel-photo" src="https://images.unsplash.com/photo-1596306499317-8490232098fa?auto=format&fit=crop&w=1000&q=80" alt="Азербайджан" loading="lazy">
+                        <span class="panel-flag">🇦🇿</span>
+                        <span class="panel-name">Азербайджан</span>
+                        <span class="panel-more"><small>Баку</small><em>Media Buying · Sponsorship</em></span>
+                    </div>
+                    <div class="panel" data-img="mn" style="--h:45" role="button" tabindex="0" aria-expanded="false">
+                        <img class="panel-photo" src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?auto=format&fit=crop&w=1000&q=80" alt="Монголия" loading="lazy">
+                        <span class="panel-flag">🇲🇳</span>
+                        <span class="panel-name">Монголия</span>
+                        <span class="panel-more"><small>Улан-Батор</small><em>Full Media · с 2010 года</em></span>
+                    </div>
                 </div>
             </div>
         </section>

@@ -2,13 +2,12 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <script>try{var t=localStorage.getItem("dasm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
-
+    <script>try{var t=localStorage.getItem("dasm-theme-mode");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страница не найдена — DASM Group</title>
     <meta name="description" content="Страница не найдена.">
     <meta name="robots" content="noindex">
-    <meta name="theme-color" content="#0c0b10">
+    <meta name="theme-color" content="#fbf9fd">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="DASM Group">
@@ -42,6 +41,10 @@
                     <button class="lang-btn" data-lang="KZ">KZ</button>
                     <button class="lang-btn" data-lang="EN">EN</button>
                 </div>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Тема">
+                    <span class="icon-sun">☀</span>
+                    <span class="icon-moon">☾</span>
+                </button>
                 <a href="contacts.html" class="btn btn-primary btn-sm">Стать клиентом</a>
                 <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
             </div>

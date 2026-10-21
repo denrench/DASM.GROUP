@@ -2,12 +2,11 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <script>try{var t=localStorage.getItem("dasm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
-
+    <script>try{var t=localStorage.getItem("dasm-theme-mode");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Карьера и вакансии — DASM Group</title>
     <meta name="description" content="Вакансии и карьера в DASM Group: креатив, клиентский сервис, медиа и финансы. Алматы и Ташкент.">
-    <meta name="theme-color" content="#0c0b10">
+    <meta name="theme-color" content="#fbf9fd">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="DASM Group">
@@ -42,6 +41,10 @@
                     <button class="lang-btn" data-lang="KZ">KZ</button>
                     <button class="lang-btn" data-lang="EN">EN</button>
                 </div>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Тема">
+                    <span class="icon-sun">☀</span>
+                    <span class="icon-moon">☾</span>
+                </button>
                 <a href="#footer-contact" class="btn btn-primary btn-sm">Стать клиентом</a>
                 <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
             </div>
@@ -50,12 +53,36 @@
 
     <main>
         <section class="page-hero">
-            <div class="container">
-                <span class="section-tag reveal">Люди — наш главный актив</span>
-                <h1 class="page-title reveal">Создавай рекламу мирового уровня <span class="gradient-text">в команде 500+ профи</span></h1>
-                <p class="page-lead reveal">
-                    Работа в DASM Group — это доступ к глобальным базам знаний WPP, работа с крупнейшими брендами планеты, поездки на международные фестивали и культура, где смелым идеям всегда говорят «DA».
-                </p>
+            <div class="container page-hero-grid">
+                <div>
+                    <span class="section-tag reveal">Люди — наш главный актив</span>
+                    <h1 class="page-title reveal">Создавай рекламу мирового уровня <span class="gradient-text">в команде 500+ профи</span></h1>
+                    <p class="page-lead reveal">
+                        Работа в DASM Group — это доступ к глобальным базам знаний WPP, работа с крупнейшими брендами планеты, поездки на международные фестивали и культура, где смелым идеям всегда говорят «DA».
+                    </p>
+                </div>
+                <div class="hero-bento reveal">
+                    <div class="hb-card">
+                        <span class="hb-icon">🎓</span>
+                        <strong>WPP Academy</strong>
+                        <span>Глобальные базы знаний</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🌍</span>
+                        <strong>8 стран</strong>
+                        <span>Возможности релокации</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🦁</span>
+                        <strong>Фестивали</strong>
+                        <span>Канны · Jolbors · Red Jolbors</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🤝</span>
+                        <strong>500+ коллег</strong>
+                        <span>Менторство от лидеров рынка</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -129,7 +156,7 @@
 
                     <div class="vacancy-item reveal" data-city="almaty" data-dir="media">
                         <div>
-                            <span class="vacancy-meta">Алматы • Media & Digital (Full-time)</span>
+                            <span class="vacancy-meta">Алматы • Media &amp; Digital (Full-time)</span>
                             <h3>Senior Digital Media Planner / Performance Lead</h3>
                             <p>Стратегическое и тактическое планирование digital-кампаний, защита медиасплитов перед клиентами, работа с аналитическими инструментами GroupM.</p>
                         </div>
@@ -151,7 +178,8 @@
                 </div>
             </div>
         </section>
-        <!-- FAQ -->
+
+        <!-- FAQ + боковая карточка HR -->
         <section class="section">
             <div class="container">
                 <div class="section-header reveal">
@@ -160,23 +188,36 @@
                         <h2 class="section-title">Как попасть в DASM</h2>
                     </div>
                 </div>
-                <div class="faq reveal">
-                    <details>
-                        <summary>Нужен ли опыт работы?</summary>
-                        <p>Зависит от позиции: в вакансиях группы на hh встречаются роли, где опыт не требуется, например Assistant Media Planning Manager.</p>
-                    </details>
-                    <details>
-                        <summary>Где смотреть актуальные вакансии?</summary>
-                        <p>Актуальный список ведётся на странице DASM Group на hh.kz — ссылка под списком вакансий.</p>
-                    </details>
-                    <details>
-                        <summary>Какой график работы?</summary>
-                        <p>В опубликованных вакансиях указан график 5/2 с работой в офисе. Детали уточняйте у рекрутера.</p>
-                    </details>
-                    <details>
-                        <summary>Как откликнуться?</summary>
-                        <p>Нажмите «Откликнуться» у вакансии и заполните форму внизу страницы: расскажите о себе и добавьте ссылку на резюме или портфолио.</p>
-                    </details>
+                <div class="faq-layout">
+                    <div class="faq reveal">
+                        <details open>
+                            <summary>Нужен ли опыт работы?</summary>
+                            <p>Зависит от позиции: в вакансиях группы на hh встречаются роли, где опыт не требуется, например Assistant Media Planning Manager.</p>
+                        </details>
+                        <details>
+                            <summary>Где смотреть актуальные вакансии?</summary>
+                            <p>Актуальный список ведётся на странице DASM Group на hh.kz — ссылка под списком вакансий.</p>
+                        </details>
+                        <details>
+                            <summary>Какой график работы?</summary>
+                            <p>В опубликованных вакансиях указан график 5/2 с работой в офисе. Детали уточняйте у рекрутера.</p>
+                        </details>
+                        <details>
+                            <summary>Как откликнуться?</summary>
+                            <p>Нажмите «Откликнуться» у вакансии и заполните форму внизу страницы: расскажите о себе и добавьте ссылку на резюме или портфолио.</p>
+                        </details>
+                    </div>
+                    <aside class="faq-aside reveal">
+                        <div class="bento-stat-card">
+                            <span class="bento-badge">HR Департамент</span>
+                            <h3>Не нашли свою позицию в списке?</h3>
+                            <p class="card-text">Мы всегда в поиске сильных стратегов, арт-директоров, медиапланеров и аккаунт-менеджеров. Пришлите портфолио или CV напрямую в наш HR-отдел.</p>
+                            <div class="aside-steps">
+                                <div class="aside-step"><b>✉</b><span>hr@dasm.kz</span></div>
+                                <div class="aside-step"><b>📍</b><span>Алматы, ул. Шамши Калдаякова, 34</span></div>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
             </div>
         </section>

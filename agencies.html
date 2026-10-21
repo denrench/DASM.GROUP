@@ -2,11 +2,11 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <script>try{var t=localStorage.getItem("dasm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
+    <script>try{var t=localStorage.getItem("dasm-theme-mode");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Агентства — DASM Group</title>
     <meta name="description" content="Агентства DASM Group: креатив, медиа, digital, PR и BTL. Подберите агентство под задачу за три вопроса.">
-    <meta name="theme-color" content="#0c0b10">
+    <meta name="theme-color" content="#fbf9fd">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="DASM Group">
@@ -42,6 +42,10 @@
                     <button class="lang-btn">KZ</button>
                     <button class="lang-btn">EN</button>
                 </div>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Тема">
+                    <span class="icon-sun">☀</span>
+                    <span class="icon-moon">☾</span>
+                </button>
                 <a href="#footer-contact" class="btn btn-primary btn-sm">Стать клиентом</a>
                 <button class="burger" id="burgerBtn" aria-label="Меню">
                     <span></span><span></span><span></span>
@@ -53,16 +57,40 @@
     <main>
         <!-- Page Hero -->
         <section class="page-hero">
-            <div class="container">
-                <span class="section-tag reveal">Структура группы</span>
-                <h1 class="page-title reveal">
-                    15 специализированных агентств<br>
-                    <span class="gradient-text">в единой экосистеме</span>
-                </h1>
-                <p class="page-lead reveal">
-                    Каждое агентство обладает глубокой профильной специализацией — от глобального медиабаинга и стратегии 
-                    до креатива, digital-перформанса, PR и трейд-маркетинга.
-                </p>
+            <div class="container page-hero-grid">
+                <div>
+                    <span class="section-tag reveal">Структура группы</span>
+                    <h1 class="page-title reveal">
+                        15 специализированных агентств<br>
+                        <span class="gradient-text">в единой экосистеме</span>
+                    </h1>
+                    <p class="page-lead reveal">
+                        Каждое агентство обладает глубокой профильной специализацией — от глобального медиабаинга и стратегии 
+                        до креатива, digital-перформанса, PR и трейд-маркетинга.
+                    </p>
+                </div>
+                <div class="hero-bento reveal">
+                    <div class="hb-card">
+                        <span class="hb-icon">🎨</span>
+                        <strong>Креатив 360°</strong>
+                        <span>GForce Grey · Брендинг</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">📺</span>
+                        <strong>Media Buying</strong>
+                        <span>Mindshare · Wavemaker</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">⚡</span>
+                        <strong>Digital &amp; Tech</strong>
+                        <span>EssenceMediacom · Hub</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">📣</span>
+                        <strong>PR &amp; Experience</strong>
+                        <span>DASM PR · Action BTL</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -98,7 +126,7 @@
                             адаптивное медиапланирование и глубокую аналитику данных.
                         </p>
                         <div class="card-tags">
-                            <span>Media Planning</span><span>TV & OOH</span><span>Data</span>
+                            <span>Media Planning</span><span>TV &amp; OOH</span><span>Data</span>
                         </div>
                     </div>
 
@@ -115,7 +143,7 @@
                     </div>
 
                     <div class="card reveal" data-cat="media digital">
-                        <div class="card-num">Media & Digital · GroupM</div>
+                        <div class="card-num">Media &amp; Digital · GroupM</div>
                         <h3 class="card-title">EssenceMediacom</h3>
                         <p class="card-text">
                             Синтез digital-ДНК Essence и системной экспертизы MediaCom. 
@@ -134,12 +162,12 @@
                             Более 1500 реализованных кейсов.
                         </p>
                         <div class="card-tags">
-                            <span>360°</span><span>Performance</span><span>OOH & TV</span>
+                            <span>360°</span><span>Performance</span><span>OOH &amp; TV</span>
                         </div>
                     </div>
 
                     <div class="card reveal" data-cat="digital">
-                        <div class="card-num">Digital & Performance</div>
+                        <div class="card-num">Digital &amp; Performance</div>
                         <h3 class="card-title">DASM Digital Hub</h3>
                         <p class="card-text">
                             Programmatic-закупки, лидогенерация, SEO/ASO, сквозная аналитика 
@@ -151,8 +179,8 @@
                     </div>
 
                     <div class="card reveal" data-cat="digital pr">
-                        <div class="card-num">Social & Creators</div>
-                        <h3 class="card-title">DASM Social & Influence</h3>
+                        <div class="card-num">Social &amp; Creators</div>
+                        <h3 class="card-title">DASM Social &amp; Influence</h3>
                         <p class="card-text">
                             Управление присутствием брендов в соцсетях, спецпроекты с топ-блогерами 
                             и лидерами мнений на локальных языках.
@@ -163,7 +191,7 @@
                     </div>
 
                     <div class="card reveal" data-cat="pr">
-                        <div class="card-num">PR & Reputation</div>
+                        <div class="card-num">PR &amp; Reputation</div>
                         <h3 class="card-title">DASM PR</h3>
                         <p class="card-text">
                             Управление корпоративной репутацией, связи со СМИ, ESG-коммуникации 
@@ -175,8 +203,8 @@
                     </div>
 
                     <div class="card reveal" data-cat="btl">
-                        <div class="card-num">BTL & Experience</div>
-                        <h3 class="card-title">Action & Brand Experience</h3>
+                        <div class="card-num">BTL &amp; Experience</div>
+                        <h3 class="card-title">Action &amp; Brand Experience</h3>
                         <p class="card-text">
                             Интегрированные маркетинговые коммуникации, трейд-маркетинг, 
                             масштабные бренд-активации и события.
@@ -189,7 +217,8 @@
                 </div>
             </div>
         </section>
-        <!-- Квиз -->
+
+        <!-- Квиз + боковая карточка экосистемы -->
         <section class="section bg-darker" id="quiz">
             <div class="container">
                 <div class="section-header reveal">
@@ -199,7 +228,21 @@
                         <p class="page-lead">Ответьте на три вопроса — подскажем, с кого начать.</p>
                     </div>
                 </div>
-                <div class="quiz reveal" id="agencyQuiz"></div>
+                <div class="quiz-layout">
+                    <div class="quiz reveal" id="agencyQuiz"></div>
+                    <aside class="quiz-aside reveal">
+                        <div class="bento-stat-card">
+                            <span class="bento-badge">Как мы работаем</span>
+                            <h3>Единое окно для сложных задач</h3>
+                            <p class="card-text">Если ваша задача требует сразу креатива, ТВ-баинга, performance и PR в нескольких странах, мы собираем кросс-агентскую команду с единым аккаунт-директором.</p>
+                            <div class="aside-steps">
+                                <div class="aside-step"><b>01</b><span>Аудит брифа и выбор профильных команд</span></div>
+                                <div class="aside-step"><b>02</b><span>Единая медиа- и креативная стратегия</span></div>
+                                <div class="aside-step"><b>03</b><span>Прозрачный дашборд KPI по всем странам</span></div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
             </div>
         </section>
     </main>

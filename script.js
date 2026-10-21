@@ -1,6 +1,6 @@
 /**
  * DASM GROUP — script.js
- * Меню, анимации, счётчики, фильтры, поиск вакансий, квиз, формы, язык.
+ * Меню, тема, плавающие объекты, анимации, счётчики, фильтры, поиск вакансий, квиз, формы, язык.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,14 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const T = s => (window.i18n ? window.i18n.t(s) : s);
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // ===== Тема: светлая по умолчанию =====
+    // ===== Тема: светлая по умолчанию + переключатель =====
     (function initTheme() {
         const root = document.documentElement;
         let theme = 'light';
         try {
-            const saved = localStorage.getItem('dasm-theme');
+            const saved = localStorage.getItem('dasm-theme-mode');
             if (saved === 'dark' || saved === 'light') theme = saved;
-            else if (window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
         } catch (e) { /* ignore */ }
         root.setAttribute('data-theme', theme);
 
@@ -42,19 +41,34 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', () => {
                 theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
                 root.setAttribute('data-theme', theme);
-                try { localStorage.setItem('dasm-theme', theme); } catch (e) { /* ignore */ }
+                try { localStorage.setItem('dasm-theme-mode', theme); } catch (e) { /* ignore */ }
             });
         }
     })();
 
-    // ===== Плавающий декоративный слой =====
-    if (!$('.float-layer')) {
-        const layer = document.createElement('div');
-        layer.className = 'float-layer';
-        layer.setAttribute('aria-hidden', 'true');
-        layer.innerHTML = '<div class="float-orb"></div><div class="float-orb"></div><div class="float-orb"></div><div class="float-orb"></div><div class="float-shape"></div><div class="float-shape"></div><div class="float-shape"></div>';
-        document.body.prepend(layer);
-    }
+    // ===== Плавающий декоративный слой со смысловыми объектами сайта =====
+    (function initFloatLayer() {
+        let layer = $('.float-layer');
+        if (!layer) {
+            layer = document.createElement('div');
+            layer.className = 'float-layer';
+            layer.setAttribute('aria-hidden', 'true');
+            document.body.prepend(layer);
+        }
+        layer.innerHTML = `
+            <div class="float-orb"></div>
+            <div class="float-orb"></div>
+            <div class="float-orb"></div>
+            <div class="float-orb"></div>
+            <div class="float-item fi-1"><span>🦁</span><small>Cannes Lions</small></div>
+            <div class="float-item fi-2"><span>📢</span><small>Media 360°</small></div>
+            <div class="float-item fi-3"><span>📈</span><small>ROI &amp; Data</small></div>
+            <div class="float-item fi-4"><span>🎬</span><small>Creative Hub</small></div>
+            <div class="float-item fi-5"><span>🌐</span><small>8 Countries</small></div>
+            <div class="float-item fi-6"><span>🎯</span><small>WPP Partner</small></div>
+            <div class="float-item fi-7"><span>✨</span><small>WE SAY DA</small></div>
+        `;
+    })();
 
     // ===== Шапка при скролле =====
     const header = $('#header');
@@ -92,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     $$('.reveal').forEach(el => revealObserver.observe(el));
 
     // ===== Счётчики: числа набираются, когда блок появляется на экране =====
@@ -115,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 counterObserver.unobserve(entry.target);
                 run(entry.target);
             });
-        }, { threshold: 0.6 });
+        }, { threshold: 0.5 });
         counters.forEach(el => {
             el.textContent = '0';
             counterObserver.observe(el);
@@ -123,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===== Фильтры карточек (агентства, кейсы, страны) =====
-    // <div class="filter-bar" data-target="#id" data-attr="cat"> + кнопки .chip[data-filter]
     $$('.filter-bar').forEach(bar => {
         const grid = $(bar.dataset.target);
         if (!grid) return;
@@ -244,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '<div class="quiz-result">' +
                 '<div class="quiz-count">' + T('Вам подойдёт') + '</div>' +
                 '<h3 class="quiz-result-name">' + name + '</h3>' +
-                '<p class="quiz-result-desc">' + desc + '</p>' +
+                '<p class="quiz-result-desc">' + T(desc) + '</p>' +
                 '<p class="quiz-result-note">' + T(NOTES[answers[1]]) + '</p>' +
                 '<div class="quiz-actions">' +
                 '<a href="#footer-contact" class="btn btn-primary" id="quizCta">' + T('Запросить презентацию') + '</a>' +
@@ -254,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#quizReset', quizEl).addEventListener('click', () => { step = 0; answers = []; render(); });
             $('#quizCta', quizEl).addEventListener('click', () => {
                 const ta = $('#footer-contact textarea');
-                if (ta) ta.value = 'Интересует: ' + name + '.';
+                if (ta) ta.value = T('Интересует:') + ' ' + name + '.';
             });
         };
 
@@ -263,8 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===== Формы: проверка и отправка =====
-    // Если у формы есть data-endpoint (например Formspree) — отправляем туда.
-    // Если нет — открываем письмо в почтовом клиенте (data-mailto или info@dasm.kz).
     const MAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const PHONE_RE = /^\+?[\d\s()-]{7,}$/;
     const LABELS = { name: 'Имя', contact: 'Контакты', message: 'Сообщение', service: 'Направление' };
@@ -365,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----- Плавное появление по очереди -----
-    $$('.cards-grid, .stats-grid, .clients-wrap, .timeline, .people-grid, .faq, .vacancies-list, .filter-bar, .link-row')
+    $$('.cards-grid, .stats-grid, .clients-wrap, .timeline, .people-grid, .faq, .vacancies-list, .filter-bar, .link-row, .hero-bento')
         .forEach(group => {
             $$(':scope > .reveal, :scope > * > .reveal', group).forEach((el, i) => {
                 el.style.setProperty('--rd', Math.min(i, 7) * 0.07 + 's');
@@ -373,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     // ----- Подсветка карточек под курсором -----
-    const SPOT = '.card, .case-card, .person, .tl-item, .vacancy-item, .panel';
+    const SPOT = '.card, .case-card, .person, .tl-item, .vacancy-item, .panel, .hb-card, .bento-stat-card';
     document.addEventListener('pointermove', e => {
         const el = e.target.closest ? e.target.closest(SPOT) : null;
         if (!el) return;
@@ -438,13 +449,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const scr = $('.scramble');
     if (scr) {
         const words = scr.dataset.words.split('|');
-        const GLYPHS = 'абвгдежзиклмнопрстуфхцчшэюя0123456789#%&';
+        const GLYPHS_CYR = 'абвгдежзиклмнопрстуфхцчшэюя0123456789#%&';
+        const GLYPHS_LAT = 'abcdefghijklmnopqrstuvwxyz0123456789#%&';
         let idx = 0;
         let timer = 0;
 
         const show = word => { scr.textContent = T(word); };
         const scrambleTo = word => {
             const target = T(word);
+            const glyphs = (window.i18n && window.i18n.lang === 'EN') ? GLYPHS_LAT : GLYPHS_CYR;
             const total = 20;
             let frame = 0;
             clearTimeout(timer);
@@ -453,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let out = '';
                 for (let k = 0; k < target.length; k++) {
                     out += (k < (frame / total) * target.length || target[k] === ' ' || target[k] === '.')
-                        ? target[k] : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+                        ? target[k] : glyphs[Math.floor(Math.random() * glyphs.length)];
                 }
                 scr.textContent = out;
                 if (frame < total) timer = setTimeout(tick, 34);
@@ -500,10 +513,10 @@ document.addEventListener('DOMContentLoaded', () => {
             spokes.forEach((s, k) => s.classList.toggle('active', k === i));
 
             const it = items[i];
-            capTitle.textContent = $('b', it).textContent + ' · ' + $('.sys-btn span', it).textContent;
-            capAgencies.textContent = $$('.card-tags span', it).map(s => s.textContent).join(' · ');
+            if (capTitle) capTitle.textContent = $('b', it).textContent + ' · ' + $('.sys-btn span', it).textContent;
+            if (capAgencies) capAgencies.textContent = $$('.card-tags span', it).map(s => s.textContent).join(' · ');
 
-            if (pulse && !reduceMotion && pulse.animate) {
+            if (pulse && !reduceMotion && pulse.animate && pos[i]) {
                 pulse.getAnimations().forEach(a => a.cancel());
                 pulse.animate([
                     { transform: 'translate(280px,270px)' },

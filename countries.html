@@ -2,11 +2,11 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <script>try{var t=localStorage.getItem("dasm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
+    <script>try{var t=localStorage.getItem("dasm-theme-mode");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страны присутствия — DASM Group</title>
     <meta name="description" content="Где работает DASM Group: Казахстан, Узбекистан, Кыргызстан, Таджикистан, Армения, Грузия, Азербайджан и Монголия.">
-    <meta name="theme-color" content="#0c0b10">
+    <meta name="theme-color" content="#fbf9fd">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="DASM Group">
@@ -42,6 +42,10 @@
                     <button class="lang-btn">KZ</button>
                     <button class="lang-btn">EN</button>
                 </div>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Тема">
+                    <span class="icon-sun">☀</span>
+                    <span class="icon-moon">☾</span>
+                </button>
                 <a href="#footer-contact" class="btn btn-primary btn-sm">Стать клиентом</a>
                 <button class="burger" id="burgerBtn" aria-label="Меню">
                     <span></span><span></span><span></span>
@@ -53,30 +57,65 @@
     <main>
         <!-- Page Hero -->
         <section class="page-hero">
-            <div class="container">
-                <span class="section-tag reveal">Региональный масштаб</span>
-                <h1 class="page-title reveal">
-                    8 стран. 90+ миллионов потребителей.<br>
-                    <span class="gradient-text">Единые стандарты качества.</span>
-                </h1>
-                <p class="page-lead reveal">
-                    Мы обеспечиваем бесшовный запуск и координацию кампаний в Центральной Азии, 
-                    на Кавказе и в Монголии с глубоким пониманием локального культурного кода.
-                </p>
+            <div class="container page-hero-grid">
+                <div>
+                    <span class="section-tag reveal">Региональный масштаб</span>
+                    <h1 class="page-title reveal">
+                        8 стран. 90+ миллионов потребителей.<br>
+                        <span class="gradient-text">Единые стандарты качества.</span>
+                    </h1>
+                    <p class="page-lead reveal">
+                        Мы обеспечиваем бесшовный запуск и координацию кампаний в Центральной Азии, 
+                        на Кавказе и в Монголии с глубоким пониманием локального культурного кода.
+                    </p>
+                </div>
+                <div class="hero-bento reveal">
+                    <div class="hb-card">
+                        <span class="hb-icon">🌏</span>
+                        <strong>90+ млн</strong>
+                        <span>Потребителей в регионе</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🏢</span>
+                        <strong>8 хабов</strong>
+                        <span>Прямые офисы и партнёры</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🎯</span>
+                        <strong>Единое окно</strong>
+                        <span>Координация через Алматы</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🗣️</span>
+                        <strong>8 языков</strong>
+                        <span>Локальная адаптация креатива</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Глобус -->
+        <!-- Глобус с политической картой мира и подписями стран -->
         <section class="section globe-section">
             <div class="container">
+                <div class="globe-nav reveal" id="globeNav">
+                    <button type="button" class="globe-country-btn active" data-code="KAZ">🇰🇿 <span>Казахстан</span></button>
+                    <button type="button" class="globe-country-btn" data-code="UZB">🇺🇿 <span>Узбекистан</span></button>
+                    <button type="button" class="globe-country-btn" data-code="KGZ">🇰🇬 <span>Кыргызстан</span></button>
+                    <button type="button" class="globe-country-btn" data-code="TJK">🇹🇯 <span>Таджикистан</span></button>
+                    <button type="button" class="globe-country-btn" data-code="ARM">🇦🇲 <span>Армения</span></button>
+                    <button type="button" class="globe-country-btn" data-code="GEO">🇬🇪 <span>Грузия</span></button>
+                    <button type="button" class="globe-country-btn" data-code="AZE">🇦🇿 <span>Азербайджан</span></button>
+                    <button type="button" class="globe-country-btn" data-code="MNG">🇲🇳 <span>Монголия</span></button>
+                </div>
                 <div class="globe-wrap">
                     <canvas id="globe3d" aria-hidden="true"></canvas>
+                    <div class="globe-pins" id="globePins"></div>
                     <div class="globe-legend">
-                        <span><i></i> Алматы — штаб-квартира</span>
+                        <span><i class="hq-dot"></i> Алматы — штаб-квартира</span>
                         <span><i></i> 7 региональных офисов</span>
                     </div>
                 </div>
-                <p class="globe-hint">↻ Покрутите глобус мышью — 8 стран, один стандарт</p>
+                <p class="globe-hint">↻ Покрутите глобус мышью или выберите страну выше — 8 стран, один стандарт</p>
             </div>
         </section>
 
@@ -91,7 +130,10 @@
                 </div>
                 <div class="cards-grid cols-2" id="countriesGrid">
 
-                    <div class="card reveal" data-region="ca">
+                    <div class="card reveal" data-region="ca" id="country-KAZ">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1558588942-930faae5a389?auto=format&fit=crop&w=900&q=80" alt="Казахстан" loading="lazy">
+                        </div>
                         <div class="card-num">🇰🇿 Казахстан</div>
                         <h3 class="card-title">Штаб-квартира · Алматы и Астана</h3>
                         <p class="card-text">
@@ -106,7 +148,10 @@
                         </div>
                     </div>
 
-                    <div class="card reveal" data-region="ca">
+                    <div class="card reveal" data-region="ca" id="country-UZB">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&w=900&q=80" alt="Узбекистан" loading="lazy">
+                        </div>
                         <div class="card-num">🇺🇿 Узбекистан</div>
                         <h3 class="card-title">Ташкент</h3>
                         <p class="card-text">
@@ -115,12 +160,15 @@
                         </p>
                         <div class="card-tags">
                             <span>37+ млн</span>
-                            <span>FMCG & FinTech</span>
-                            <span>TV & Telegram</span>
+                            <span>FMCG &amp; FinTech</span>
+                            <span>TV &amp; Telegram</span>
                         </div>
                     </div>
 
-                    <div class="card reveal" data-region="ca">
+                    <div class="card reveal" data-region="ca" id="country-KGZ">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=900&q=80" alt="Кыргызстан" loading="lazy">
+                        </div>
                         <div class="card-num">🇰🇬 Кыргызстан</div>
                         <h3 class="card-title">Бишкек</h3>
                         <p class="card-text">
@@ -128,13 +176,16 @@
                             и BTL-активациях. Прямые контракты с крупнейшими селлерами страны.
                         </p>
                         <div class="card-tags">
-                            <span>Media & Digital</span>
+                            <span>Media &amp; Digital</span>
                             <span>OOH</span>
                             <span>BTL</span>
                         </div>
                     </div>
 
-                    <div class="card reveal" data-region="ca">
+                    <div class="card reveal" data-region="ca" id="country-TJK">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80" alt="Таджикистан" loading="lazy">
+                        </div>
                         <div class="card-num">🇹🇯 Таджикистан</div>
                         <h3 class="card-title">Душанбе</h3>
                         <p class="card-text">
@@ -142,12 +193,15 @@
                             и наружной рекламы, полевые исследования и промо-акции.
                         </p>
                         <div class="card-tags">
-                            <span>OOH & TV</span>
-                            <span>BTL & Trade</span>
+                            <span>OOH &amp; TV</span>
+                            <span>BTL &amp; Trade</span>
                         </div>
                     </div>
 
-                    <div class="card reveal" data-region="caucasus">
+                    <div class="card reveal" data-region="caucasus" id="country-ARM">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=900&q=80" alt="Армения" loading="lazy">
+                        </div>
                         <div class="card-num">🇦🇲 Армения</div>
                         <h3 class="card-title">Ереван</h3>
                         <p class="card-text">
@@ -155,12 +209,15 @@
                             адаптация с соблюдением единых стандартов отчётности WPP / DASM.
                         </p>
                         <div class="card-tags">
-                            <span>Media & Digital</span>
-                            <span>PR & Events</span>
+                            <span>Media &amp; Digital</span>
+                            <span>PR &amp; Events</span>
                         </div>
                     </div>
 
-                    <div class="card reveal" data-region="caucasus">
+                    <div class="card reveal" data-region="caucasus" id="country-GEO">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1565008576549-57569a493bf0?auto=format&fit=crop&w=900&q=80" alt="Грузия" loading="lazy">
+                        </div>
                         <div class="card-num">🇬🇪 Грузия</div>
                         <h3 class="card-title">Тбилиси</h3>
                         <p class="card-text">
@@ -173,7 +230,10 @@
                         </div>
                     </div>
 
-                    <div class="card reveal" data-region="caucasus">
+                    <div class="card reveal" data-region="caucasus" id="country-AZE">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1596306499317-8490232098fa?auto=format&fit=crop&w=900&q=80" alt="Азербайджан" loading="lazy">
+                        </div>
                         <div class="card-num">🇦🇿 Азербайджан</div>
                         <h3 class="card-title">Баку</h3>
                         <p class="card-text">
@@ -186,7 +246,10 @@
                         </div>
                     </div>
 
-                    <div class="card reveal" data-region="mongolia">
+                    <div class="card reveal" data-region="mongolia" id="country-MNG">
+                        <div class="card-media">
+                            <img src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?auto=format&fit=crop&w=900&q=80" alt="Монголия" loading="lazy">
+                        </div>
                         <div class="card-num">🇲🇳 Монголия</div>
                         <h3 class="card-title">Улан-Батор</h3>
                         <p class="card-text">

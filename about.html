@@ -2,11 +2,11 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <script>try{var t=localStorage.getItem("dasm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
+    <script>try{var t=localStorage.getItem("dasm-theme-mode");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О холдинге — DASM Group</title>
     <meta name="description" content="История DASM Group с 1994 года: выход в Центральную Азию, партнёрство с WPP, офис в Монголии и первый Золотой Лев Казахстана.">
-    <meta name="theme-color" content="#0c0b10">
+    <meta name="theme-color" content="#fbf9fd">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="DASM Group">
@@ -42,6 +42,10 @@
                     <button class="lang-btn">KZ</button>
                     <button class="lang-btn">EN</button>
                 </div>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Тема">
+                    <span class="icon-sun">☀</span>
+                    <span class="icon-moon">☾</span>
+                </button>
                 <a href="#footer-contact" class="btn btn-primary btn-sm">Стать клиентом</a>
                 <button class="burger" id="burgerBtn" aria-label="Меню">
                     <span></span><span></span><span></span>
@@ -53,16 +57,40 @@
     <main>
         <!-- Page Hero -->
         <section class="page-hero">
-            <div class="container">
-                <span class="section-tag reveal">История и ДНК</span>
-                <h1 class="page-title reveal">
-                    Более 30 лет мы формируем рекламную индустрию<br>
-                    <span class="gradient-text">Центральной Азии</span>
-                </h1>
-                <p class="page-lead reveal">
-                    Основанная в 1994 году в Алматы, сегодня DASM Group — это экосистема из 15 агентств, 
-                    контролирующая более 20% медиарынка региона и работающая с 150+ международными и локальными брендами.
-                </p>
+            <div class="container page-hero-grid">
+                <div>
+                    <span class="section-tag reveal">История и ДНК</span>
+                    <h1 class="page-title reveal">
+                        Более 30 лет мы формируем рекламную индустрию<br>
+                        <span class="gradient-text">Центральной Азии</span>
+                    </h1>
+                    <p class="page-lead reveal">
+                        Основанная в 1994 году в Алматы, сегодня DASM Group — это экосистема из 15 агентств, 
+                        контролирующая более 20% медиарынка региона и работающая с 150+ международными и локальными брендами.
+                    </p>
+                </div>
+                <div class="hero-bento reveal">
+                    <div class="hb-card">
+                        <span class="hb-icon">🏛️</span>
+                        <strong>С 1994 года</strong>
+                        <span>30+ лет лидерства в регионе</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🌐</span>
+                        <strong>WPP Partner</strong>
+                        <span>GroupM · Grey · глобальная сеть</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">📈</span>
+                        <strong>&gt;20% доля</strong>
+                        <span>Медиарынка Казахстана и ЦА</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🦁</span>
+                        <strong>370+ наград</strong>
+                        <span>Включая Gold Lion в Каннах</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -90,7 +118,7 @@
             </div>
         </section>
 
-        <!-- Таймлайн -->
+        <!-- Таймлайн + боковая витрина -->
         <section class="section bg-darker">
             <div class="container">
                 <div class="section-header reveal">
@@ -98,46 +126,68 @@
                         <span class="section-tag">Путь</span>
                         <h2 class="section-title">Ключевые вехи DASM Group</h2>
                     </div>
+                    <a href="works.html" class="btn btn-outline">Смотреть работы →</a>
                 </div>
 
-                <div class="timeline">
-                    <div class="tl-item reveal">
-                        <div class="tl-year">1994</div>
-                        <h3 class="card-title">Начало работы в Алматы</h3>
-                        <p class="card-text">DASM начинает работу на рекламном рынке Казахстана. Позже из отдела медиа вырастает компания DAS Marketing — сокращённо DASM.</p>
+                <div class="timeline-layout">
+                    <div>
+                        <div class="timeline">
+                            <div class="tl-item reveal">
+                                <div class="tl-year">1994</div>
+                                <h3 class="card-title">Начало работы в Алматы</h3>
+                                <p class="card-text">DASM начинает работу на рекламном рынке Казахстана. Позже из отдела медиа вырастает компания DAS Marketing — сокращённо DASM.</p>
+                            </div>
+                            <div class="tl-item reveal">
+                                <div class="tl-year">1998</div>
+                                <h3 class="card-title">Выход в Центральную Азию</h3>
+                                <p class="card-text">Группа начинает работать в странах региона за пределами Казахстана.</p>
+                            </div>
+                            <div class="tl-item reveal">
+                                <div class="tl-year">2006</div>
+                                <h3 class="card-title">Партнёрство с WPP и рождение GForce Grey</h3>
+                                <p class="card-text">DASM становится официальным партнёром WPP, а креативное агентство GForce Grey начинает работу в составе холдинга.</p>
+                            </div>
+                            <div class="tl-item reveal">
+                                <div class="tl-year">2010</div>
+                                <h3 class="card-title">Офис в Монголии</h3>
+                                <p class="card-text">Открывается DASMNG — седьмое представительство группы за пределами Казахстана. Официальный старт работы — 1 декабря.</p>
+                            </div>
+                            <div class="tl-item reveal">
+                                <div class="tl-year">2023</div>
+                                <h3 class="card-title">Первый фестиваль эффективности E+ Central Asia</h3>
+                                <p class="card-text">GForce получает Grand Prix и «Агентство года», а также занимает 1-е место в рейтинге эффективности агентств региона.</p>
+                            </div>
+                            <div class="tl-item reveal">
+                                <div class="tl-year">2024</div>
+                                <h3 class="card-title">Первый Золотой Лев Казахстана</h3>
+                                <p class="card-text">GForce Grey выигрывает золото Cannes Lions в категории Social &amp; Influencer за кампанию против бытового насилия. В этом же году DASM отмечает 30-летие.</p>
+                            </div>
+                            <div class="tl-item reveal">
+                                <div class="tl-year">2025</div>
+                                <h3 class="card-title">Снова в Каннах</h3>
+                                <p class="card-text">GForce возвращается с наградами Cannes Lions — это уже вторая большая победа агентства на фестивале.</p>
+                            </div>
+                        </div>
+                        <p class="sources-note reveal">Источники: Forbes.kz, Astana Times, Kursiv, AdForum, страница работодателя DASM Group на hh.kz.</p>
                     </div>
-                    <div class="tl-item reveal">
-                        <div class="tl-year">1998</div>
-                        <h3 class="card-title">Выход в Центральную Азию</h3>
-                        <p class="card-text">Группа начинает работать в странах региона за пределами Казахстана.</p>
-                    </div>
-                    <div class="tl-item reveal">
-                        <div class="tl-year">2006</div>
-                        <h3 class="card-title">Партнёрство с WPP и рождение GForce Grey</h3>
-                        <p class="card-text">DASM становится официальным партнёром WPP, а креативное агентство GForce Grey начинает работу в составе холдинга.</p>
-                    </div>
-                    <div class="tl-item reveal">
-                        <div class="tl-year">2010</div>
-                        <h3 class="card-title">Офис в Монголии</h3>
-                        <p class="card-text">Открывается DASMNG — седьмое представительство группы за пределами Казахстана. Официальный старт работы — 1 декабря.</p>
-                    </div>
-                    <div class="tl-item reveal">
-                        <div class="tl-year">2023</div>
-                        <h3 class="card-title">Первый фестиваль эффективности E+ Central Asia</h3>
-                        <p class="card-text">GForce получает Grand Prix и «Агентство года», а также занимает 1-е место в рейтинге эффективности агентств региона.</p>
-                    </div>
-                    <div class="tl-item reveal">
-                        <div class="tl-year">2024</div>
-                        <h3 class="card-title">Первый Золотой Лев Казахстана</h3>
-                        <p class="card-text">GForce Grey выигрывает золото Cannes Lions в категории Social &amp; Influencer за кампанию против бытового насилия. В этом же году DASM отмечает 30-летие.</p>
-                    </div>
-                    <div class="tl-item reveal">
-                        <div class="tl-year">2025</div>
-                        <h3 class="card-title">Снова в Каннах</h3>
-                        <p class="card-text">GForce возвращается с наградами Cannes Lions — это уже вторая большая победа агентства на фестивале.</p>
-                    </div>
+
+                    <aside class="timeline-aside reveal">
+                        <div class="aside-showcase-card">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="Штаб-квартира DASM в Алматы" loading="lazy">
+                            <div class="aside-showcase-body">
+                                <span class="bento-badge">ДНК Холдинга</span>
+                                <h3>От локального пионера до региональной империи</h3>
+                                <p>Более трёх десятилетий мы строим инфраструктуру рекламного рынка: от первых телевизионных баинговых сделок до эконометрики, AI-моделирования и побед в Каннах.</p>
+                                <div class="aside-mini-stats">
+                                    <div><strong>1 500+</strong><span>Реализованных кампаний</span></div>
+                                    <div><strong>500+</strong><span>Профессионалов в штате</span></div>
+                                    <div><strong>15</strong><span>Профильных агентств</span></div>
+                                    <div><strong>8 стран</strong><span>Единая сеть офисов</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
-                <p class="sources-note reveal">Источники: Forbes.kz, Astana Times, Kursiv, AdForum, страница работодателя DASM Group на hh.kz.</p>
             </div>
         </section>
 
@@ -180,11 +230,36 @@
                         <h2 class="section-title">Бренды, которые остаются с нами годами</h2>
                     </div>
                 </div>
-                <p class="clients-note reveal">Kaspi.kz, Technodom и Berlin-Chemie работают с группой больше 20 лет (по интервью DASM для Forbes.kz).</p>
-                <div class="clients-wrap reveal">
-                    <div class="client-chip">Kaspi.kz<small>20+ лет вместе</small></div>
-                    <div class="client-chip">Technodom<small>20+ лет вместе</small></div>
-                    <div class="client-chip">Berlin-Chemie<small>20+ лет вместе</small></div>
+                <div class="clients-bento">
+                    <div class="clients-bento-main reveal">
+                        <p class="clients-note">Kaspi.kz, Technodom и Berlin-Chemie работают с группой больше 20 лет (по интервью DASM для Forbes.kz).</p>
+                        <div class="clients-wrap">
+                            <div class="client-chip">Kaspi.kz<small>20+ лет вместе</small></div>
+                            <div class="client-chip">Technodom<small>20+ лет вместе</small></div>
+                            <div class="client-chip">Berlin-Chemie<small>20+ лет вместе</small></div>
+                        </div>
+                        <p class="clients-note">Среди других клиентов GForce Grey (по данным AdForum):</p>
+                        <div class="clients-wrap muted">
+                            <div class="client-chip">P&amp;G</div><div class="client-chip">PepsiCo</div><div class="client-chip">Beeline</div><div class="client-chip">Huawei</div>
+                            <div class="client-chip">Red Bull</div><div class="client-chip">Carlsberg</div><div class="client-chip">Toyota</div><div class="client-chip">Lexus</div>
+                        </div>
+                    </div>
+                    <div class="clients-bento-side reveal">
+                        <div class="bento-stat-card">
+                            <span class="bento-badge">Стандарты партнёрства</span>
+                            <div class="bento-kpi-row">
+                                <div>
+                                    <strong>20+ лет</strong>
+                                    <span>Средний срок ключевых клиентов</span>
+                                </div>
+                                <div>
+                                    <strong>360°</strong>
+                                    <span>Синергия медиа и креатива</span>
+                                </div>
+                            </div>
+                            <p class="card-text">Прозрачная отчётность по международным стандартам WPP, регулярный независимый медиа-аудит и защита KPI каждого тенге рекламного бюджета.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

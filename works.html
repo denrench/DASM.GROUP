@@ -2,11 +2,11 @@
 <html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <script>try{var t=localStorage.getItem("dasm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else if(matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
+    <script>try{var t=localStorage.getItem("dasm-theme-mode");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кейсы и работы — DASM Group</title>
     <meta name="description" content="Кейсы DASM Group: от золота Cannes Lions до медиастратегий для финтеха и FMCG.">
-    <meta name="theme-color" content="#0c0b10">
+    <meta name="theme-color" content="#fbf9fd">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:site_name" content="DASM Group">
@@ -42,6 +42,10 @@
                     <button class="lang-btn">KZ</button>
                     <button class="lang-btn">EN</button>
                 </div>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Тема">
+                    <span class="icon-sun">☀</span>
+                    <span class="icon-moon">☾</span>
+                </button>
                 <a href="#footer-contact" class="btn btn-primary btn-sm">Стать клиентом</a>
                 <button class="burger" id="burgerBtn" aria-label="Меню">
                     <span></span><span></span><span></span>
@@ -53,15 +57,39 @@
     <main>
         <!-- Page Hero -->
         <section class="page-hero">
-            <div class="container">
-                <span class="section-tag reveal">Доказанная эффективность</span>
-                <h1 class="page-title reveal">
-                    Кейсы, которые выигрывают<br>
-                    <span class="gradient-text">рынки и фестивали</span>
-                </h1>
-                <p class="page-lead reveal">
-                    Более 1500 успешных кампаний в финансовом секторе, FMCG, телекоме, e-commerce и социально значимых инициативах.
-                </p>
+            <div class="container page-hero-grid">
+                <div>
+                    <span class="section-tag reveal">Доказанная эффективность</span>
+                    <h1 class="page-title reveal">
+                        Кейсы, которые выигрывают<br>
+                        <span class="gradient-text">рынки и фестивали</span>
+                    </h1>
+                    <p class="page-lead reveal">
+                        Более 1500 успешных кампаний в финансовом секторе, FMCG, телекоме, e-commerce и социально значимых инициативах.
+                    </p>
+                </div>
+                <div class="hero-bento reveal">
+                    <div class="hb-card">
+                        <span class="hb-icon">🦁</span>
+                        <strong>Gold Lion</strong>
+                        <span>Cannes Lions 2024</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🏆</span>
+                        <strong>Grand Prix</strong>
+                        <span>E+ Central Asia</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🌸</span>
+                        <strong>Gold Lotus</strong>
+                        <span>AdFest &amp; Spikes Asia</span>
+                    </div>
+                    <div class="hb-card">
+                        <span class="hb-icon">🚀</span>
+                        <strong>1 500+</strong>
+                        <span>Успешных кампаний</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -87,7 +115,7 @@
                             <div class="case-meta">GForce Grey · Ruh Fighting</div>
                             <h3 class="case-title">The National Sport of Kazakhstan</h3>
                             <p class="case-desc">
-                                Первое в истории Казахстана Золото Cannes Lions (2024). Совместный проект с Ruh Fighting Championship: первые в стране бои «мужчины против женщин» в прямом эфире, чтобы мужчины заговорили о бытовом насилии. Анонсы боёв показывали на городских экранах Citix.
+                                Первое в истории Казахстана Золото Cannes Lions (2024). Совместный проект с Ruh Fighting Championship: первые в стране бои «мужчины против женщин» в прямом эфире, чтобы мужчины заговорить о бытовом насилии. Анонсы боёв показывали на городских экранах Citix.
                             </p>
                             <div class="case-stats">
                                 <div><strong>Gold Lion</strong><span>Social &amp; Influencer</span></div>
@@ -104,7 +132,7 @@
                             <span class="case-badge">🏆 AdFest Gold Lotus</span>
                         </div>
                         <div class="case-body">
-                            <div class="case-meta">GForce Grey & Citix</div>
+                            <div class="case-meta">GForce Grey &amp; Citix</div>
                             <h3 class="case-title">Saltanat Light</h3>
                             <p class="case-desc">
                                 Синхронизация всей сети цифровых уличных экранов Citix с данными кризисных центров. 
@@ -125,7 +153,7 @@
                             <span class="case-badge">🏆 4× Client of the Year</span>
                         </div>
                         <div class="case-body">
-                            <div class="case-meta">GForce Grey & DASM Media</div>
+                            <div class="case-meta">GForce Grey &amp; DASM Media</div>
                             <h3 class="case-title">Kaspi Жұма и SuperApp</h3>
                             <p class="case-desc">
                                 Многолетнее стратегическое и креативное сопровождение главного финтех-бренда страны. 
@@ -147,7 +175,7 @@
                         </div>
                         <div class="case-body">
                             <div class="case-meta">Mindshare / Wavemaker / DASMART</div>
-                            <h3 class="case-title">Масштабирование FMCG & Telecom на 5 стран</h3>
+                            <h3 class="case-title">Масштабирование FMCG &amp; Telecom на 5 стран</h3>
                             <p class="case-desc">
                                 Единая медиа- и digital-стратегия для Казахстана, Узбекистана, Кыргызстана, 
                                 Таджикистана и Армении. Снижение CPT на 27%.
