@@ -1814,22 +1814,13 @@ body.menu-open { overflow: hidden; }
 
 .reveal.visible { opacity: 1; transform: none; filter: none; }
 
-/* ---------- Подсветка карточек под курсором ---------- */
+/* ---------- Подсветка карточек под курсором (отключено) ---------- */
 .card, .case-card, .person, .tl-item, .vacancy-item, .stat-item { position: relative; overflow: hidden; }
 
 .card::after, .case-card::after, .person::after, .tl-item::after,
 .vacancy-item::after, .panel::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(232, 160, 200, 0.14), transparent 45%);
-    transition: opacity 0.4s;
+    display: none !important;
 }
-
-.card:hover::after, .case-card:hover::after, .person:hover::after,
-.tl-item:hover::after, .vacancy-item:hover::after, .panel:hover::after { opacity: 1; }
 
 .card, .case-card, .person, .tl-item, .vacancy-item {
     border-radius: 24px;

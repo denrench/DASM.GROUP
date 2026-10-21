@@ -388,61 +388,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-    // ----- Подсветка карточек под курсором (только на ПК) -----
-    const hasHover = window.matchMedia('(hover: hover)').matches;
-    if (hasHover) {
-        const SPOT = '.card, .case-card, .person, .tl-item, .vacancy-item, .panel, .hb-card, .bento-stat-card';
-        document.addEventListener('pointermove', e => {
-            const el = e.target.closest ? e.target.closest(SPOT) : null;
-            if (!el) return;
-            const r = el.getBoundingClientRect();
-            el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-            el.style.setProperty('--my', (e.clientY - r.top) + 'px');
-        }, { passive: true });
-    }
-
-    if (!reduceMotion && hasHover) {
-        // ----- «Магнитные» кнопки -----
-        $$('[data-magnetic]').forEach(btn => {
-            btn.addEventListener('pointermove', e => {
-                const r = btn.getBoundingClientRect();
-                const x = (e.clientX - r.left - r.width / 2) * 0.25;
-                const y = (e.clientY - r.top - r.height / 2) * 0.35;
-                btn.style.transform = 'translate(' + x + 'px,' + y + 'px)';
-            });
-            btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
-        });
-
-        // ----- Наклон карточки кейса -----
-        $$('[data-tilt]').forEach(box => {
-            box.addEventListener('pointermove', e => {
-                const r = box.getBoundingClientRect();
-                const px = (e.clientX - r.left) / r.width - 0.5;
-                const py = (e.clientY - r.top) / r.height - 0.5;
-                box.style.setProperty('--ry', (px * 7) + 'deg');
-                box.style.setProperty('--rx', (-py * 7) + 'deg');
-            });
-            box.addEventListener('pointerleave', () => {
-                box.style.setProperty('--rx', '0deg');
-                box.style.setProperty('--ry', '0deg');
-            });
-        });
-
-        // ----- Параллакс северного сияния в hero -----
-        const hero = $('#hero');
-        if (hero) {
-            let raf = 0;
-            hero.addEventListener('pointermove', e => {
-                if (raf) return;
-                raf = requestAnimationFrame(() => {
-                    const r = hero.getBoundingClientRect();
-                    hero.style.setProperty('--px', ((e.clientX - r.left) / r.width - 0.5) * 2);
-                    hero.style.setProperty('--py', ((e.clientY - r.top) / r.height - 0.5) * 2);
-                    raf = 0;
-                });
-            });
-        }
-    }
+    // Удаляем любые элементы кастомного курсора, если они остались в кэше
+    $$('.cursor-dot, .cursor-ring').forEach(el => el.remove());
 
     // ----- Бегущая лента: дублируем содержимое для бесшовной петли -----
     $$('.marquee-track').forEach(track => {
