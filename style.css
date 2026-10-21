@@ -3066,9 +3066,10 @@ body.menu-open { overflow: hidden; }
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     z-index: 0;
     transition: transform 0.85s var(--ease), filter 0.5s ease;
-    filter: brightness(0.88) saturate(1.1);
+    filter: brightness(0.88) saturate(1.08);
 }
 .panel:hover .panel-photo,
 .panel.active .panel-photo {
@@ -3079,17 +3080,60 @@ body.menu-open { overflow: hidden; }
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(14, 10, 24, 0.86) 0%, rgba(14, 10, 24, 0.25) 55%, rgba(14, 10, 24, 0.15) 100%);
+    background: linear-gradient(to top, rgba(14, 10, 24, 0.88) 0%, rgba(14, 10, 24, 0.28) 55%, rgba(14, 10, 24, 0.20) 100%);
     z-index: 1;
     transition: opacity 0.4s;
+    pointer-events: none;
 }
-.panel > *:not(.panel-photo) {
-    position: relative;
+.panel-flag,
+.panel-name,
+.panel-more {
+    position: absolute !important;
     z-index: 2;
 }
+.panel-flag {
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 32px;
+    padding: 0 8px;
+    border-radius: 99px;
+    background: rgba(18, 12, 28, 0.62);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    transition: left 0.45s var(--ease), transform 0.45s var(--ease);
+}
+.panel.active .panel-flag {
+    left: 22px;
+    transform: none;
+}
 .panel .panel-name {
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%) rotate(180deg);
+    transform-origin: center;
+    writing-mode: vertical-rl;
     color: #ffffff !important;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
+}
+.panel.active .panel-name {
+    left: 22px;
+    bottom: 76px;
+    transform: none;
+    writing-mode: horizontal-tb;
+}
+.panel-more {
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
 }
 .panel-more small {
     color: #ffffff !important;
@@ -3097,6 +3141,26 @@ body.menu-open { overflow: hidden; }
 }
 .panel-more em {
     color: rgba(255, 255, 255, 0.88) !important;
+}
+@media (max-width: 720px) {
+    .panel-flag,
+    .panel.active .panel-flag {
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .panel.active .panel-flag {
+        top: 20px;
+        transform: none;
+    }
+    .panel .panel-name,
+    .panel.active .panel-name {
+        writing-mode: horizontal-tb;
+        transform: none;
+        left: 68px;
+        top: 22px;
+        bottom: auto;
+    }
 }
 
 /* --- Глобус: навигация по странам и 3D-бейджи стран --- */
@@ -3407,5 +3471,22 @@ body.menu-open { overflow: hidden; }
     }
 }
 
-/* Ensure main content sits above float layer */
-main, .header, .footer { position: relative; z-index: 1; }
+/* Ensure main content sits above float layer while header stays fixed above everything without seam */
+main, .footer {
+    position: relative;
+    z-index: 1;
+}
+.header {
+    position: fixed !important;
+    z-index: 1000 !important;
+}
+.hero-v2 {
+    background: transparent;
+}
+.aurora {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+}
+.aurora::before {
+    background: none;
+}
