@@ -645,7 +645,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'The National Sport of Kazakhstan',
                 meta: 'GForce Grey · Ruh Fighting Championship',
                 badge: '🏆 Cannes Lions Gold (2024)',
-                img: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1200&q=85',
+                img: 'https://images.unsplash.com/photo-1552072092-7f9b8d63efcb?auto=format&fit=crop&w=1200&q=85',
                 desc: 'Исторический проект для рекламной индустрии Казахстана: первое золото в Каннах. Проект поднял острейшую социальную тему бытового насилия через провокационный анонс боя мужчины и женщины на Ruh Fighting. На экранах Citix по всему Казахстану кампания вызвала колоссальный общественный резонанс и реальные изменения.',
                 kpi1: 'Gold Lion', kpi1Sub: 'Social & Influencer',
                 kpi2: '1 763', kpi2Sub: 'Проекта в категории',
@@ -655,7 +655,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'Saltanat Light',
                 meta: 'GForce Grey & Citix',
                 badge: '🏆 AdFest Gold Lotus & E+ Grand Prix',
-                img: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=85',
+                img: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=85',
                 desc: 'Интеграция городской сети цифровых уличных поверхностей DOOH с данными шелтеров и центров помощи. Ночью световые экраны транслировали маршруты безопасности и контакты экстренных служб.',
                 kpi1: '100+', kpi1Sub: 'Умных экранов DOOH',
                 kpi2: 'Gold', kpi2Sub: 'AdFest Lotus 2024',
@@ -665,7 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'Kaspi Жұма и SuperApp',
                 meta: 'GForce Grey & DASM Media',
                 badge: '🏆 4× Client of the Year',
-                img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85',
+                img: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=85',
                 desc: 'Многолетнее стратегическое и креативное сопровождение главного финтех-бренда страны: национальные кампании с рекордной узнаваемостью.',
                 kpi1: '4 раза', kpi1Sub: 'Клиент года',
                 kpi2: '98%', kpi2Sub: 'Awareness',
@@ -675,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'FMCG & Telecom на 5 стран',
                 meta: 'Mindshare / Wavemaker / DASMART',
                 badge: '📊 ROI +185%',
-                img: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=85',
+                img: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=85',
                 desc: 'Единая медиа- и digital-стратегия для Казахстана, Узбекистана, Кыргызстана, Таджикистана и Армении.',
                 kpi1: '-27%', kpi1Sub: 'CPT',
                 kpi2: '+42%', kpi2Sub: 'Органика',
@@ -685,7 +685,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'Mars · M&M’s × онлайн-кинотеатр IVI',
                 meta: 'Rating Point · Media & Special Project',
                 badge: '🎬 Спецпроект',
-                img: 'images/official/work-mms.jpg',
+                img: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=85',
                 desc: 'Интерактивный брендированный спецпроект для Mars (M&M’s) в партнёрстве с онлайн-кинотеатром IVI с вовлечением киноаудитории.',
                 kpi1: '360°', kpi1Sub: 'Digital & OLV',
                 kpi2: 'Top-1', kpi2Sub: 'Категория снеков',
@@ -695,7 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'АГУ-МАРАФОН',
                 meta: 'DASM Ideas · BTL & Digital Activation',
                 badge: '🧡 Национальное промо',
-                img: 'images/official/work-agu.jpg',
+                img: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=85',
                 desc: 'Масштабная семейная бренд-активация и национальный марафон для бренда «Агуша» с охватом ключевых городов Казахстана.',
                 kpi1: 'National', kpi1Sub: 'Охват по РК',
                 kpi2: 'BTL+SMM', kpi2Sub: 'Интеграция 360°',
@@ -705,7 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'Шоу «Готовим с Адель»',
                 meta: 'First Media / ТВ-продакшн и спонсорство',
                 badge: '📺 ТВ-проект',
-                img: 'images/official/work-adel.jpg',
+                img: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=85',
                 desc: 'Кулинарное телевизионное шоу выходного дня с нативной спонсорской интеграцией FMCG-брендов в прайм-тайм.',
                 kpi1: 'Воскресенье', kpi1Sub: 'Утренний прайм 09:25',
                 kpi2: 'TV + YouTube', kpi2Sub: 'Кросс-медиа эфир',
@@ -851,15 +851,16 @@ document.addEventListener('DOMContentLoaded', () => {
             photo: photo,
             map: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(hq ? 'Алматы, ул. Шамши Калдаякова, 34' : name)
         });
+        const defaultAlmatyPhoto = ($('#chCityPhoto') && $('#chCityPhoto').getAttribute('src')) || '';
         const CITIES = {
-            almaty: mk('Алматы · Штаб-квартира', 5, true, 'images/countries/kz.jpg'),
-            tashkent: mk('Ташкент · Узбекистан', 5, false, 'images/countries/uz.jpg'),
-            bishkek: mk('Бишкек · Кыргызстан', 6, false, 'images/countries/kg.jpg'),
-            baku: mk('Баку · Азербайджан', 4, false, 'images/countries/az.jpg'),
-            tbilisi: mk('Тбилиси · Грузия', 4, false, 'images/countries/ge.jpg'),
-            yerevan: mk('Ереван · Армения', 4, false, 'images/countries/am.jpg'),
-            dushanbe: mk('Душанбе · Таджикистан', 5, false, 'images/countries/tj.jpg'),
-            ulaanbaatar: mk('Улан-Батор · Монголия', 8, false, 'images/countries/mn.jpg')
+            almaty: mk('Алматы · Штаб-квартира', 5, true, defaultAlmatyPhoto),
+            tashkent: mk('Ташкент · Узбекистан', 5, false, 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=900&q=80'),
+            bishkek: mk('Бишкек · Кыргызстан', 6, false, 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=900&q=80'),
+            baku: mk('Баку · Азербайджан', 4, false, 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80'),
+            tbilisi: mk('Тбилиси · Грузия', 4, false, 'https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=900&q=80'),
+            yerevan: mk('Ереван · Армения', 4, false, 'https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=900&q=80'),
+            dushanbe: mk('Душанбе · Таджикистан', 5, false, 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=900&q=80'),
+            ulaanbaatar: mk('Улан-Батор · Монголия', 8, false, 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80')
         };
         const titleEl = $('#chCityTitle');
         const photoEl = $('#chCityPhoto');
