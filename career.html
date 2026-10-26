@@ -17,8 +17,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261026a">
-    <script src="3d-ui.js?v=20261026a" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261026c">
+    <script src="3d-ui.js?v=20261026b" defer></script>
     <style>.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;visibility:hidden!important;width:0!important;height:0!important}</style>
 </head>
 <body class="page-career">
@@ -54,36 +54,21 @@
     </header>
 
     <main>
-        <section class="page-hero">
-            <div class="container page-hero-grid">
-                <div>
-                    <span class="section-tag reveal">Люди — наш главный актив</span>
-                    <h1 class="page-title reveal">Создавай рекламу мирового уровня <span class="gradient-text">в команде 500+ профи</span></h1>
-                    <p class="page-lead reveal">
-                        Работа в DASM Group — это доступ к глобальным базам знаний WPP, работа с крупнейшими брендами планеты, поездки на международные фестивали и культура, где смелым идеям всегда говорят «DA».
-                    </p>
+        <section class="page-hero ph-career">
+            <div class="container ph-career-grid">
+                <div class="ph-career-copy">
+                    <span class="section-tag reveal">Карьера</span>
+                    <h1 class="page-title reveal">Работай там, где <span class="gradient-text">рождаются Львы</span></h1>
+                    <div class="ph-career-cta reveal">
+                        <a href="#vacancyList" class="btn btn-primary">Вакансии ↓</a>
+                        <a href="https://career.dasm.kz" target="_blank" rel="noopener" class="btn btn-outline">career.dasm.kz ↗</a>
+                    </div>
                 </div>
-                <div class="hero-bento reveal">
-                    <div class="hb-card">
-                        <span class="hb-icon">🎓</span>
-                        <strong>WPP Academy</strong>
-                        <span>Глобальные базы знаний</span>
-                    </div>
-                    <div class="hb-card">
-                        <span class="hb-icon">🌍</span>
-                        <strong>8 стран</strong>
-                        <span>Возможности релокации</span>
-                    </div>
-                    <div class="hb-card">
-                        <span class="hb-icon">🦁</span>
-                        <strong>Фестивали</strong>
-                        <span>Канны · Jolbors · Red Jolbors</span>
-                    </div>
-                    <div class="hb-card">
-                        <span class="hb-icon">🤝</span>
-                        <strong>500+ коллег</strong>
-                        <span>Менторство от лидеров рынка</span>
-                    </div>
+                <div class="ph-career-photos reveal">
+                    <img src="images/official/work-agu.jpg" alt="">
+                    <img src="images/official/work-mms.jpg" alt="">
+                    <div class="ph-career-stat"><b>15</b><span>агентств</span></div>
+                    <div class="ph-career-stat s2"><b>8</b><span>стран</span></div>
                 </div>
             </div>
         </section>
@@ -93,24 +78,26 @@
             <div class="container">
                 <div class="cards-grid cols-3">
                     <div class="card interactive-card reveal">
+                        <div class="card-media career-benefit-img"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Обучение WPP" loading="lazy"></div>
                         <div class="card-num">01</div>
                         <h3 class="card-title">Международное обучение</h3>
-                        <p class="card-text">Доступ к закрытым образовательным платформам GroupM / WPP, внутренним академиям медийного планирования, креативным воркшопам и менторству от обладателей Cannes Lions.</p>
+                        <div class="card-tags"><span>Академии WPP / GroupM</span><span>Менторство Cannes Lions</span></div>
                     </div>
                     <div class="card interactive-card reveal">
+                        <div class="card-media career-benefit-img"><img src="images/official/work-mms.jpg" alt="Масштабные клиенты" loading="lazy"></div>
                         <div class="card-num">02</div>
-                        <h3 class="card-title">Масштабные клиенты</h3>
-                        <p class="card-text">Ты будешь работать с бюджетами и кампаниями национального и мультистранового масштаба (FinTech, FMCG, Telecom, Auto), которые видят миллионы людей каждый день.</p>
+                        <h3 class="card-title">Масштабные бренды</h3>
+                        <div class="card-tags"><span>FinTech &amp; FMCG</span><span>Кампании на миллионы</span></div>
                     </div>
                     <div class="card interactive-card reveal">
+                        <div class="card-media career-benefit-img"><img src="images/countries/kz.jpg" alt="8 стран" loading="lazy"></div>
                         <div class="card-num">03</div>
-                        <h3 class="card-title">Карьерный трек в 8 странах</h3>
-                        <p class="card-text">Прозрачный грейдинг, возможность горизонтальных и вертикальных переходов между 15 агентствами группы и релокации в офисы холдинга по всему региону.</p>
+                        <h3 class="card-title">Карьера в 8 странах</h3>
+                        <div class="card-tags"><span>15 агентств</span><span>Ротация и релокация</span></div>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- АКТУАЛЬНЫЕ ВАКАНСИИ -->
         <section class="section bg-darker">
             <div class="container">
@@ -281,11 +268,13 @@
                     <a href="career.html">Карьера</a>
                     <a href="contacts.html">Контакты</a>
                 </div>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">Instagram</a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://www.dasm.kz" target="_blank" rel="noopener">dasm.kz</a>
-                </div>
+                <div class="footer-socials"><div class="soc-badges">
+<a class="soc-badge soc-ig" href="https://instagram.com/dasmgroup_official" target="_blank" rel="noopener"><img src="images/social/instagram.svg" alt="" width="20" height="20"><span>Instagram</span></a>
+<a class="soc-badge soc-in" href="https://www.linkedin.com/company/dasmgroup/" target="_blank" rel="noopener"><img src="images/social/linkedin.svg" alt="" width="20" height="20"><span>LinkedIn</span></a>
+<a class="soc-badge soc-tg" href="https://t.me/dasmgroup_official" target="_blank" rel="noopener"><img src="images/social/telegram.svg" alt="" width="20" height="20"><span>Telegram</span></a>
+<a class="soc-badge soc-yt" href="https://www.youtube.com/@DASMGroup" target="_blank" rel="noopener"><img src="images/social/youtube.svg" alt="" width="20" height="20"><span>YouTube</span></a>
+<a class="soc-badge soc-fb" href="https://www.facebook.com/profile.php?id=61552084777351" target="_blank" rel="noopener"><img src="images/social/facebook.svg" alt="" width="20" height="20"><span>Facebook</span></a>
+</div></div>
             </div>
         </div>
     </footer>
@@ -313,7 +302,7 @@
             </form>
         </div>
     </div>
-    <script src="i18n.js?v=20261026a"></script>
-    <script src="script.js?v=20261026a"></script>
+    <script src="i18n.js?v=20261026b"></script>
+    <script src="script.js?v=20261026c"></script>
 </body>
 </html>

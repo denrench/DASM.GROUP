@@ -60,14 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="float-orb"></div>
             <div class="float-orb"></div>
             <div class="float-orb"></div>
-            <div class="float-item fi-1"><span>🦁</span><small>Cannes Lions</small></div>
-            <div class="float-item fi-2"><span>📢</span><small>Media 360°</small></div>
-            <div class="float-item fi-3"><span>📈</span><small>ROI &amp; Data</small></div>
-            <div class="float-item fi-4"><span>🎬</span><small>Creative Hub</small></div>
-            <div class="float-item fi-5"><span>🌐</span><small>8 Countries</small></div>
-            <div class="float-item fi-6"><span>🎯</span><small>WPP Partner</small></div>
-            <div class="float-item fi-7"><span>✨</span><small>WE SAY DA</small></div>
-        `;
+            `;
     })();
 
     // ===== Шапка при скролле =====
@@ -678,7 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 kpi2: '98%', kpi2Sub: 'Awareness',
                 kpi3: '360°', kpi3Sub: 'TV + Digital'
             },
-            'multi-country': {
+                        'multi-country': {
                 title: 'FMCG & Telecom на 5 стран',
                 meta: 'Mindshare / Wavemaker / DASMART',
                 badge: '📊 ROI +185%',
@@ -687,43 +680,64 @@ document.addEventListener('DOMContentLoaded', () => {
                 kpi1: '-27%', kpi1Sub: 'CPT',
                 kpi2: '+42%', kpi2Sub: 'Органика',
                 kpi3: '5 стран', kpi3Sub: 'Единый хаб'
-            }        };
+            },
+            'mars-mms': {
+                title: 'Mars · M&M’s × онлайн-кинотеатр IVI',
+                meta: 'Rating Point · Media & Special Project',
+                badge: '🎬 Спецпроект',
+                img: 'images/official/work-mms.jpg',
+                desc: 'Интерактивный брендированный спецпроект для Mars (M&M’s) в партнёрстве с онлайн-кинотеатром IVI с вовлечением киноаудитории.',
+                kpi1: '360°', kpi1Sub: 'Digital & OLV',
+                kpi2: 'Top-1', kpi2Sub: 'Категория снеков',
+                kpi3: 'IVI', kpi3Sub: 'Эксклюзивная интеграция'
+            },
+            'agusha': {
+                title: 'АГУ-МАРАФОН',
+                meta: 'DASM Ideas · BTL & Digital Activation',
+                badge: '🧡 Национальное промо',
+                img: 'images/official/work-agu.jpg',
+                desc: 'Масштабная семейная бренд-активация и национальный марафон для бренда «Агуша» с охватом ключевых городов Казахстана.',
+                kpi1: 'National', kpi1Sub: 'Охват по РК',
+                kpi2: 'BTL+SMM', kpi2Sub: 'Интеграция 360°',
+                kpi3: '10 000+', kpi3Sub: 'Участников активации'
+            },
+            'first-adel': {
+                title: 'Шоу «Готовим с Адель»',
+                meta: 'First Media / ТВ-продакшн и спонсорство',
+                badge: '📺 ТВ-проект',
+                img: 'images/official/work-adel.jpg',
+                desc: 'Кулинарное телевизионное шоу выходного дня с нативной спонсорской интеграцией FMCG-брендов в прайм-тайм.',
+                kpi1: 'Воскресенье', kpi1Sub: 'Утренний прайм 09:25',
+                kpi2: 'TV + YouTube', kpi2Sub: 'Кросс-медиа эфир',
+                kpi3: 'High Affinity', kpi3Sub: 'Семейная аудитория'
+            }
+        };
 
-        $$('[data-case-key]').forEach(card => {
-            card.style.cursor = 'pointer';
-            card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
-            card.addEventListener('click', e => {
-                if (e.target.closest('a')) return;
-                const key = card.dataset.caseKey;
-                const c = CASES_DATA[key];
-                if (!c) return;
+        $$('[data-case-id]').forEach(el => {
+            el.addEventListener('click', e => {
+                e.preventDefault();
+                const id = el.dataset.caseId;
+                const d = CASES_DATA[id];
+                if (!d) return;
 
-                const modal = $('#caseModal');
-                if (modal) {
-                    const img = $('#caseModalImg');
-                    if (img) img.src = c.img;
-                    const badge = $('#caseModalBadge');
-                    if (badge) badge.textContent = c.badge;
-                    const title = $('#caseModalTitle');
-                    if (title) title.textContent = c.title;
-                    const meta = $('#caseModalMeta');
-                    if (meta) meta.textContent = c.meta;
-                    const desc = $('#caseModalDesc');
-                    if (desc) desc.textContent = c.desc;
-                    const k1 = $('#caseModalKpi1');
-                    if (k1) k1.textContent = c.kpi1;
-                    const k1s = $('#caseModalKpi1Sub');
-                    if (k1s) k1s.textContent = c.kpi1Sub;
-                    const k2 = $('#caseModalKpi2');
-                    if (k2) k2.textContent = c.kpi2;
-                    const k2s = $('#caseModalKpi2Sub');
-                    if (k2s) k2s.textContent = c.kpi2Sub;
-                    const k3 = $('#caseModalKpi3');
-                    if (k3) k3.textContent = c.kpi3;
-                    const k3s = $('#caseModalKpi3Sub');
-                    if (k3s) k3s.textContent = c.kpi3Sub;
-                    openModal('#caseModal');
+                const set = (sel, val) => { const n = $(sel); if (n) n.textContent = val; };
+                set('#caseModalBadge', d.badge);
+                set('#caseModalTitle', d.title);
+                set('#caseModalMeta', d.meta);
+                set('#caseModalDesc', d.desc);
+                set('#caseModalKpi1', d.kpi1);
+                set('#caseModalKpi1Sub', d.kpi1Sub);
+                set('#caseModalKpi2', d.kpi2);
+                set('#caseModalKpi2Sub', d.kpi2Sub);
+                set('#caseModalKpi3', d.kpi3);
+                set('#caseModalKpi3Sub', d.kpi3Sub);
+
+                const img = $('#caseModalImg');
+                if (img) {
+                    img.src = d.img;
+                    img.alt = d.title;
                 }
+                openModal('#caseModal');
             });
         });
     })();
@@ -918,4 +932,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })();
 
+
+    // ===== Мобильное меню: поиск, соцсети и кнопка клиента внутри панели =====
+    (function initNavExtra() {
+        const nav = $('#navMenu');
+        if (!nav || $('.nav-extra', nav)) return;
+        const wrap = document.createElement('div');
+        wrap.className = 'nav-extra';
+        wrap.innerHTML =
+            '<button type="button" class="nav-search">🔍 <span>' + T('Поиск') + '</span></button>' +
+            '<a href="#footer-contact" class="btn btn-primary nav-cta">' + T('Стать клиентом') + '</a>' +
+            '<div class="soc-badges">' +
+            '<a class="soc-badge soc-ig" href="https://instagram.com/dasmgroup_official" target="_blank" rel="noopener" aria-label="Instagram"><img src="images/social/instagram.svg" alt=""></a>' +
+            '<a class="soc-badge soc-in" href="https://www.linkedin.com/company/dasmgroup/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="images/social/linkedin.svg" alt=""></a>' +
+            '<a class="soc-badge soc-tg" href="https://t.me/dasmgroup_official" target="_blank" rel="noopener" aria-label="Telegram"><img src="images/social/telegram.svg" alt=""></a>' +
+            '<a class="soc-badge soc-yt" href="https://www.youtube.com/@DASMGroup" target="_blank" rel="noopener" aria-label="YouTube"><img src="images/social/youtube.svg" alt=""></a>' +
+            '<a class="soc-badge soc-fb" href="https://www.facebook.com/profile.php?id=61552084777351" target="_blank" rel="noopener" aria-label="Facebook"><img src="images/social/facebook.svg" alt=""></a>' +
+            '</div>';
+        nav.appendChild(wrap);
+        const closeNav = () => {
+            nav.classList.remove('open');
+            const b = $('#burgerBtn');
+            if (b) { b.classList.remove('active'); b.setAttribute('aria-expanded', 'false'); }
+            document.body.classList.remove('menu-open');
+        };
+        $('.nav-search', wrap).addEventListener('click', () => {
+            closeNav();
+            const trig = $('#searchTriggerBtn');
+            if (trig) trig.click();
+        });
+        $('.nav-cta', wrap).addEventListener('click', closeNav);
+    })();
 });

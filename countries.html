@@ -17,8 +17,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261026a">
-    <script src="3d-ui.js?v=20261026a" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261026c">
+    <script src="3d-ui.js?v=20261026b" defer></script>
     <style>.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;visibility:hidden!important;width:0!important;height:0!important}</style>
 </head>
 <body class="page-countries">
@@ -58,40 +58,21 @@
 
     <main>
         <!-- Page Hero -->
-        <section class="page-hero">
-            <div class="container page-hero-grid">
-                <div>
-                    <span class="section-tag reveal">Региональный масштаб</span>
-                    <h1 class="page-title reveal">
-                        8 стран. 90+ миллионов потребителей.<br>
-                        <span class="gradient-text">Единые стандарты качества.</span>
-                    </h1>
-                    <p class="page-lead reveal">
-                        Мы обеспечиваем бесшовный запуск и координацию кампаний в Центральной Азии, 
-                        на Кавказе и в Монголии с глубоким пониманием локального культурного кода.
-                    </p>
-                </div>
-                <div class="hero-bento reveal">
-                    <div class="hb-card">
-                        <span class="hb-icon">🌏</span>
-                        <strong>90+ млн</strong>
-                        <span>Потребителей в регионе</span>
-                    </div>
-                    <div class="hb-card">
-                        <span class="hb-icon">🏢</span>
-                        <strong>8 хабов</strong>
-                        <span>Прямые офисы и партнёры</span>
-                    </div>
-                    <div class="hb-card">
-                        <span class="hb-icon">🎯</span>
-                        <strong>Единое окно</strong>
-                        <span>Координация через Алматы</span>
-                    </div>
-                    <div class="hb-card">
-                        <span class="hb-icon">🗣️</span>
-                        <strong>8 языков</strong>
-                        <span>Локальная адаптация креатива</span>
-                    </div>
+        <section class="page-hero ph-countries">
+            <div class="container ph-center">
+                <span class="section-tag reveal">Страны присутствия</span>
+                <h1 class="page-title reveal">8 стран. <span class="gradient-text">Один хаб.</span></h1>
+            </div>
+            <div class="container">
+                <div class="ph-countries-strip reveal">
+                    <div class="ph-country"><img src="images/countries/kz.jpg" alt="Казахстан" loading="lazy"><span>🇰🇿 Казахстан</span></div>
+                    <div class="ph-country"><img src="images/countries/uz.jpg" alt="Узбекистан" loading="lazy"><span>🇺🇿 Узбекистан</span></div>
+                    <div class="ph-country"><img src="images/countries/kg.jpg" alt="Кыргызстан" loading="lazy"><span>🇰🇬 Кыргызстан</span></div>
+                    <div class="ph-country"><img src="images/countries/tj.jpg" alt="Таджикистан" loading="lazy"><span>🇹🇯 Таджикистан</span></div>
+                    <div class="ph-country"><img src="images/countries/am.jpg" alt="Армения" loading="lazy"><span>🇦🇲 Армения</span></div>
+                    <div class="ph-country"><img src="images/countries/ge.jpg" alt="Грузия" loading="lazy"><span>🇬🇪 Грузия</span></div>
+                    <div class="ph-country"><img src="images/countries/az.jpg" alt="Азербайджан" loading="lazy"><span>🇦🇿 Азербайджан</span></div>
+                    <div class="ph-country"><img src="images/countries/mn.jpg" alt="Монголия" loading="lazy"><span>🇲🇳 Монголия</span></div>
                 </div>
             </div>
         </section>
@@ -328,10 +309,13 @@
                     <a href="career.html">Карьера</a>
                     <a href="contacts.html">Контакты</a>
                 </div>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">Instagram</a>
-                    <a href="https://www.linkedin.com/company/dasmgroup" target="_blank" rel="noopener">LinkedIn</a>
-                </div>
+                <div class="footer-socials"><div class="soc-badges">
+<a class="soc-badge soc-ig" href="https://instagram.com/dasmgroup_official" target="_blank" rel="noopener"><img src="images/social/instagram.svg" alt="" width="20" height="20"><span>Instagram</span></a>
+<a class="soc-badge soc-in" href="https://www.linkedin.com/company/dasmgroup/" target="_blank" rel="noopener"><img src="images/social/linkedin.svg" alt="" width="20" height="20"><span>LinkedIn</span></a>
+<a class="soc-badge soc-tg" href="https://t.me/dasmgroup_official" target="_blank" rel="noopener"><img src="images/social/telegram.svg" alt="" width="20" height="20"><span>Telegram</span></a>
+<a class="soc-badge soc-yt" href="https://www.youtube.com/@DASMGroup" target="_blank" rel="noopener"><img src="images/social/youtube.svg" alt="" width="20" height="20"><span>YouTube</span></a>
+<a class="soc-badge soc-fb" href="https://www.facebook.com/profile.php?id=61552084777351" target="_blank" rel="noopener"><img src="images/social/facebook.svg" alt="" width="20" height="20"><span>Facebook</span></a>
+</div></div>
             </div>
         </div>
     </footer>
@@ -344,13 +328,13 @@
             <div class="search-results-list" id="searchResults"></div>
         </div>
     </div>
-    <script src="i18n.js?v=20261026a"></script>
-    <script src="script.js?v=20261026a"></script>
-    <script src="3d-ui.js?v=20261026a" defer></script>
+    <script src="i18n.js?v=20261026b"></script>
+    <script src="script.js?v=20261026c"></script>
+    <script src="3d-ui.js?v=20261026b" defer></script>
 
     <script type="importmap">
     { "imports": { "three": "https://unpkg.com/three@0.162.0/build/three.module.js" } }
     </script>
-    <script type="module" src="3d.js?v=20261026a"></script>
+    <script type="module" src="3d.js?v=20261026b"></script>
 </body>
 </html>

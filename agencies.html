@@ -17,8 +17,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261026a">
-    <script src="3d-ui.js?v=20261026a" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261026c">
+    <script src="3d-ui.js?v=20261026b" defer></script>
     <style>.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;visibility:hidden!important;width:0!important;height:0!important}</style>
 </head>
 <body class="page-agencies">
@@ -58,40 +58,15 @@
 
     <main>
         <!-- Page Hero -->
-        <section class="page-hero">
-            <div class="container page-hero-grid">
-                <div>
-                    <span class="section-tag reveal">Структура группы</span>
-                    <h1 class="page-title reveal">
-                        15 специализированных агентств<br>
-                        <span class="gradient-text">в единой экосистеме</span>
-                    </h1>
-                    <p class="page-lead reveal">
-                        Каждое агентство обладает глубокой профильной специализацией — от глобального медиабаинга и стратегии 
-                        до креатива, digital-перформанса, PR и трейд-маркетинга.
-                    </p>
-                </div>
-                <div class="hero-bento reveal">
-                    <div class="hb-card">
-                        <span class="hb-icon">🎨</span>
-                        <strong>Креатив 360°</strong>
-                        <span>GForce Grey · Брендинг</span>
-                    </div>
-                    <div class="hb-card">
-                        <span class="hb-icon">📺</span>
-                        <strong>Media Buying</strong>
-                        <span>Mindshare · Wavemaker</span>
-                    </div>
-                    <div class="hb-card">
-                        <span class="hb-icon">⚡</span>
-                        <strong>Digital &amp; Tech</strong>
-                        <span>EssenceMediacom · Hub</span>
-                    </div>
-                    <div class="hb-card">
-                        <span class="hb-icon">📣</span>
-                        <strong>PR &amp; Experience</strong>
-                        <span>DASM PR · Action BTL</span>
-                    </div>
+        <section class="page-hero ph-agencies">
+            <div class="container ph-center">
+                <span class="section-tag reveal">Витрина агентств</span>
+                <h1 class="page-title reveal">15 агентств. <span class="gradient-text">Одна система.</span></h1>
+            </div>
+            <div class="ph-marquee" aria-hidden="true">
+                <div class="ph-marquee-track">
+                    <span>GForce Grey</span><span>Mindshare</span><span>Wavemaker</span><span>EssenceMediacom</span><span>DASM Digital Hub</span><span>DASM PR</span><span>Action &amp; Brand Experience</span><span>DASMART</span>
+                    <span>GForce Grey</span><span>Mindshare</span><span>Wavemaker</span><span>EssenceMediacom</span><span>DASM Digital Hub</span><span>DASM PR</span><span>Action &amp; Brand Experience</span><span>DASMART</span>
                 </div>
             </div>
         </section>
@@ -110,7 +85,7 @@
                 <div class="cards-grid cols-3" id="agenciesGrid">
 
                     <div class="card reveal" data-cat="creative">
-                        <div class="card-num">Creative · WPP / Grey</div>
+                        <div class="card-media ag-cover"><img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"></div><div class="card-num">Creative · WPP / Grey</div>
                         <h3 class="card-title">GForce Grey</h3>
                         <p class="card-text">
                             Самое награждаемое креативное агентство Центральной Азии, основано в 2006 году. Первое в истории Казахстана Золото Cannes Lions (2024) и Grand Prix E+ Central Asia (2023).
@@ -121,7 +96,7 @@
                     </div>
 
                     <div class="card reveal" data-cat="media">
-                        <div class="card-num">Media · GroupM / WPP</div>
+                        <div class="card-media ag-cover"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"></div><div class="card-num">Media · GroupM / WPP</div>
                         <h3 class="card-title">Mindshare</h3>
                         <p class="card-text">
                             Глобальное медийное агентство, фокусирующееся на росте брендов через 
@@ -133,7 +108,7 @@
                     </div>
 
                     <div class="card reveal" data-cat="media">
-                        <div class="card-num">Media · GroupM / WPP</div>
+                        <div class="card-media ag-cover"><img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"></div><div class="card-num">Media · GroupM / WPP</div>
                         <h3 class="card-title">Wavemaker</h3>
                         <p class="card-text">
                             Агентство, объединяющее медиа, контент и технологии. 
@@ -145,7 +120,7 @@
                     </div>
 
                     <div class="card reveal" data-cat="media digital">
-                        <div class="card-num">Media &amp; Digital · GroupM</div>
+                        <div class="card-media ag-cover"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"></div><div class="card-num">Media &amp; Digital · GroupM</div>
                         <h3 class="card-title">EssenceMediacom</h3>
                         <p class="card-text">
                             Синтез digital-ДНК Essence и системной экспертизы MediaCom. 
@@ -157,7 +132,7 @@
                     </div>
 
                     <div class="card reveal" data-cat="media digital">
-                        <div class="card-num">Full-Cycle</div>
+                        <div class="card-media ag-cover"><img src="images/official/work-adel.jpg" alt="" loading="lazy"></div><div class="card-num">Full-Cycle</div>
                         <h3 class="card-title">DASMART</h3>
                         <p class="card-text">
                             Синергия исследований, медиастратегии, Digital, ТВ и наружной рекламы. 
@@ -169,7 +144,7 @@
                     </div>
 
                     <div class="card reveal" data-cat="digital">
-                        <div class="card-num">Digital &amp; Performance</div>
+                        <div class="card-media ag-cover"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"></div><div class="card-num">Digital &amp; Performance</div>
                         <h3 class="card-title">DASM Digital Hub</h3>
                         <p class="card-text">
                             Programmatic-закупки, лидогенерация, SEO/ASO, сквозная аналитика 
@@ -181,7 +156,7 @@
                     </div>
 
                     <div class="card reveal" data-cat="digital pr">
-                        <div class="card-num">Social &amp; Creators</div>
+                        <div class="card-media ag-cover"><img src="images/official/work-mms.jpg" alt="" loading="lazy"></div><div class="card-num">Social &amp; Creators</div>
                         <h3 class="card-title">DASM Social &amp; Influence</h3>
                         <p class="card-text">
                             Управление присутствием брендов в соцсетях, спецпроекты с топ-блогерами 
@@ -193,7 +168,7 @@
                     </div>
 
                     <div class="card reveal" data-cat="pr">
-                        <div class="card-num">PR &amp; Reputation</div>
+                        <div class="card-media ag-cover"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"></div><div class="card-num">PR &amp; Reputation</div>
                         <h3 class="card-title">DASM PR</h3>
                         <p class="card-text">
                             Управление корпоративной репутацией, связи со СМИ, ESG-коммуникации 
@@ -205,7 +180,7 @@
                     </div>
 
                     <div class="card reveal" data-cat="btl">
-                        <div class="card-num">BTL &amp; Experience</div>
+                        <div class="card-media ag-cover"><img src="images/official/work-agu.jpg" alt="" loading="lazy"></div><div class="card-num">BTL &amp; Experience</div>
                         <h3 class="card-title">Action &amp; Brand Experience</h3>
                         <p class="card-text">
                             Интегрированные маркетинговые коммуникации, трейд-маркетинг, 
@@ -307,10 +282,13 @@
                     <a href="career.html">Карьера</a>
                     <a href="contacts.html">Контакты</a>
                 </div>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">Instagram</a>
-                    <a href="https://www.linkedin.com/company/dasmgroup" target="_blank" rel="noopener">LinkedIn</a>
-                </div>
+                <div class="footer-socials"><div class="soc-badges">
+<a class="soc-badge soc-ig" href="https://instagram.com/dasmgroup_official" target="_blank" rel="noopener"><img src="images/social/instagram.svg" alt="" width="20" height="20"><span>Instagram</span></a>
+<a class="soc-badge soc-in" href="https://www.linkedin.com/company/dasmgroup/" target="_blank" rel="noopener"><img src="images/social/linkedin.svg" alt="" width="20" height="20"><span>LinkedIn</span></a>
+<a class="soc-badge soc-tg" href="https://t.me/dasmgroup_official" target="_blank" rel="noopener"><img src="images/social/telegram.svg" alt="" width="20" height="20"><span>Telegram</span></a>
+<a class="soc-badge soc-yt" href="https://www.youtube.com/@DASMGroup" target="_blank" rel="noopener"><img src="images/social/youtube.svg" alt="" width="20" height="20"><span>YouTube</span></a>
+<a class="soc-badge soc-fb" href="https://www.facebook.com/profile.php?id=61552084777351" target="_blank" rel="noopener"><img src="images/social/facebook.svg" alt="" width="20" height="20"><span>Facebook</span></a>
+</div></div>
             </div>
         </div>
     </footer>
@@ -323,7 +301,7 @@
             <div class="search-results-list" id="searchResults"></div>
         </div>
     </div>
-    <script src="i18n.js?v=20261026a"></script>
-    <script src="script.js?v=20261026a"></script>
+    <script src="i18n.js?v=20261026b"></script>
+    <script src="script.js?v=20261026c"></script>
 </body>
 </html>
