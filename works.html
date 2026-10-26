@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261026c">
+    <link rel="stylesheet" href="style.css?v=20261026d">
     <script src="3d-ui.js?v=20261026b" defer></script>
     <style>.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;visibility:hidden!important;width:0!important;height:0!important}</style>
 </head>
@@ -57,51 +57,70 @@
     </header>
 
     <main>
-        <!-- Page Hero -->
-        <section class="page-hero ph-works">
-            <div class="ph-works-strip" aria-hidden="true">
-                <img src="images/official/work-adel.jpg" alt="">
-                <img src="images/official/work-mms.jpg" alt="">
-                <img src="images/official/work-agu.jpg" alt="">
-            </div>
-            <div class="ph-works-shade"></div>
-            <div class="container ph-works-copy">
-                <span class="section-tag reveal">Наши работы</span>
-                <h1 class="page-title reveal">Кейсы, которые <span class="gradient-text">выигрывают рынки</span></h1>
-                <div class="ph-chips reveal"><span>🦁 Gold Lion</span><span>🏆 Grand Prix E+</span><span>🌸 Gold Lotus</span><span>🚀 1 500+ кампаний</span></div>
+        <!-- Page Hero: Витрина фестивальных и коммерческих побед -->
+        <section class="page-hero ph-works-clean">
+            <div class="container ph-works-clean-inner">
+                <div class="ph-works-clean-top">
+                    <div>
+                        <span class="section-tag reveal">Наши работы</span>
+                        <h1 class="page-title reveal">Кейсы, которые <span class="gradient-text">выигрывают рынки</span></h1>
+                    </div>
+                    <p class="page-lead reveal">От первого в истории Казахстана Золотого Каннского Льва до мультистрановых медийных кампаний и ТВ-проектов. Нажмите на любой кейс, чтобы открыть детали и KPI.</p>
+                </div>
+                <div class="ph-trophy-shelf reveal">
+                    <div class="ph-trophy-item"><span>🦁</span><div><b>Cannes Lions Gold</b><small>Social &amp; Influencer · 2024</small></div></div>
+                    <div class="ph-trophy-item"><span>🏆</span><div><b>Grand Prix E+</b><small>Агентство года · Центральная Азия</small></div></div>
+                    <div class="ph-trophy-item"><span>🌸</span><div><b>AdFest &amp; Spikes Asia</b><small>Gold &amp; Bronze Lotus · 2024–2025</small></div></div>
+                    <div class="ph-trophy-item"><span>🚀</span><div><b>1 500+ кампаний</b><small>В 8 странах региона</small></div></div>
+                </div>
             </div>
         </section>
 
-        <!-- Кейсы: фото-мозаика -->
+        <!-- Кейсы: фото-мозаика (все 7 уникальных кейсов) -->
         <section class="section works-mosaic-section">
             <div class="container">
                 <div class="filter-bar reveal" data-target="#casesGrid" data-attr="cat">
-                    <button type="button" class="chip active" data-filter="all" aria-pressed="true">Все</button>
-                    <button type="button" class="chip" data-filter="awards" aria-pressed="false">Награды</button>
-                    <button type="button" class="chip" data-filter="social" aria-pressed="false">Соцпроекты</button>
-                    <button type="button" class="chip" data-filter="fintech" aria-pressed="false">Финтех</button>
-                    <button type="button" class="chip" data-filter="media" aria-pressed="false">Медиа</button>
+                    <button type="button" class="chip active" data-filter="all" aria-pressed="true">Все проекты (7)</button>
+                    <button type="button" class="chip" data-filter="awards" aria-pressed="false">🏆 Фестивальные</button>
+                    <button type="button" class="chip" data-filter="social" aria-pressed="false">💡 Соцпроекты и BTL</button>
+                    <button type="button" class="chip" data-filter="fintech" aria-pressed="false">💳 Финтех</button>
+                    <button type="button" class="chip" data-filter="media" aria-pressed="false">📺 Медиа и Спецпроекты</button>
                 </div>
                 <div class="works-mosaic" id="casesGrid">
-                    <article class="wm-tile wm-big reveal" data-cat="awards social" data-case-key="cannes-gold" tabindex="0">
+                    <article class="wm-tile wm-big reveal" data-cat="awards social" data-case-id="cannes-gold" data-case-key="cannes-gold" tabindex="0">
                         <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1400&q=85" alt="The National Sport of Kazakhstan" loading="lazy">
                         <span class="wm-badge">🏆 Cannes Lions Gold</span>
-                        <div class="wm-cap"><h3>The National Sport of Kazakhstan</h3><span>GForce Grey</span></div>
+                        <div class="wm-cap"><h3>The National Sport of Kazakhstan</h3><span>GForce Grey × Ruh Fighting · Первое золото РК в Каннах</span></div>
                     </article>
-                    <article class="wm-tile reveal" data-cat="awards social" data-case-key="saltanat-light" tabindex="0">
+                    <article class="wm-tile reveal" data-cat="awards social" data-case-id="saltanat-light" data-case-key="saltanat-light" tabindex="0">
                         <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85" alt="Saltanat Light" loading="lazy">
-                        <span class="wm-badge">🌸 AdFest Gold</span>
-                        <div class="wm-cap"><h3>Saltanat Light</h3><span>100+ экранов</span></div>
+                        <span class="wm-badge">🌸 AdFest Gold &amp; E+ Grand Prix</span>
+                        <div class="wm-cap"><h3>Saltanat Light</h3><span>GForce Grey &amp; Citix · 100+ умных DOOH-экранов</span></div>
                     </article>
-                    <article class="wm-tile reveal" data-cat="fintech" data-case-key="kaspi" tabindex="0">
+                    <article class="wm-tile reveal" data-cat="fintech" data-case-id="kaspi" data-case-key="kaspi" tabindex="0">
                         <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85" alt="Kaspi" loading="lazy">
                         <span class="wm-badge">🏆 4× Клиент года</span>
-                        <div class="wm-cap"><h3>Kaspi Жұма</h3><span>98% Awareness</span></div>
+                        <div class="wm-cap"><h3>Kaspi Жұма и SuperApp</h3><span>GForce Grey &amp; DASM Media · 98% Awareness</span></div>
                     </article>
-                    <article class="wm-tile wm-wide reveal" data-cat="media" data-case-key="multi-country" tabindex="0">
-                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1400&q=85" alt="Multi-country" loading="lazy">
+                    <article class="wm-tile wm-wide reveal" data-cat="media" data-case-id="mars-mms" data-case-key="mars-mms" tabindex="0">
+                        <img src="images/official/work-mms.jpg" alt="Mars M&amp;M's × IVI" loading="lazy">
+                        <span class="wm-badge">🎬 Спецпроект · Mars</span>
+                        <div class="wm-cap"><h3>Mars · M&amp;M’s × онлайн-кинотеатр IVI</h3><span>Rating Point · Интерактивная OLV и Digital-кампания</span></div>
+                    </article>
+                    <article class="wm-tile wm-wide reveal" data-cat="social" data-case-id="agusha" data-case-key="agusha" tabindex="0">
+                        <img src="images/official/work-agu.jpg" alt="АГУ-МАРАФОН" loading="lazy">
+                        <span class="wm-badge">🧡 Национальное промо</span>
+                        <div class="wm-cap"><h3>АГУ-МАРАФОН · Агуша</h3><span>DASM Ideas · Масштабная семейная BTL и SMM-активация</span></div>
+                    </article>
+                    <article class="wm-tile reveal" data-cat="media" data-case-id="first-adel" data-case-key="first-adel" tabindex="0">
+                        <img src="images/official/work-adel.jpg" alt="Шоу Готовим с Адель" loading="lazy">
+                        <span class="wm-badge">📺 ТВ-продакшн</span>
+                        <div class="wm-cap"><h3>Шоу «Готовим с Адель»</h3><span>First Media · Телепроект и спонсорская интеграция</span></div>
+                    </article>
+                    <article class="wm-tile reveal" data-cat="media" data-case-id="multi-country" data-case-key="multi-country" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=85" alt="Multi-country" loading="lazy">
                         <span class="wm-badge">📊 ROI +185%</span>
-                        <div class="wm-cap"><h3>FMCG &amp; Telecom · 5 стран</h3><span>CPT −27%</span></div>
+                        <div class="wm-cap"><h3>FMCG &amp; Telecom · 5 стран</h3><span>Mindshare / Wavemaker · Единый хаб и CPT −27%</span></div>
                     </article>
                 </div>
             </div>
@@ -204,6 +223,6 @@
         </div>
     </div>
     <script src="i18n.js?v=20261026b"></script>
-    <script src="script.js?v=20261026c"></script>
+    <script src="script.js?v=20261026d"></script>
 </body>
 </html>

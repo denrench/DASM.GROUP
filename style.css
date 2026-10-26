@@ -4991,18 +4991,324 @@ body.menu-open{overflow:hidden}
     transform: scale(1.06);
 }
 .page-agencies #agenciesGrid > .card .card-text {
-    display: none;
-}
-
-/* Страны: акцент на фотографии и ключевых тегах */
-.page-countries #countriesGrid .card-media {
-    height: 220px;
-}
-.page-countries #countriesGrid .card-text {
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+/* Страны: акцент на фотографии и полном описании */
+.page-countries #countriesGrid .card-media {
+    height: 230px;
+}
+.page-countries #countriesGrid .card-text {
+    display: block;
+    overflow: visible;
+    line-height: 1.55;
+    margin-bottom: 14px;
+}
+
+/* Hero Агентств: 4 кластера экосистемы */
+.ph-agencies-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(28px, 4vw, 52px);
+    align-items: center;
+}
+.ph-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+.ph-pillar-card {
+    padding: 20px;
+    border-radius: 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: var(--transition);
+}
+.ph-pillar-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-hover);
+}
+.ph-pillar-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: rgba(200, 70, 146, 0.12);
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+}
+.ph-pillar-card b {
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.ph-pillar-card small {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Hero Кейсов: чистая витрина трофеев без наложения текста на постеры */
+.ph-works-clean-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.ph-works-clean-top {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 32px;
+    align-items: end;
+}
+.ph-trophy-shelf {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.ph-trophy-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    border-radius: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+.ph-trophy-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-accent);
+}
+.ph-trophy-item > span {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(200, 70, 146, 0.12);
+    font-size: 1.35rem;
+    flex-shrink: 0;
+}
+.ph-trophy-item b {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+.ph-trophy-item small {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+/* Hero Стран: региональный хаб */
+.ph-countries-hub-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(28px, 4vw, 48px);
+    align-items: center;
+}
+.ph-region-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+.ph-region-stat {
+    padding: 20px;
+    border-radius: 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-soft);
+}
+.ph-region-stat b {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 800;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+}
+.ph-region-stat span {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+/* Фото-баннер города в карточке контактов */
+.ch-photo-banner {
+    position: relative;
+    height: 170px;
+    margin: -28px -28px 20px -28px;
+    border-radius: 24px 24px 0 0;
+    overflow: hidden;
+}
+.ch-photo-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.ch-photo-banner .tz-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(16, 12, 24, 0.78);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 1024px) {
+    .ph-agencies-grid,
+    .ph-works-clean-top,
+    .ph-countries-hub-grid {
+        grid-template-columns: 1fr;
+    }
+    .ph-trophy-shelf {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* Исправление шрифта для лид-абзацев (чтобы символ % не показывал водяной знак Champie Trial) */
+.hero-v2 .hero-side p,
+.page-hero .page-lead,
+.page-hero .section-tag {
+    font-family: var(--font-sans) !important;
+}
+
+/* Полноширинная фото-витрина 4 кластеров на странице Агентства */
+.ph-pillars-photo-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.ph-pillar-photo-card {
+    position: relative;
+    height: 230px;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-soft);
+}
+.ph-pillar-photo-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ph-pillar-photo-card:hover img {
+    transform: scale(1.08);
+}
+.ph-pillar-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(10, 8, 18, 0.92) 0%, rgba(10, 8, 18, 0.45) 65%, transparent 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.ph-pillar-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #f3a6d2;
+}
+.ph-pillar-overlay b {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fff;
+}
+.ph-pillar-overlay small {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.35;
+}
+
+/* Панорамный баннер на странице Страны */
+.ph-countries-hero-card {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    min-height: 360px;
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-soft);
+}
+.ph-countries-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.ph-countries-hero-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: clamp(28px, 4vw, 48px);
+    background: linear-gradient(125deg, rgba(12, 10, 22, 0.92) 0%, rgba(20, 14, 34, 0.78) 60%, rgba(12, 10, 22, 0.55) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.ph-countries-flags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+.ph-countries-flags-row a {
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #fff;
+    font-size: 0.84rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+.ph-countries-flags-row a:hover {
+    background: var(--gradient-brand);
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .ph-pillars-photo-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 640px) {
+    .ph-pillars-photo-strip {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Защита от горизонтального скролла на любых экранах */

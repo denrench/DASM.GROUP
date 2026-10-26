@@ -713,10 +713,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        $$('[data-case-id]').forEach(el => {
+        $$('[data-case-id], [data-case-key]').forEach(el => {
             el.addEventListener('click', e => {
                 e.preventDefault();
-                const id = el.dataset.caseId;
+                const id = el.dataset.caseId || el.dataset.caseKey;
                 const d = CASES_DATA[id];
                 if (!d) return;
 
@@ -841,26 +841,28 @@ document.addEventListener('DOMContentLoaded', () => {
     (function initCityContacts() {
         const HQ_ADDR = 'ул. Шамши Калдаякова, 34 · ул. Айтеке би, 29 (БЦ Absolut)';
         const REGIONAL = 'Региональный офис группы — свяжитесь через штаб-квартиру в Алматы';
-        const mk = (name, utc, hq) => ({
+        const mk = (name, utc, hq, photo) => ({
             name: name,
             address: hq ? HQ_ADDR : REGIONAL,
             phone: '+7 (727) 313-13-91',
             phoneRaw: '+77273131391',
             email: 'info@dasm.kz',
             utc: utc,
+            photo: photo,
             map: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(hq ? 'Алматы, ул. Шамши Калдаякова, 34' : name)
         });
         const CITIES = {
-            almaty: mk('Алматы · Штаб-квартира', 5, true),
-            tashkent: mk('Ташкент · Узбекистан', 5, false),
-            bishkek: mk('Бишкек · Кыргызстан', 6, false),
-            baku: mk('Баку · Азербайджан', 4, false),
-            tbilisi: mk('Тбилиси · Грузия', 4, false),
-            yerevan: mk('Ереван · Армения', 4, false),
-            dushanbe: mk('Душанбе · Таджикистан', 5, false),
-            ulaanbaatar: mk('Улан-Батор · Монголия', 8, false)
+            almaty: mk('Алматы · Штаб-квартира', 5, true, 'images/countries/kz.jpg'),
+            tashkent: mk('Ташкент · Узбекистан', 5, false, 'images/countries/uz.jpg'),
+            bishkek: mk('Бишкек · Кыргызстан', 6, false, 'images/countries/kg.jpg'),
+            baku: mk('Баку · Азербайджан', 4, false, 'images/countries/az.jpg'),
+            tbilisi: mk('Тбилиси · Грузия', 4, false, 'images/countries/ge.jpg'),
+            yerevan: mk('Ереван · Армения', 4, false, 'images/countries/am.jpg'),
+            dushanbe: mk('Душанбе · Таджикистан', 5, false, 'images/countries/tj.jpg'),
+            ulaanbaatar: mk('Улан-Батор · Монголия', 8, false, 'images/countries/mn.jpg')
         };
         const titleEl = $('#chCityTitle');
+        const photoEl = $('#chCityPhoto');
         const addrEl = $('#chCityAddress');
         const phoneEl = $('#chCityPhone');
         const emailEl = $('#chCityEmail');
@@ -893,6 +895,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateClock();
 
                 if (titleEl) titleEl.textContent = c.name;
+                if (photoEl && c.photo) {
+                    photoEl.src = c.photo;
+                    photoEl.alt = c.name;
+                }
                 if (addrEl) addrEl.textContent = c.address;
                 if (phoneEl) {
                     phoneEl.textContent = c.phone;

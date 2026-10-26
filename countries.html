@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261026c">
+    <link rel="stylesheet" href="style.css?v=20261026d">
     <script src="3d-ui.js?v=20261026b" defer></script>
     <style>.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;visibility:hidden!important;width:0!important;height:0!important}</style>
 </head>
@@ -57,59 +57,38 @@
     </header>
 
     <main>
-        <!-- Page Hero -->
-        <section class="page-hero ph-countries">
-            <div class="container ph-center">
-                <span class="section-tag reveal">Страны присутствия</span>
-                <h1 class="page-title reveal">8 стран. <span class="gradient-text">Один хаб.</span></h1>
-            </div>
+        <!-- Page Hero: Панорамный баннер регионального хаба -->
+        <section class="page-hero ph-countries-banner">
             <div class="container">
-                <div class="ph-countries-strip reveal">
-                    <div class="ph-country"><img src="images/countries/kz.jpg" alt="Казахстан" loading="lazy"><span>🇰🇿 Казахстан</span></div>
-                    <div class="ph-country"><img src="images/countries/uz.jpg" alt="Узбекистан" loading="lazy"><span>🇺🇿 Узбекистан</span></div>
-                    <div class="ph-country"><img src="images/countries/kg.jpg" alt="Кыргызстан" loading="lazy"><span>🇰🇬 Кыргызстан</span></div>
-                    <div class="ph-country"><img src="images/countries/tj.jpg" alt="Таджикистан" loading="lazy"><span>🇹🇯 Таджикистан</span></div>
-                    <div class="ph-country"><img src="images/countries/am.jpg" alt="Армения" loading="lazy"><span>🇦🇲 Армения</span></div>
-                    <div class="ph-country"><img src="images/countries/ge.jpg" alt="Грузия" loading="lazy"><span>🇬🇪 Грузия</span></div>
-                    <div class="ph-country"><img src="images/countries/az.jpg" alt="Азербайджан" loading="lazy"><span>🇦🇿 Азербайджан</span></div>
-                    <div class="ph-country"><img src="images/countries/mn.jpg" alt="Монголия" loading="lazy"><span>🇲🇳 Монголия</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Глобус с политической картой мира и подписями стран -->
-        <section class="section globe-section">
-            <div class="container">
-                <div class="globe-nav reveal" id="globeNav">
-                    <button type="button" class="globe-country-btn active" data-code="KAZ">🇰🇿 <span>Казахстан</span></button>
-                    <button type="button" class="globe-country-btn" data-code="UZB">🇺🇿 <span>Узбекистан</span></button>
-                    <button type="button" class="globe-country-btn" data-code="KGZ">🇰🇬 <span>Кыргызстан</span></button>
-                    <button type="button" class="globe-country-btn" data-code="TJK">🇹🇯 <span>Таджикистан</span></button>
-                    <button type="button" class="globe-country-btn" data-code="ARM">🇦🇲 <span>Армения</span></button>
-                    <button type="button" class="globe-country-btn" data-code="GEO">🇬🇪 <span>Грузия</span></button>
-                    <button type="button" class="globe-country-btn" data-code="AZE">🇦🇿 <span>Азербайджан</span></button>
-                    <button type="button" class="globe-country-btn" data-code="MNG">🇲🇳 <span>Монголия</span></button>
-                </div>
-                <div class="globe-wrap">
-                    <canvas id="globe3d" aria-hidden="true"></canvas>
-                    <div class="globe-pins" id="globePins"></div>
-                    <div class="globe-legend">
-                        <span><i class="hq-dot"></i> Алматы — штаб-квартира</span>
-                        <span><i></i> 7 региональных офисов</span>
+                <div class="ph-countries-hero-card reveal">
+                    <img class="ph-countries-hero-bg" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=85" alt="Региональный хаб DASM Group">
+                    <div class="ph-countries-hero-overlay">
+                        <span class="section-tag">Страны присутствия</span>
+                        <h1 class="page-title" style="color:#fff">8 стран. <span class="gradient-text">Один хаб.</span></h1>
+                        <p class="page-lead" style="color:rgba(255,255,255,0.88);max-width:680px">Штаб-квартира в Алматы координирует медиабаинг, креатив, digital и BTL в Центральной Азии, на Кавказе и в Монголии по единым международным стандартам WPP.</p>
+                        <div class="ph-countries-flags-row">
+                            <a href="#country-KAZ">🇰🇿 Казахстан</a>
+                            <a href="#country-UZB">🇺🇿 Узбекистан</a>
+                            <a href="#country-KGZ">🇰🇬 Кыргызстан</a>
+                            <a href="#country-TJK">🇹🇯 Таджикистан</a>
+                            <a href="#country-ARM">🇦🇲 Армения</a>
+                            <a href="#country-GEO">🇬🇪 Грузия</a>
+                            <a href="#country-AZE">🇦🇿 Азербайджан</a>
+                            <a href="#country-MNG">🇲🇳 Монголия</a>
+                        </div>
                     </div>
                 </div>
-                <p class="globe-hint">↻ Покрутите глобус мышью или выберите страну выше — 8 стран, один стандарт</p>
             </div>
         </section>
 
-        <!-- Страны -->
-        <section class="section">
+        <!-- Страны (уникальные фотографии каждой страны) -->
+        <section class="section" style="padding-top:30px">
             <div class="container">
                 <div class="filter-bar reveal" data-target="#countriesGrid" data-attr="region">
-                    <button type="button" class="chip active" data-filter="all" aria-pressed="true">Все</button>
-                    <button type="button" class="chip" data-filter="ca" aria-pressed="false">Центральная Азия</button>
-                    <button type="button" class="chip" data-filter="caucasus" aria-pressed="false">Кавказ</button>
-                    <button type="button" class="chip" data-filter="mongolia" aria-pressed="false">Монголия</button>
+                    <button type="button" class="chip active" data-filter="all" aria-pressed="true">Все 8 стран</button>
+                    <button type="button" class="chip" data-filter="ca" aria-pressed="false">Центральная Азия (4)</button>
+                    <button type="button" class="chip" data-filter="caucasus" aria-pressed="false">Кавказ (3)</button>
+                    <button type="button" class="chip" data-filter="mongolia" aria-pressed="false">Монголия (1)</button>
                 </div>
                 <div class="cards-grid cols-2" id="countriesGrid">
 
@@ -249,6 +228,37 @@
                 </div>
             </div>
         </section>
+
+        <!-- Интерактивный 3D-Глобус -->
+        <section class="section globe-section bg-darker">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div>
+                        <span class="section-tag">Интерактивная карта</span>
+                        <h2 class="section-title">География сети на 3D-глобусе</h2>
+                    </div>
+                </div>
+                <div class="globe-nav reveal" id="globeNav">
+                    <button type="button" class="globe-country-btn active" data-code="KAZ">🇰🇿 <span>Казахстан</span></button>
+                    <button type="button" class="globe-country-btn" data-code="UZB">🇺🇿 <span>Узбекистан</span></button>
+                    <button type="button" class="globe-country-btn" data-code="KGZ">🇰🇬 <span>Кыргызстан</span></button>
+                    <button type="button" class="globe-country-btn" data-code="TJK">🇹🇯 <span>Таджикистан</span></button>
+                    <button type="button" class="globe-country-btn" data-code="ARM">🇦🇲 <span>Армения</span></button>
+                    <button type="button" class="globe-country-btn" data-code="GEO">🇬🇪 <span>Грузия</span></button>
+                    <button type="button" class="globe-country-btn" data-code="AZE">🇦🇿 <span>Азербайджан</span></button>
+                    <button type="button" class="globe-country-btn" data-code="MNG">🇲🇳 <span>Монголия</span></button>
+                </div>
+                <div class="globe-wrap">
+                    <canvas id="globe3d" aria-hidden="true"></canvas>
+                    <div class="globe-pins" id="globePins"></div>
+                    <div class="globe-legend">
+                        <span><i class="hq-dot"></i> Алматы — штаб-квартира</span>
+                        <span><i></i> 7 региональных офисов</span>
+                    </div>
+                </div>
+                <p class="globe-hint">↻ Покрутите глобус мышью или выберите страну выше — 8 стран, один стандарт</p>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -329,7 +339,7 @@
         </div>
     </div>
     <script src="i18n.js?v=20261026b"></script>
-    <script src="script.js?v=20261026c"></script>
+    <script src="script.js?v=20261026d"></script>
     <script src="3d-ui.js?v=20261026b" defer></script>
 
     <script type="importmap">
