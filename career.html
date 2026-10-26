@@ -17,11 +17,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261021c">
-    <script src="3d-ui.js?v=20261021c" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261026a">
+    <script src="3d-ui.js?v=20261026a" defer></script>
     <style>.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;visibility:hidden!important;width:0!important;height:0!important}</style>
 </head>
-<body>
+<body class="page-career">
 
     <header class="header" id="header">
         <div class="container header-inner">
@@ -37,6 +37,7 @@
                 <a href="contacts.html" class="nav-link">Контакты</a>
             </nav>
             <div class="header-actions">
+                <button type="button" class="search-trigger-btn" id="searchTriggerBtn" aria-label="Поиск">🔍 <span class="search-key-hint">Ctrl K</span></button>
                 <div class="lang-switcher" id="langSwitcher">
                     <button class="lang-btn active" data-lang="RU">RU</button>
                     <button class="lang-btn" data-lang="KZ">KZ</button>
@@ -143,7 +144,7 @@
                             <h3>Senior Creative Copywriter</h3>
                             <p>Разработка креативных концепций 360°, сценариев для ТВ и Digital, участие в фестивальных проектах уровня Cannes Lions / Jolbors.</p>
                         </div>
-                        <a href="#footer-contact" class="btn btn-outline">Откликнуться →</a>
+                        <a href="#footer-contact" class="btn btn-outline" data-apply-role="Senior Creative Copywriter">Откликнуться →</a>
                     </div>
 
                     <div class="vacancy-item reveal" data-city="almaty tashkent" data-dir="client">
@@ -152,7 +153,7 @@
                             <h3>Account Director (Integrated Campaigns)</h3>
                             <p>Управление ключевым портфелем международных клиентов, лидирование кросс-агентских команд, контроль высокого уровня клиентского сервиса.</p>
                         </div>
-                        <a href="#footer-contact" class="btn btn-outline">Откликнуться →</a>
+                        <a href="#footer-contact" class="btn btn-outline" data-apply-role="Account Director (Integrated Campaigns)">Откликнуться →</a>
                     </div>
 
                     <div class="vacancy-item reveal" data-city="almaty" data-dir="media">
@@ -161,7 +162,7 @@
                             <h3>Senior Digital Media Planner / Performance Lead</h3>
                             <p>Стратегическое и тактическое планирование digital-кампаний, защита медиасплитов перед клиентами, работа с аналитическими инструментами GroupM.</p>
                         </div>
-                        <a href="#footer-contact" class="btn btn-outline">Откликнуться →</a>
+                        <a href="#footer-contact" class="btn btn-outline" data-apply-role="Senior Digital Media Planner / Performance Lead">Откликнуться →</a>
                     </div>
 
                     <div class="vacancy-item reveal" data-city="almaty" data-dir="finance">
@@ -170,7 +171,7 @@
                             <h3>Financial Manager</h3>
                             <p>Финансовое планирование, бюджетирование проектов агентств группы, международная отчетность и контроль рентабельности контрактов.</p>
                         </div>
-                        <a href="#footer-contact" class="btn btn-outline">Откликнуться →</a>
+                        <a href="#footer-contact" class="btn btn-outline" data-apply-role="Financial Manager">Откликнуться →</a>
                     </div>
                 </div>
                 <p class="empty-note" id="vacEmpty">Ничего не нашли — попробуйте изменить фильтры.</p>
@@ -289,7 +290,30 @@
         </div>
     </footer>
 
-    <script src="i18n.js?v=20261021c"></script>
-    <script src="script.js?v=20261021c"></script>
+
+    <div class="modal-backdrop" id="searchModal" role="dialog" aria-modal="true" aria-label="Поиск">
+        <div class="modal-window search-modal-box">
+            <button type="button" class="modal-close-btn" aria-label="Закрыть">×</button>
+            <div class="search-input-wrap"><span>🔍</span><input type="search" id="searchInput" placeholder="Агентство, кейс, страна, вакансия…" autocomplete="off"></div>
+            <div class="search-results-list" id="searchResults"></div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="applyModal" role="dialog" aria-modal="true">
+        <div class="modal-window apply-modal-box">
+            <button type="button" class="modal-close-btn" aria-label="Закрыть">×</button>
+            <span class="apply-vacancy-badge">💼 <span id="applyModalRole"></span></span>
+            <form class="contact-form js-validate-form" data-mailto="hr@dasm.kz" novalidate>
+                <input type="hidden" name="vacancy" id="applyModalRoleInput">
+                <div class="form-group"><label>Имя *</label><input type="text" name="name" placeholder="Ваше имя" required><span class="error-msg">Введите имя</span></div>
+                <div class="form-group"><label>Телефон или Email *</label><input type="text" name="contact" placeholder="+7 (777) 000-00-00 или email" required><span class="error-msg">Укажите контакты</span></div>
+                <div class="form-group"><label>Ссылка на резюме / о себе *</label><textarea name="message" rows="3" placeholder="Ссылка на резюме или пара слов о себе" required></textarea><span class="error-msg">Добавьте ссылку или текст</span></div>
+                <button type="submit" class="btn btn-primary btn-block">Отправить отклик →</button>
+                <div class="form-success-message">✓ Отклик отправлен!</div>
+            </form>
+        </div>
+    </div>
+    <script src="i18n.js?v=20261026a"></script>
+    <script src="script.js?v=20261026a"></script>
 </body>
 </html>

@@ -17,11 +17,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261021c">
-    <script src="3d-ui.js?v=20261021c" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261026a">
+    <script src="3d-ui.js?v=20261026a" defer></script>
     <style>.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;visibility:hidden!important;width:0!important;height:0!important}</style>
 </head>
-<body>
+<body class="page-works">
     <header class="header" id="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
@@ -38,6 +38,7 @@
             </nav>
 
             <div class="header-actions">
+                <button type="button" class="search-trigger-btn" id="searchTriggerBtn" aria-label="Поиск">🔍 <span class="search-key-hint">Ctrl K</span></button>
                 <div class="lang-switcher">
                     <button class="lang-btn active">RU</button>
                     <button class="lang-btn">KZ</button>
@@ -94,8 +95,8 @@
             </div>
         </section>
 
-        <!-- Кейсы -->
-        <section class="section">
+        <!-- Кейсы: фото-мозаика -->
+        <section class="section works-mosaic-section">
             <div class="container">
                 <div class="filter-bar reveal" data-target="#casesGrid" data-attr="cat">
                     <button type="button" class="chip active" data-filter="all" aria-pressed="true">Все</button>
@@ -104,95 +105,30 @@
                     <button type="button" class="chip" data-filter="fintech" aria-pressed="false">Финтех</button>
                     <button type="button" class="chip" data-filter="media" aria-pressed="false">Медиа</button>
                 </div>
-                <div class="cards-grid cols-2" id="casesGrid">
-
-                    <!-- Кейс 1 -->
-                    <article class="case-card reveal" data-cat="awards social">
-                        <div class="case-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1000&q=85" alt="Ruh Fighting">
-                            <span class="case-badge">🏆 Cannes Lions Gold</span>
-                        </div>
-                        <div class="case-body">
-                            <div class="case-meta">GForce Grey · Ruh Fighting</div>
-                            <h3 class="case-title">The National Sport of Kazakhstan</h3>
-                            <p class="case-desc">
-                                Первое в истории Казахстана Золото Cannes Lions (2024). Совместный проект с Ruh Fighting Championship: первые в стране бои «мужчины против женщин» в прямом эфире, чтобы мужчины заговорить о бытовом насилии. Анонсы боёв показывали на городских экранах Citix.
-                            </p>
-                            <div class="case-stats">
-                                <div><strong>Gold Lion</strong><span>Social &amp; Influencer</span></div>
-                                <div><strong>1 763</strong><span>Проекта в категории</span></div>
-                                <div><strong>90%</strong><span>Вовлечённых — мужчины</span></div>
-                            </div>
-                        </div>
+                <div class="works-mosaic" id="casesGrid">
+                    <article class="wm-tile wm-big reveal" data-cat="awards social" data-case-key="cannes-gold" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1400&q=85" alt="The National Sport of Kazakhstan" loading="lazy">
+                        <span class="wm-badge">🏆 Cannes Lions Gold</span>
+                        <div class="wm-cap"><h3>The National Sport of Kazakhstan</h3><span>GForce Grey</span></div>
                     </article>
-
-                    <!-- Кейс 2 -->
-                    <article class="case-card reveal" data-cat="awards social">
-                        <div class="case-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85" alt="Saltanat Light">
-                            <span class="case-badge">🏆 AdFest Gold Lotus</span>
-                        </div>
-                        <div class="case-body">
-                            <div class="case-meta">GForce Grey &amp; Citix</div>
-                            <h3 class="case-title">Saltanat Light</h3>
-                            <p class="case-desc">
-                                Синхронизация всей сети цифровых уличных экранов Citix с данными кризисных центров. 
-                                Первое золото Центральной Азии на фестивале AdFest.
-                            </p>
-                            <div class="case-stats">
-                                <div><strong>100+</strong><span>Экранов DOOH</span></div>
-                                <div><strong>Gold</strong><span>AdFest</span></div>
-                                <div><strong>Grand Prix</strong><span>E+</span></div>
-                            </div>
-                        </div>
+                    <article class="wm-tile reveal" data-cat="awards social" data-case-key="saltanat-light" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85" alt="Saltanat Light" loading="lazy">
+                        <span class="wm-badge">🌸 AdFest Gold</span>
+                        <div class="wm-cap"><h3>Saltanat Light</h3><span>100+ экранов</span></div>
                     </article>
-
-                    <!-- Кейс 3 -->
-                    <article class="case-card reveal" data-cat="fintech">
-                        <div class="case-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85" alt="Kaspi">
-                            <span class="case-badge">🏆 4× Client of the Year</span>
-                        </div>
-                        <div class="case-body">
-                            <div class="case-meta">GForce Grey &amp; DASM Media</div>
-                            <h3 class="case-title">Kaspi Жұма и SuperApp</h3>
-                            <p class="case-desc">
-                                Многолетнее стратегическое и креативное сопровождение главного финтех-бренда страны. 
-                                Национальные кампании с рекордными показателями узнаваемости.
-                            </p>
-                            <div class="case-stats">
-                                <div><strong>4 раза</strong><span>Клиент года</span></div>
-                                <div><strong>98%</strong><span>Awareness</span></div>
-                                <div><strong>360°</strong><span>TV + Digital</span></div>
-                            </div>
-                        </div>
+                    <article class="wm-tile reveal" data-cat="fintech" data-case-key="kaspi" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85" alt="Kaspi" loading="lazy">
+                        <span class="wm-badge">🏆 4× Клиент года</span>
+                        <div class="wm-cap"><h3>Kaspi Жұма</h3><span>98% Awareness</span></div>
                     </article>
-
-                    <!-- Кейс 4 -->
-                    <article class="case-card reveal" data-cat="media">
-                        <div class="case-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1000&q=85" alt="Multi-country">
-                            <span class="case-badge">📊 ROI +185%</span>
-                        </div>
-                        <div class="case-body">
-                            <div class="case-meta">Mindshare / Wavemaker / DASMART</div>
-                            <h3 class="case-title">Масштабирование FMCG &amp; Telecom на 5 стран</h3>
-                            <p class="case-desc">
-                                Единая медиа- и digital-стратегия для Казахстана, Узбекистана, Кыргызстана, 
-                                Таджикистана и Армении. Снижение CPT на 27%.
-                            </p>
-                            <div class="case-stats">
-                                <div><strong>-27%</strong><span>CPT</span></div>
-                                <div><strong>+42%</strong><span>Органика</span></div>
-                                <div><strong>5 стран</strong><span>Единый хаб</span></div>
-                            </div>
-                        </div>
+                    <article class="wm-tile wm-wide reveal" data-cat="media" data-case-key="multi-country" tabindex="0">
+                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1400&q=85" alt="Multi-country" loading="lazy">
+                        <span class="wm-badge">📊 ROI +185%</span>
+                        <div class="wm-cap"><h3>FMCG &amp; Telecom · 5 стран</h3><span>CPT −27%</span></div>
                     </article>
-
                 </div>
             </div>
-        </section>
-    </main>
+        </section>    </main>
 
     <!-- Footer -->
     <footer class="footer" id="footer-contact">
@@ -260,7 +196,34 @@
         </div>
     </footer>
 
-    <script src="i18n.js?v=20261021c"></script>
-    <script src="script.js?v=20261021c"></script>
+
+    <div class="modal-backdrop" id="searchModal" role="dialog" aria-modal="true" aria-label="Поиск">
+        <div class="modal-window search-modal-box">
+            <button type="button" class="modal-close-btn" aria-label="Закрыть">×</button>
+            <div class="search-input-wrap"><span>🔍</span><input type="search" id="searchInput" placeholder="Агентство, кейс, страна, вакансия…" autocomplete="off"></div>
+            <div class="search-results-list" id="searchResults"></div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="caseModal" role="dialog" aria-modal="true">
+        <div class="modal-window case-modal-box">
+            <button type="button" class="modal-close-btn" aria-label="Закрыть">×</button>
+            <div class="case-modal-hero">
+                <img id="caseModalImg" src="" alt="">
+                <div class="case-modal-hero-overlay"><span class="apply-vacancy-badge" id="caseModalBadge"></span><h2 id="caseModalTitle"></h2><span id="caseModalMeta"></span></div>
+            </div>
+            <div class="case-modal-body">
+                <p id="caseModalDesc"></p>
+                <div class="case-kpi-grid">
+                    <div class="case-kpi-box"><strong id="caseModalKpi1"></strong><span id="caseModalKpi1Sub"></span></div>
+                    <div class="case-kpi-box"><strong id="caseModalKpi2"></strong><span id="caseModalKpi2Sub"></span></div>
+                    <div class="case-kpi-box"><strong id="caseModalKpi3"></strong><span id="caseModalKpi3Sub"></span></div>
+                </div>
+                <a href="#footer-contact" class="btn btn-primary" onclick="document.getElementById('caseModal').classList.remove('is-open')">Хочу такой же проект →</a>
+            </div>
+        </div>
+    </div>
+    <script src="i18n.js?v=20261026a"></script>
+    <script src="script.js?v=20261026a"></script>
 </body>
 </html>

@@ -18,8 +18,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261021c">
-    <script src="3d-ui.js?v=20261021c" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261026a">
+    <script src="3d-ui.js?v=20261026a" defer></script>
     <style>.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;visibility:hidden!important;width:0!important;height:0!important}</style>
 </head>
 <body>
@@ -37,6 +37,7 @@
                 <a href="contacts.html" class="nav-link">Контакты</a>
             </nav>
             <div class="header-actions">
+                <button type="button" class="search-trigger-btn" id="searchTriggerBtn" aria-label="Поиск">🔍 <span class="search-key-hint">Ctrl K</span></button>
                 <div class="lang-switcher" id="langSwitcher">
                     <button class="lang-btn" data-lang="RU">RU</button>
                     <button class="lang-btn" data-lang="KZ">KZ</button>
@@ -66,7 +67,15 @@
         </section>
     </main>
 
-    <script src="i18n.js?v=20261021c"></script>
-    <script src="script.js?v=20261021c"></script>
+
+    <div class="modal-backdrop" id="searchModal" role="dialog" aria-modal="true" aria-label="Поиск">
+        <div class="modal-window search-modal-box">
+            <button type="button" class="modal-close-btn" aria-label="Закрыть">×</button>
+            <div class="search-input-wrap"><span>🔍</span><input type="search" id="searchInput" placeholder="Агентство, кейс, страна, вакансия…" autocomplete="off"></div>
+            <div class="search-results-list" id="searchResults"></div>
+        </div>
+    </div>
+    <script src="i18n.js?v=20261026a"></script>
+    <script src="script.js?v=20261026a"></script>
 </body>
 </html>

@@ -17,11 +17,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261021c">
-    <script src="3d-ui.js?v=20261021c" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261026a">
+    <script src="3d-ui.js?v=20261026a" defer></script>
     <style>.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;visibility:hidden!important;width:0!important;height:0!important}</style>
 </head>
-<body>
+<body class="page-contacts">
 
     <header class="header" id="header">
         <div class="container header-inner">
@@ -37,6 +37,7 @@
                 <a href="contacts.html" class="nav-link active">Контакты</a>
             </nav>
             <div class="header-actions">
+                <button type="button" class="search-trigger-btn" id="searchTriggerBtn" aria-label="Поиск">🔍 <span class="search-key-hint">Ctrl K</span></button>
                 <div class="lang-switcher" id="langSwitcher">
                     <button class="lang-btn active" data-lang="RU">RU</button>
                     <button class="lang-btn" data-lang="KZ">KZ</button>
@@ -93,47 +94,38 @@
                 <div class="contacts-page-grid">
                     <!-- Карточки адресов -->
                     <div class="contacts-cards-col">
-                        <div class="card interactive-card reveal">
-                            <span class="section-tag">Штаб-квартира • Казахстан</span>
-                            <h3 class="card-title">Алматы — Центральный офис</h3>
-                            <p class="card-text">
-                                📍 050019, г. Алматы, Медеуский район,<br>
-                                <strong>ул. Шамши Калдаякова, 34</strong><br>
-                                <strong>ул. Айтеке би, 29 (БЦ Absolut, 1, 5, 6, 7 этажи)</strong>
-                            </p>
-                            <p class="card-text">
-                                📞 Телефон: <a href="tel:+77273131391">+7 (727) 313-13-91</a><br>
-                                📞 New Business (DASMART): <a href="tel:+77777730162">+7 (777) 773-01-62</a><br>
-                                ✉️ Email: <a href="mailto:info@dasm.kz">info@dasm.kz</a>
-                            </p>
-                            <p class="card-text" style="margin-top: 12px;">
-                                <a class="btn btn-outline btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B%2C+%D1%83%D0%BB.+%D0%A8%D0%B0%D0%BC%D1%88%D0%B8+%D0%9A%D0%B0%D0%BB%D0%B4%D0%B0%D1%8F%D0%BA%D0%BE%D0%B2%D0%B0%2C+34" target="_blank" rel="noopener">Построить маршрут</a>
-                            </p>
+                        <div class="city-selector-bar reveal" role="tablist" aria-label="Город">
+                            <button type="button" class="city-selector-btn active" data-city="almaty">🇰🇿 Алматы</button>
+                            <button type="button" class="city-selector-btn" data-city="tashkent">🇺🇿 Ташкент</button>
+                            <button type="button" class="city-selector-btn" data-city="bishkek">🇰🇬 Бишкек</button>
+                            <button type="button" class="city-selector-btn" data-city="dushanbe">🇹🇯 Душанбе</button>
+                            <button type="button" class="city-selector-btn" data-city="yerevan">🇦🇲 Ереван</button>
+                            <button type="button" class="city-selector-btn" data-city="tbilisi">🇬🇪 Тбилиси</button>
+                            <button type="button" class="city-selector-btn" data-city="baku">🇦🇿 Баку</button>
+                            <button type="button" class="city-selector-btn" data-city="ulaanbaatar">🇲🇳 Улан-Батор</button>
                         </div>
-
-                        <div class="card interactive-card reveal">
-                            <span class="section-tag">Региональные хабы</span>
-                            <h3 class="card-title">Офисы в 8 странах</h3>
-                            <p class="card-text">
-                                🇺🇿 <strong>Ташкент</strong> • 🇰🇬 <strong>Бишкек</strong> • 🇹🇯 <strong>Душанбе</strong><br>
-                                🇦🇲 <strong>Ереван</strong> • 🇬🇪 <strong>Тбилиси</strong> • 🇦🇿 <strong>Баку</strong> • 🇲🇳 <strong>Улан-Батор</strong>
-                            </p>
-                            <div class="card-tags">
-                                <span>Пн–Пт: 09:00 – 18:30 (GMT+5)</span>
+                        <div class="contact-hub-card reveal">
+                            <div class="ch-top">
+                                <h3 id="chCityTitle">Алматы · Штаб-квартира</h3>
+                                <span class="tz-badge"><i class="pulse-green"></i><span id="chCityTime">--:--:--</span></span>
                             </div>
-                        </div>
-
-                        <div class="card interactive-card reveal">
-                            <span class="section-tag">Официальные ресурсы</span>
-                            <h3 class="card-title">Социальные сети</h3>
-                            <div class="card-tags">
-                                <a href="https://www.dasm.kz" target="_blank" rel="noopener">🌐 www.dasm.kz</a>
-                                <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">📸 @dasmgroup_official</a>
-                                <a href="https://www.linkedin.com" target="_blank" rel="noopener">💼 LinkedIn: DASM Group</a>
+                            <div class="ch-rows">
+                                <div class="ch-row"><b>📍</b><span id="chCityAddress">ул. Шамши Калдаякова, 34 · ул. Айтеке би, 29 (БЦ Absolut)</span></div>
+                                <div class="ch-row"><b>📞</b><a id="chCityPhone" href="tel:+77273131391">+7 (727) 313-13-91</a></div>
+                                <div class="ch-row"><b>🚀</b><a href="tel:+77777730162">+7 (777) 773-01-62 · New Business</a></div>
+                                <div class="ch-row"><b>✉️</b><a id="chCityEmail" href="mailto:info@dasm.kz">info@dasm.kz</a></div>
+                            </div>
+                            <div class="contact-quick-actions">
+                                <a class="btn btn-whatsapp" id="chCityWA" href="https://wa.me/77273131391" target="_blank" rel="noopener">WhatsApp</a>
+                                <a class="btn btn-outline" id="chCityMap" href="https://www.google.com/maps/search/?api=1&query=%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B%2C+%D1%83%D0%BB.+%D0%A8%D0%B0%D0%BC%D1%88%D0%B8+%D0%9A%D0%B0%D0%BB%D0%B4%D0%B0%D1%8F%D0%BA%D0%BE%D0%B2%D0%B0%2C+34" target="_blank" rel="noopener">Маршрут</a>
+                            </div>
+                            <div class="card-tags" style="margin-top:18px">
+                                <a href="https://www.dasm.kz" target="_blank" rel="noopener">🌐 dasm.kz</a>
+                                <a href="https://www.instagram.com/dasmgroup_official" target="_blank" rel="noopener">📸 Instagram</a>
+                                <a href="https://www.linkedin.com/company/dasmgroup" target="_blank" rel="noopener">💼 LinkedIn</a>
                             </div>
                         </div>
                     </div>
-
                     <!-- Основная развернутая форма на странице Контакты -->
                     <div class="contacts-form-col reveal">
                         <form class="contact-form contact-form-large js-validate-form" novalidate>
@@ -233,7 +225,15 @@
         </div>
     </footer>
 
-    <script src="i18n.js?v=20261021c"></script>
-    <script src="script.js?v=20261021c"></script>
+
+    <div class="modal-backdrop" id="searchModal" role="dialog" aria-modal="true" aria-label="Поиск">
+        <div class="modal-window search-modal-box">
+            <button type="button" class="modal-close-btn" aria-label="Закрыть">×</button>
+            <div class="search-input-wrap"><span>🔍</span><input type="search" id="searchInput" placeholder="Агентство, кейс, страна, вакансия…" autocomplete="off"></div>
+            <div class="search-results-list" id="searchResults"></div>
+        </div>
+    </div>
+    <script src="i18n.js?v=20261026a"></script>
+    <script src="script.js?v=20261026a"></script>
 </body>
 </html>

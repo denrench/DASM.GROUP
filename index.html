@@ -17,11 +17,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261021c">
-    <script src="3d-ui.js?v=20261021c" defer></script>
+    <link rel="stylesheet" href="style.css?v=20261026a">
+    <script src="3d-ui.js?v=20261026a" defer></script>
     <style>.cursor-dot,.cursor-ring{display:none!important;opacity:0!important;visibility:hidden!important;width:0!important;height:0!important}</style>
 </head>
-<body>
+<body class="page-index">
     <header class="header" id="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">DASM<span>.</span>GROUP</a>
@@ -38,6 +38,7 @@
             </nav>
 
             <div class="header-actions">
+                <button type="button" class="search-trigger-btn" id="searchTriggerBtn" aria-label="Поиск">🔍 <span class="search-key-hint">Ctrl K</span></button>
                 <div class="lang-switcher">
                     <button class="lang-btn active">RU</button>
                     <button class="lang-btn">KZ</button>
@@ -402,7 +403,42 @@
                 </div>
             </div>
         </section>
-    </main>
+        <!-- Конструктор брифа -->
+        <section class="brief-builder-section" id="briefBuilder">
+            <div class="container">
+                <div class="section-header reveal"><div><span class="section-tag">Бриф за 30 секунд</span><h2 class="section-title">Соберите свой проект</h2></div></div>
+                <div class="brief-builder-card reveal">
+                    <div class="bb-step-title"><span class="bb-step-num">1</span> Задача</div>
+                    <div class="bb-options-grid">
+                        <button type="button" class="bb-opt-btn active" data-bb-goal="creative"><span class="bb-icon">💡</span><span>Креатив</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-goal="media"><span class="bb-icon">📺</span><span>Медиа</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-goal="digital"><span class="bb-icon">📈</span><span>Digital</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-goal="pr"><span class="bb-icon">📣</span><span>PR и BTL</span></button>
+                    </div>
+                    <div class="bb-step-title"><span class="bb-step-num">2</span> Страны</div>
+                    <div class="bb-options-grid">
+                        <button type="button" class="bb-opt-btn active" data-bb-country><span class="bb-icon">🇰🇿</span><span>Казахстан</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-country><span class="bb-icon">🇺🇿</span><span>Узбекистан</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-country><span class="bb-icon">🇰🇬</span><span>Кыргызстан</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-country><span class="bb-icon">🇹🇯</span><span>Таджикистан</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-country><span class="bb-icon">🇦🇲</span><span>Армения</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-country><span class="bb-icon">🇬🇪</span><span>Грузия</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-country><span class="bb-icon">🇦🇿</span><span>Азербайджан</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-country><span class="bb-icon">🇲🇳</span><span>Монголия</span></button>
+                    </div>
+                    <div class="bb-step-title"><span class="bb-step-num">3</span> Масштаб</div>
+                    <div class="bb-options-grid">
+                        <button type="button" class="bb-opt-btn" data-bb-budget="пилот"><span class="bb-icon">🌱</span><span>Пилот</span></button>
+                        <button type="button" class="bb-opt-btn active" data-bb-budget="стандарт"><span class="bb-icon">🚀</span><span>Стандарт</span></button>
+                        <button type="button" class="bb-opt-btn" data-bb-budget="масштаб"><span class="bb-icon">🌍</span><span>Масштаб</span></button>
+                    </div>
+                    <div class="bb-result-box">
+                        <div class="bb-result-info"><span>Вам подойдёт</span><strong id="bbRecommend">GForce Grey · Креативный продакшн</strong></div>
+                        <button type="button" class="btn btn-primary" id="bbCta">Отправить бриф →</button>
+                    </div>
+                </div>
+            </div>
+        </section>    </main>
 
     <!-- Footer -->
     <footer class="footer" id="footer-contact">
@@ -470,13 +506,21 @@
         </div>
     </footer>
 
-    <script src="i18n.js?v=20261021c"></script>
-    <script src="script.js?v=20261021c"></script>
-    <script src="3d-ui.js?v=20261021c" defer></script>
+
+    <div class="modal-backdrop" id="searchModal" role="dialog" aria-modal="true" aria-label="Поиск">
+        <div class="modal-window search-modal-box">
+            <button type="button" class="modal-close-btn" aria-label="Закрыть">×</button>
+            <div class="search-input-wrap"><span>🔍</span><input type="search" id="searchInput" placeholder="Агентство, кейс, страна, вакансия…" autocomplete="off"></div>
+            <div class="search-results-list" id="searchResults"></div>
+        </div>
+    </div>
+    <script src="i18n.js?v=20261026a"></script>
+    <script src="script.js?v=20261026a"></script>
+    <script src="3d-ui.js?v=20261026a" defer></script>
 
     <script type="importmap">
     { "imports": { "three": "https://unpkg.com/three@0.162.0/build/three.module.js" } }
     </script>
-    <script type="module" src="3d.js?v=20261021c"></script>
+    <script type="module" src="3d.js?v=20261026a"></script>
 </body>
 </html>

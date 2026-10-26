@@ -308,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isValid) return;
 
             const data = Object.fromEntries(new FormData(form).entries());
+            try { const L = JSON.parse(localStorage.getItem('dasm-leads') || '[]'); L.push(Object.assign({}, data, { ts: new Date().toISOString(), page: location.pathname })); localStorage.setItem('dasm-leads', JSON.stringify(L)); } catch (e) { /* ignore */ }
             const msg = $('.form-success-message', form);
             if (msg && !msg.dataset.orig) msg.dataset.orig = msg.textContent.trim();
             const show = text => {
@@ -526,5 +527,395 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+
+    // ===== Toast Notification Helper =====
+    window.showToast = function(msg, icon = '✓') {
+        let toast = $('#globalToast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'globalToast';
+            toast.className = 'toast-msg';
+            document.body.appendChild(toast);
+        }
+        toast.innerHTML = `<span style="font-size:1.2rem">${icon}</span> <span>${msg}</span>`;
+        toast.classList.add('is-visible');
+        setTimeout(() => toast.classList.remove('is-visible'), 4000);
+    };
+
+    // ===== Universal Modal Handler =====
+    const openModal = (id) => {
+        const m = $(id);
+        if (m) {
+            m.classList.add('is-open');
+            document.body.classList.add('modal-open');
+        }
+    };
+    const closeModal = (id) => {
+        const m = $(id);
+        if (m) {
+            m.classList.remove('is-open');
+            if (!$$('.modal-backdrop.is-open').length) {
+                document.body.classList.remove('modal-open');
+            }
+        }
+    };
+    $$('.modal-backdrop').forEach(modal => {
+        modal.addEventListener('click', e => {
+            if (e.target === modal || e.target.closest('.modal-close-btn')) {
+                closeModal('#' + modal.id);
+            }
+        });
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            $$('.modal-backdrop.is-open').forEach(m => closeModal('#' + m.id));
+        }
+    });
+
+    // ===== Quick Search (Spotlight / Cmd+K) =====
+    (function initQuickSearch() {
+        const searchModal = $('#searchModal');
+        const trigger = $('#searchTriggerBtn');
+        const input = $('#searchInput');
+        const resultsBox = $('#searchResults');
+
+        const SEARCH_INDEX = [
+            { title: 'GForce Grey', type: 'Агентство', url: 'agencies.html#agenciesGrid', desc: 'Креативное агентство, Золото Cannes Lions' },
+            { title: 'Mindshare', type: 'Агентство', url: 'agencies.html#agenciesGrid', desc: 'Медиапланирование и данные GroupM / WPP' },
+            { title: 'Wavemaker', type: 'Агентство', url: 'agencies.html#agenciesGrid', desc: 'Медиа, контент и технологии, максимизация ROI' },
+            { title: 'EssenceMediacom', type: 'Агентство', url: 'agencies.html#agenciesGrid', desc: 'Digital-экспертиза и омниканальные медиа' },
+            { title: 'DASM Digital Hub', type: 'Агентство', url: 'agencies.html#agenciesGrid', desc: 'Programmatic, Performance, SEO и аналитика' },
+            { title: 'DASM PR', type: 'Агентство', url: 'agencies.html#agenciesGrid', desc: 'Управление репутацией, связи со СМИ и ESG' },
+            { title: 'Action & Brand Experience', type: 'Агентство', url: 'agencies.html#agenciesGrid', desc: 'BTL, трейд-маркетинг и события' },
+            { title: 'The National Sport of Kazakhstan', type: 'Кейс', url: 'works.html#casesGrid', desc: 'Первое золото Cannes Lions 2024' },
+            { title: 'Saltanat Light', type: 'Кейс', url: 'works.html#casesGrid', desc: 'Синхронизация DOOH экранов Citix, AdFest Gold Lotus' },
+            { title: 'Kaspi Жұма и SuperApp', type: 'Кейс', url: 'works.html#casesGrid', desc: '4× Клиент года, Awareness 98%' },
+            { title: 'FMCG & Telecom на 5 стран', type: 'Кейс', url: 'works.html#casesGrid', desc: 'CPT −27%, единый хаб' },
+            { title: 'Казахстан (Алматы)', type: 'Страна', url: 'countries.html', desc: 'Штаб-квартира группы, 15 агентств' },
+            { title: 'Узбекистан (Ташкент)', type: 'Страна', url: 'countries.html', desc: 'Крупнейший региональный хаб' },
+            { title: 'Кыргызстан (Бишкек)', type: 'Страна', url: 'countries.html', desc: 'Медиа и креатив в Бишкеке' },
+            { title: 'Азербайджан (Баку)', type: 'Страна', url: 'countries.html', desc: 'Офис группы на Кавказе' },
+            { title: 'Грузия (Тбилиси)', type: 'Страна', url: 'countries.html', desc: 'Креативный и медийный хаб' },
+            { title: 'Senior Creative Copywriter', type: 'Вакансия', url: 'career.html#vacancyList', desc: 'Алматы • Креатив 360' },
+            { title: 'Account Director', type: 'Вакансия', url: 'career.html#vacancyList', desc: 'Алматы / Ташкент • Client Service' },
+            { title: 'Digital Media Planner', type: 'Вакансия', url: 'career.html#vacancyList', desc: 'Алматы • Media & Digital' }
+        ];
+
+        const openSearch = () => {
+            if (searchModal) {
+                openModal('#searchModal');
+                if (input) { input.value = ''; input.focus(); renderResults(''); }
+            }
+        };
+
+        if (trigger) trigger.addEventListener('click', openSearch);
+        document.addEventListener('keydown', e => {
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                openSearch();
+            }
+        });
+
+        const renderResults = q => {
+            if (!resultsBox) return;
+            const query = q.trim().toLowerCase();
+            const filtered = query
+                ? SEARCH_INDEX.filter(it => it.title.toLowerCase().includes(query) || it.desc.toLowerCase().includes(query) || it.type.toLowerCase().includes(query))
+                : SEARCH_INDEX.slice(0, 6);
+
+            if (!filtered.length) {
+                resultsBox.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted)">Ничего не найдено</div>';
+                return;
+            }
+
+            resultsBox.innerHTML = filtered.map(it => `
+                <a href="${it.url}" class="search-result-item">
+                    <div class="search-result-info">
+                        <span class="search-result-title">${it.title}</span>
+                        <span class="search-result-meta">${it.desc}</span>
+                    </div>
+                    <span class="search-result-badge">${it.type}</span>
+                </a>
+            `).join('');
+        };
+
+        if (input) {
+            input.addEventListener('input', () => renderResults(input.value));
+        }
+    })();
+
+    // ===== Модалка Деталей Кейсов =====
+    (function initCaseModals() {
+        const CASES_DATA = {
+            'cannes-gold': {
+                title: 'The National Sport of Kazakhstan',
+                meta: 'GForce Grey · Ruh Fighting Championship',
+                badge: '🏆 Cannes Lions Gold (2024)',
+                img: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1200&q=85',
+                desc: 'Исторический проект для рекламной индустрии Казахстана: первое золото в Каннах. Проект поднял острейшую социальную тему бытового насилия через провокационный анонс боя мужчины и женщины на Ruh Fighting. На экранах Citix по всему Казахстану кампания вызвала колоссальный общественный резонанс и реальные изменения.',
+                kpi1: 'Gold Lion', kpi1Sub: 'Social & Influencer',
+                kpi2: '1 763', kpi2Sub: 'Проекта в категории',
+                kpi3: '90%', kpi3Sub: 'Вовлечённых — мужчины'
+            },
+            'saltanat-light': {
+                title: 'Saltanat Light',
+                meta: 'GForce Grey & Citix',
+                badge: '🏆 AdFest Gold Lotus & E+ Grand Prix',
+                img: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=85',
+                desc: 'Интеграция городской сети цифровых уличных поверхностей DOOH с данными шелтеров и центров помощи. Ночью световые экраны транслировали маршруты безопасности и контакты экстренных служб.',
+                kpi1: '100+', kpi1Sub: 'Умных экранов DOOH',
+                kpi2: 'Gold', kpi2Sub: 'AdFest Lotus 2024',
+                kpi3: 'Grand Prix', kpi3Sub: 'E+ Central Asia'
+            },
+            'kaspi': {
+                title: 'Kaspi Жұма и SuperApp',
+                meta: 'GForce Grey & DASM Media',
+                badge: '🏆 4× Client of the Year',
+                img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85',
+                desc: 'Многолетнее стратегическое и креативное сопровождение главного финтех-бренда страны: национальные кампании с рекордной узнаваемостью.',
+                kpi1: '4 раза', kpi1Sub: 'Клиент года',
+                kpi2: '98%', kpi2Sub: 'Awareness',
+                kpi3: '360°', kpi3Sub: 'TV + Digital'
+            },
+            'multi-country': {
+                title: 'FMCG & Telecom на 5 стран',
+                meta: 'Mindshare / Wavemaker / DASMART',
+                badge: '📊 ROI +185%',
+                img: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=85',
+                desc: 'Единая медиа- и digital-стратегия для Казахстана, Узбекистана, Кыргызстана, Таджикистана и Армении.',
+                kpi1: '-27%', kpi1Sub: 'CPT',
+                kpi2: '+42%', kpi2Sub: 'Органика',
+                kpi3: '5 стран', kpi3Sub: 'Единый хаб'
+            }        };
+
+        $$('[data-case-key]').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
+            card.addEventListener('click', e => {
+                if (e.target.closest('a')) return;
+                const key = card.dataset.caseKey;
+                const c = CASES_DATA[key];
+                if (!c) return;
+
+                const modal = $('#caseModal');
+                if (modal) {
+                    const img = $('#caseModalImg');
+                    if (img) img.src = c.img;
+                    const badge = $('#caseModalBadge');
+                    if (badge) badge.textContent = c.badge;
+                    const title = $('#caseModalTitle');
+                    if (title) title.textContent = c.title;
+                    const meta = $('#caseModalMeta');
+                    if (meta) meta.textContent = c.meta;
+                    const desc = $('#caseModalDesc');
+                    if (desc) desc.textContent = c.desc;
+                    const k1 = $('#caseModalKpi1');
+                    if (k1) k1.textContent = c.kpi1;
+                    const k1s = $('#caseModalKpi1Sub');
+                    if (k1s) k1s.textContent = c.kpi1Sub;
+                    const k2 = $('#caseModalKpi2');
+                    if (k2) k2.textContent = c.kpi2;
+                    const k2s = $('#caseModalKpi2Sub');
+                    if (k2s) k2s.textContent = c.kpi2Sub;
+                    const k3 = $('#caseModalKpi3');
+                    if (k3) k3.textContent = c.kpi3;
+                    const k3s = $('#caseModalKpi3Sub');
+                    if (k3s) k3s.textContent = c.kpi3Sub;
+                    openModal('#caseModal');
+                }
+            });
+        });
+    })();
+
+    // ===== Модалка Отклика на Вакансии =====
+    (function initApplyModal() {
+        const modal = $('#applyModal');
+        const badge = $('#applyModalRole');
+        const hiddenRole = $('#applyModalRoleInput');
+        const fileInput = $('#resumeFileInput');
+        const fileText = $('#resumeFileName');
+
+        $$('[data-apply-role]').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                const role = btn.dataset.applyRole || 'Специалист';
+                if (badge) badge.textContent = role;
+                if (hiddenRole) hiddenRole.value = role;
+                openModal('#applyModal');
+            });
+        });
+
+        if (fileInput && fileText) {
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files.length) {
+                    fileText.textContent = '📎 ' + fileInput.files[0].name;
+                }
+            });
+        }
+    })();
+
+    // ===== Интерактивный Конструктор Брифа (Brief Builder) =====
+    (function initBriefBuilder() {
+        const root = $('#briefBuilder');
+        if (!root) return;
+
+        let goal = 'creative';
+        let countries = ['Казахстан'];
+        let budget = 'стандарт';
+
+        const updateSummary = () => {
+            const agencyMap = {
+                'creative': 'GForce Grey · Креативный продакшн',
+                'media': 'Mindshare / Wavemaker · Медиабаинг',
+                'digital': 'DASM Digital Hub · Performance & SMM',
+                'pr': 'DASM PR & Action · Репутация и BTL'
+            };
+            const rec = $('#bbRecommend');
+            if (rec) rec.textContent = agencyMap[goal] || 'DASM Group Hub';
+        };
+
+        $$('[data-bb-goal]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                $$('[data-bb-goal]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                goal = btn.dataset.bbGoal;
+                updateSummary();
+            });
+        });
+
+        $$('[data-bb-country]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+                const c = btn.querySelector('span:last-child').textContent.trim();
+                if (btn.classList.contains('active')) {
+                    if (!countries.includes(c)) countries.push(c);
+                } else {
+                    countries = countries.filter(x => x !== c);
+                    if (!countries.length) { countries.push('Казахстан'); btn.classList.add('active'); }
+                }
+                updateSummary();
+            });
+        });
+
+        $$('[data-bb-budget]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                $$('[data-bb-budget]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                budget = btn.dataset.bbBudget;
+                updateSummary();
+            });
+        });
+
+        const cta = $('#bbCta');
+        if (cta) {
+            cta.addEventListener('click', () => {
+                const ta = $('#footer-contact textarea') || $('textarea[name="message"]');
+                if (ta) {
+                    ta.value = `Здравствуйте! Хотим запустить проект:\n- Направление: ${goal}\n- Регион: ${countries.join(', ')}\n- Масштаб: ${budget}`;
+                    ta.focus();
+                }
+                window.location.hash = '#footer-contact';
+                window.showToast('Параметры брифа скопированы в форму!', '✨');
+            });
+        }
+
+        updateSummary();
+    })();
+
+    // ===== Интерактивный Хаб Контактов (Города и Часовые пояса) =====
+    (function initCityContacts() {
+        const HQ_ADDR = 'ул. Шамши Калдаякова, 34 · ул. Айтеке би, 29 (БЦ Absolut)';
+        const REGIONAL = 'Региональный офис группы — свяжитесь через штаб-квартиру в Алматы';
+        const mk = (name, utc, hq) => ({
+            name: name,
+            address: hq ? HQ_ADDR : REGIONAL,
+            phone: '+7 (727) 313-13-91',
+            phoneRaw: '+77273131391',
+            email: 'info@dasm.kz',
+            utc: utc,
+            map: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(hq ? 'Алматы, ул. Шамши Калдаякова, 34' : name)
+        });
+        const CITIES = {
+            almaty: mk('Алматы · Штаб-квартира', 5, true),
+            tashkent: mk('Ташкент · Узбекистан', 5, false),
+            bishkek: mk('Бишкек · Кыргызстан', 6, false),
+            baku: mk('Баку · Азербайджан', 4, false),
+            tbilisi: mk('Тбилиси · Грузия', 4, false),
+            yerevan: mk('Ереван · Армения', 4, false),
+            dushanbe: mk('Душанбе · Таджикистан', 5, false),
+            ulaanbaatar: mk('Улан-Батор · Монголия', 8, false)
+        };
+        const titleEl = $('#chCityTitle');
+        const addrEl = $('#chCityAddress');
+        const phoneEl = $('#chCityPhone');
+        const emailEl = $('#chCityEmail');
+        const mapEl = $('#chCityMap');
+        const waEl = $('#chCityWA');
+        const timeEl = $('#chCityTime');
+
+        let currentCityUtc = 5;
+
+        const updateClock = () => {
+            if (!timeEl) return;
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const cityDate = new Date(utc + (3600000 * currentCityUtc));
+            const hours = String(cityDate.getHours()).padStart(2, '0');
+            const minutes = String(cityDate.getMinutes()).padStart(2, '0');
+            const seconds = String(cityDate.getSeconds()).padStart(2, '0');
+            timeEl.textContent = `${hours}:${minutes}:${seconds}`;
+        };
+        setInterval(updateClock, 1000);
+
+        $$('.city-selector-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                $$('.city-selector-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const c = CITIES[btn.dataset.city];
+                if (!c) return;
+
+                currentCityUtc = c.utc;
+                updateClock();
+
+                if (titleEl) titleEl.textContent = c.name;
+                if (addrEl) addrEl.textContent = c.address;
+                if (phoneEl) {
+                    phoneEl.textContent = c.phone;
+                    phoneEl.href = 'tel:' + c.phoneRaw;
+                }
+                if (emailEl) {
+                    emailEl.textContent = c.email;
+                    emailEl.href = 'mailto:' + c.email;
+                }
+                if (mapEl) mapEl.href = c.map;
+                if (waEl) waEl.href = 'https://wa.me/' + c.phoneRaw.replace(/\D/g, '') + '?text=' + encodeURIComponent('Здравствуйте! Обращаюсь с сайта DASM Group.');
+            });
+        });
+        updateClock();
+    })();
+
+    // ===== Фильтрация новостей (news.html) =====
+    (function initNewsFilters() {
+        const filterBar = $('#newsFilterBar');
+        const grid = $('#newsGrid');
+        if (!filterBar || !grid) return;
+
+        const items = $$('.news-card', grid);
+        $$('.chip', filterBar).forEach(chip => {
+            chip.addEventListener('click', () => {
+                $$('.chip', filterBar).forEach(c => {
+                    c.classList.toggle('active', c === chip);
+                    c.setAttribute('aria-pressed', String(c === chip));
+                });
+                const f = chip.dataset.filter;
+                items.forEach(item => {
+                    const cats = (item.dataset.cat || '').split(' ');
+                    const ok = f === 'all' || cats.includes(f);
+                    item.classList.toggle('is-hidden', !ok);
+                });
+            });
+        });
+    })();
 
 });
